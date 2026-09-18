@@ -1,0 +1,532 @@
+
+:root {
+    --font-primary: 'Inter', Arial, sans-serif;
+
+    /* Fondo plano de todas las secciones (Figma: #69A7D6 en las 9 frames) */
+    --color-bg: #69A7D6;
+
+    /* Color de los círculos de "glow" que el equipo agregó manualmente sobre
+       el fondo plano (Figma: #85C4E5, con blur pesado) */
+    --color-glow: #85C4E5;
+
+    --color-text: #FFFFFF;
+
+    /* --- Glass tiers (todas sin borde salvo donde se indica) --- */
+    --glass-navbar-bg: rgba(217, 217, 217, 0.16);
+    --glass-active-bg: rgba(255, 255, 255, 0.21);   /* pill del nav-link activo */
+    --glass-card-bg: rgba(255, 255, 255, 0.1);      /* cards de contenido (beneficios, feature-panel, precios) */
+    --glass-pill-bg: rgba(255, 255, 255, 0.16);     /* botones pequeños dentro de cards (precios) */
+    --glass-strong-bg: rgba(255, 255, 255, 0.36);   /* badges flotantes del Hero */
+    --glass-footer-bg: rgba(255, 255, 255, 0.19);   /* panel grande del footer */
+    --glass-testimonial-bg: rgba(217, 217, 217, 0.18);
+
+    --btn-login-bg: rgba(48, 101, 195, 0.32);
+    --btn-trial-bg: rgba(105, 167, 214, 0.28);
+    --btn-cta-purple-bg: rgba(100, 94, 183, 0.39);
+
+    --radius-pill: 25px;
+    --radius-card: 25px;
+    --radius-testimonial: 20px;
+
+    --blur-xs: 2px;
+    --blur-sm: 7.5px;
+    --blur-md: 10px;
+}
+
+
+/* ========================================
+   ESTILOS GENERALES
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-primary);
+    font-weight: 300;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Skip link: accesibilidad para navegación por teclado / screen readers */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    background: #2E4F7A;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    z-index: 2000;
+}
+
+.skip-link:focus {
+    left: 16px;
+    top: 16px;
+}
+
+/* Foco visible consistente (a11y) */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #FFE07D;
+    outline-offset: 2px;
+}
+
+/* Todas las secciones comparten el mismo fondo plano; se posicionan como
+   contexto de apilamiento para los círculos de "glow" decorativos. */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Círculos de "glow" decorativos: color plano + blur pesado, NUNCA gradient --- */
+.glow-circle {
+    position: absolute;
+    z-index: 0;
+    border-radius: 50%;
+    background-color: var(--color-glow);
+    filter: blur(90px);
+    pointer-events: none;
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 28px;
+    margin: 20px auto 0;
+    max-width: 1280px;
+    background-color: var(--glass-navbar-bg);
+    backdrop-filter: blur(var(--blur-xs));
+    -webkit-backdrop-filter: blur(var(--blur-xs));
+    border-radius: var(--radius-pill);
+    position: sticky;
+    top: 16px;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    color: var(--color-text);
+    font-size: 1.4rem;
+}
+
+.logo-name {
+    font-family: var(--font-primary);
+    font-weight: 200;
+    font-size: 1.3rem;
+    color: var(--color-text);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 300;
+    font-size: 0.82rem;
+    padding: 7px 11px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+/* Estado activo del link: lo asigna el scrollspy de main.js según la sección visible */
+.nav-link.active {
+    background-color: var(--glass-active-bg);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.btn-login,
+.btn-trial {
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: 0.78rem;
+    padding: 8px 15px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    color: var(--color-text);
+    backdrop-filter: blur(var(--blur-xs));
+    -webkit-backdrop-filter: blur(var(--blur-xs));
+}
+
+.btn-login {
+    background-color: var(--btn-login-bg);
+}
+
+.btn-trial {
+    background-color: var(--btn-trial-bg);
+}
+
+.btn-lang {
+    background-color: var(--btn-trial-bg);
+    backdrop-filter: blur(var(--blur-xs));
+    -webkit-backdrop-filter: blur(var(--blur-xs));
+    border: none;
+    border-radius: var(--radius-pill);
+    padding: 6px 12px;
+    font-family: var(--font-primary);
+    font-size: 0.74rem;
+    font-weight: 300;
+    color: var(--color-text);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Botón hamburguesa - solo visible en móvil */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 64px 64px 96px;
+    min-height: 80vh;
+}
+
+.hero .glow-circle {
+    width: 800px;
+    height: 800px;
+    top: -10%;
+    left: 20%;
+}
+
+.hero-text {
+    max-width: 560px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: 2.6rem;
+    font-weight: 300;
+    color: var(--color-text);
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-weight: 400;
+    font-size: 0.98rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 460px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-segment {
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: 0.9rem;
+    padding: 14px 24px;
+    border-radius: var(--radius-pill);
+    color: var(--color-text);
+}
+
+.btn-segment-caregiver {
+    background-color: var(--btn-login-bg);
+}
+
+.btn-segment-family {
+    background-color: transparent;
+    color: var(--color-text);
+    padding: 14px 4px;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 1;
+    width: 420px;
+    height: 420px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TODO(equipo): reemplazar por la ilustración real exportada de Figma */
+.hero-illustration-placeholder {
+    position: relative;
+    z-index: 1;
+    width: 320px;
+    height: 320px;
+    border-radius: var(--radius-card);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px dashed rgba(255, 255, 255, 0.35);
+}
+
+.hero-badge {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--glass-strong-bg);
+    backdrop-filter: blur(var(--blur-xs));
+    -webkit-backdrop-filter: blur(var(--blur-xs));
+    border-radius: var(--radius-pill);
+    padding: 10px 18px;
+    font-weight: 400;
+    font-size: 0.72rem;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.hero-badge i {
+    color: var(--color-text);
+}
+
+.hero-badge-privacy   { top: 10%; right: -6%; }
+.hero-badge-standards { top: 46%; left: -20%; font-size: 0.68rem; }
+.hero-badge-social-proof {
+    bottom: 6%;
+    right: -12%;
+    flex-direction: row;
+    text-align: left;
+    padding: 16px 22px;
+}
+.hero-badge-social-proof strong { display: block; font-weight: 700; font-size: 1.1rem; }
+.hero-badge-social-proof span { font-size: 0.68rem; font-weight: 400; }
+
+
+/* ========================================
+   BENEFICIOS (Sin / Con Vitalita)
+   TODO(equipo): pegar aquí el bloque de la Persona a cargo de Beneficios.
+======================================== */
+
+
+/* ========================================
+   FEATURE PANELS (Para Cuidadoras / Para Familias)
+   TODO(equipo): pegar aquí el bloque de la Persona a cargo de
+   Cuidadoras/Familias.
+======================================== */
+
+
+/* ========================================
+   PRECIOS Y PLANES
+   TODO(equipo): pegar aquí el bloque de la Persona a cargo de Precios.
+======================================== */
+
+
+/* ========================================
+   SOBRE NOSOTROS (Sobre Vitalita + Startup + Testimonios)
+   TODO(equipo): pegar aquí el bloque de la Persona a cargo de Sobre Nosotros.
+======================================== */
+
+
+/* ========================================
+   FAQ
+   TODO(equipo): pegar aquí el bloque de FAQ (viene junto con Footer, ver
+   más abajo).
+======================================== */
+
+
+/* ========================================
+   FOOTER — un único panel de vidrio grande (no un <footer> de color sólido)
+   TODO(equipo): pegar aquí el bloque de Footer.
+======================================== */
+
+/* Nota general para todo el equipo: reutiliza los tokens ya definidos en
+   :root (--glass-card-bg + --blur-xs para cards sin borde, --radius-card,
+   --color-text, etc.) y el patrón .glow-circle para el efecto de "glow" —
+   no inventes colores nuevos. */
+
+
+/* ========================================
+   RESPONSIVE - MEDIA QUERIES
+   Mismos breakpoints que el repo de referencia (NexoU): tablet 900px, móvil 640px.
+   Por ahora solo con las reglas de navbar/hero; cada sección nueva agrega
+   sus propias reglas dentro de estos mismos bloques.
+======================================== */
+
+/* Pantallas medianas: tablet */
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 12px 20px;
+        margin: 16px 16px 0;
+    }
+
+    .hero {
+        padding: 48px 32px 72px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.1rem;
+    }
+
+    .hero-image {
+        width: 320px;
+        height: 320px;
+    }
+
+    .hero-illustration-placeholder {
+        width: 260px;
+        height: 260px;
+    }
+
+    .hero-badge-standards { display: none; }
+
+    /* TODO(equipo): agregar aquí las reglas responsive de Beneficios, Feature
+       Panels, Precios, Sobre Nosotros, FAQ y Footer cuando esas secciones existan */
+}
+
+/* Pantallas pequeñas: celular */
+@media (max-width: 640px) {
+
+    /* --- Navbar en celular: mismo patrón de menú hamburguesa que NexoU --- */
+    .navbar {
+        flex-wrap: wrap;
+        padding: 12px 20px;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 6px;
+        padding: 12px 0 4px;
+    }
+
+    /* La clase "open" la agrega main.js al presionar el botón hamburguesa */
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-link.active {
+        display: inline-block;
+    }
+
+    .nav-buttons {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding-bottom: 12px;
+    }
+
+    .nav-buttons.open {
+        display: flex;
+    }
+
+    .btn-login, .btn-trial, .btn-lang {
+        text-align: center;
+    }
+
+    /* --- Hero apilado en columna --- */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 24px 56px;
+        min-height: auto;
+        gap: 40px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-text p {
+        margin: 0 auto 28px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 260px;
+        height: 260px;
+    }
+
+    .hero-illustration-placeholder {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-badge {
+        position: static;
+        margin: 8px auto 0;
+        width: fit-content;
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .hero-badge-standards { display: flex; }
+    .hero-badge-social-proof { text-align: center; flex-direction: column; }
+
+    /* TODO(equipo): agregar aquí el padding/columnas responsive de Beneficios,
+       Feature Panels, Precios, Sobre Nosotros, FAQ y Footer cuando esas
+       secciones existan */
+
+    .glow-circle {
+        filter: blur(60px);
+    }
+}

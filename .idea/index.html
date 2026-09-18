@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===================== SEO & META TAGS ===================== -->
+  <!-- upc-pre-202620-1asi0730: minimo requerido -> Title, Description, Keywords, Author -->
+  <title>Vitalita | Seguimiento geriátrico inteligente y centralizado</title>
+  <meta name="description" content="Vitalita es la plataforma que permite a cuidadoras y enfermeras registrar la salud de sus pacientes y mantener a las familias informadas en tiempo real, sin cuadernos ni chats dispersos.">
+  <meta name="keywords" content="Vitalita, cuidado geriátrico, seguimiento de salud, enfermeras a domicilio, cuidadoras, adulto mayor, telemonitoreo, Perú">
+  <meta name="author" content="Vitalita Startup">
+
+  <!-- Open Graph (para que el link se vea bien al compartirlo) -->
+  <meta property="og:title" content="Vitalita | Seguimiento geriátrico inteligente y centralizado">
+  <meta property="og:description" content="Del papel y el WhatsApp a un control digital centralizado para cuidadoras, enfermeras y familias.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PE">
+
+  <!-- TODO: reemplazar por el dominio final una vez desplegado en GitHub Pages -->
+  <!-- <meta property="og:url" content="https://<org>.github.io/<repo>/"> -->
+
+  <!-- Google Fonts: Inter para todo el sitio (logo, títulos y cuerpo), según diseño real en Figma -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,100;1,200;1,300&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para íconos de interfaz (no para ilustraciones/fotos, esas se dejan en blanco) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Nuestro CSS -->
+  <link rel="stylesheet" href="../../../vitalita-reparto-equipo/persona1-base-repo/assets/styles/styles.css">
+</head>
+<body>
+
+<!-- ===================== SKIP LINK (accesibilidad) ===================== -->
+<a href="#home" class="skip-link">Ir al contenido principal</a>
+
+<!-- ===================== NAVBAR ===================== -->
+<!-- Navbar tipo "glass pill" fijo, resalta el link correspondiente a la sección
+     visible (scrollspy), ver main.js -->
+<nav class="navbar" id="navbar" aria-label="Navegación principal">
+
+  <!-- Logo -->
+  <div class="logo">
+    <i class="fa-solid fa-seedling logo-icon" aria-hidden="true"></i>
+    <span class="logo-name">Vitalita</span>
+  </div>
+
+  <!-- Botón hamburguesa para móvil -->
+  <button class="hamburger-menu" id="hamburger-menu" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
+    <i class="fas fa-bars" aria-hidden="true"></i>
+  </button>
+
+  <!-- Links de navegación -->
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#home" class="nav-link active" data-i18n-es="Inicio" data-i18n-en="Home">Inicio</a></li>
+    <li><a href="#benefits" class="nav-link" data-i18n-es="Beneficios" data-i18n-en="Benefits">Beneficios</a></li>
+    <li><a href="#for-caregivers" class="nav-link" data-i18n-es="Para Cuidadoras" data-i18n-en="For Caregivers">Para Cuidadoras</a></li>
+    <li><a href="#for-families" class="nav-link" data-i18n-es="Para Familias" data-i18n-en="For Families">Para Familias</a></li>
+    <li><a href="#pricing" class="nav-link" data-i18n-es="Planes" data-i18n-en="Plans">Planes</a></li>
+    <li><a href="#about" class="nav-link" data-i18n-es="Sobre Nosotros" data-i18n-en="About Us">Sobre Nosotros</a></li>
+    <li><a href="#faq" class="nav-link" data-i18n-es="FAQ" data-i18n-en="FAQ">FAQ</a></li>
+  </ul>
+
+  <!-- Botones de sesión + selector de idioma -->
+  <div class="nav-buttons" id="nav-buttons">
+    <!-- TODO(equipo): estos href son placeholders. Deben apuntar a la Web Application
+         (Frontend Vue) una vez tenga rutas reales de login/registro. -->
+    <a href="#" class="btn-login" data-target-route="/app/login" data-i18n-es="Iniciar Sesión" data-i18n-en="Log In">Iniciar Sesión</a>
+    <a href="#" class="btn-trial" data-target-route="/app/register" data-i18n-es="Probar gratis" data-i18n-en="Try for free">Probar gratis</a>
+    <button class="btn-lang" id="lang-toggle" aria-label="Cambiar idioma / Switch language" title="ES / EN">
+      <span id="lang-toggle-label">EN/ES</span>
+    </button>
+  </div>
+
+</nav>
+
+
+<main id="main-content">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="glow-circle" aria-hidden="true"></div>
+
+  <!-- Texto del lado izquierdo -->
+  <div class="hero-text">
+    <h1 data-i18n-es="Seguimiento geriátrico Inteligente y Centralizado" data-i18n-en="Smart, centralized geriatric monitoring">
+      Seguimiento geriátrico Inteligente y Centralizado
+    </h1>
+    <p data-i18n-es="Diseñado para que cuidadoras independientes mantengan un registro estructurado de la salud de sus pacientes, y para que las familias permanezcan informadas y preparadas ante cualquier emergencia. Adiós a los cuadernos en papel y chats de WhatsApp."
+       data-i18n-en="Designed so independent caregivers keep a structured health record for their patients, and families stay informed and ready for any emergency. Goodbye paper notebooks and scattered WhatsApp chats.">
+      Diseñado para que cuidadoras independientes mantengan un registro estructurado de la salud de sus pacientes, y para que las familias permanezcan informadas y preparadas ante cualquier emergencia. Adiós a los cuadernos en papel y chats de WhatsApp.
+    </p>
+
+    <!-- CTAs segmentadas: cada segmento objetivo redirige a su vista correspondiente en la Web Application -->
+    <div class="hero-buttons">
+      <a href="#" class="btn-segment btn-segment-caregiver" data-target-route="/app/register?role=caregiver"
+         data-i18n-es="Soy enfermera/cuidadora" data-i18n-en="I'm a nurse/caregiver">
+        Soy enfermera/cuidadora
+      </a>
+      <a href="#" class="btn-segment btn-segment-family" data-target-route="/app/register?role=family"
+         data-i18n-es="Soy familiar" data-i18n-en="I'm a family member">
+        Soy familiar
+      </a>
+    </div>
+  </div>
+
+  <!-- Ilustración del lado derecho -->
+  <div class="hero-image">
+    <!-- TODO(equipo): reemplazar por la ilustración exportada de Figma (assets/images/hero-illustration.png) -->
+    <div class="hero-illustration-placeholder" aria-hidden="true"></div>
+
+    <!-- Badges flotantes -->
+    <div class="hero-badge hero-badge-privacy">
+      <i class="fa-solid fa-user-lock" aria-hidden="true"></i>
+      <span data-i18n-es="Datos médicos 100% privados y protegidos" data-i18n-en="Medical data 100% private and protected">Datos médicos 100% privados y protegidos</span>
+    </div>
+    <div class="hero-badge hero-badge-standards">
+      <span data-i18n-es="Diseñado bajo estándares geriátricos | Acceso privado por invitación | Soporte local en Perú."
+            data-i18n-en="Designed under geriatric standards | Private invite-only access | Local support in Peru.">
+        Diseñado bajo estándares geriátricos | Acceso privado por invitación | Soporte local en Perú.
+      </span>
+    </div>
+    <div class="hero-badge hero-badge-social-proof">
+      <div>
+        <strong data-i18n-es="+50 médicos" data-i18n-en="+50 doctors">+50 médicos</strong>
+        <span data-i18n-es="recomiendan Vitalita para el seguimiento diario" data-i18n-en="recommend Vitalita for daily monitoring">recomiendan Vitalita para el seguimiento diario</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== BENEFICIOS (Sin/Con Vitalita) ===================== -->
+<!-- TODO(equipo): Persona 2 — pegar aquí su sección completa (ver persona2_benefits_features.txt) -->
+
+
+<!-- ===================== PARA ENFERMERAS Y CUIDADORAS ===================== -->
+<!-- TODO(equipo): Persona 2 — pegar aquí su sección completa (ver persona2_benefits_features.txt) -->
+
+
+<!-- ===================== PARA FAMILIAS Y EMERGENCIAS ===================== -->
+<!-- TODO(equipo): Persona 2 — pegar aquí su sección completa (ver persona2_benefits_features.txt) -->
+
+
+<!-- ===================== PRECIOS Y PLANES ===================== -->
+<!-- TODO(equipo): Persona 3 — pegar aquí su sección completa (ver persona3_pricing.txt) -->
+
+
+<!-- ===================== SOBRE NOSOTROS ===================== -->
+<!-- TODO(equipo): Persona 4 — pegar aquí su sección completa (ver persona4_about_team_testimonials.txt) -->
+
+
+<!-- ===================== FAQ ===================== -->
+<!-- TODO(equipo): Persona 5 — pegar aquí su sección completa (ver persona5_faq_footer_legal.txt) -->
+
+</main>
+
+
+<!-- ===================== FOOTER ===================== -->
+<!-- TODO(equipo): Persona 5 — pegar aquí el footer completo (ver persona5_faq_footer_legal.txt) -->
+
+
+<!-- Nuestro JavaScript -->
+<script src="../../../vitalita-reparto-equipo/persona1-base-repo/assets/scripts/main.js"></script>
+
+</body>
+</html>

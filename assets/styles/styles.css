@@ -354,6 +354,86 @@ section {
    BENEFICIOS (Sin / Con Vitalita)
    TODO(equipo): pegar aquí el bloque de la Persona a cargo de Beneficios.
 ======================================== */
+.benefits {
+  padding: 88px 48px;
+  text-align: center;
+}
+
+.benefits .glow-circle {
+  width: 900px;
+  height: 900px;
+  top: -30%;
+  left: -25%;
+}
+
+.benefits h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 1.7rem;
+  font-weight: 300;
+  color: var(--color-text);
+  max-width: 760px;
+  margin: 0 auto 56px;
+  line-height: 1.4;
+}
+
+.benefits-comparison {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.benefits-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 460px;
+  background-color: var(--glass-card-bg);
+  backdrop-filter: blur(var(--blur-xs));
+  -webkit-backdrop-filter: blur(var(--blur-xs));
+  border-radius: var(--radius-card);
+  padding: 32px 28px;
+  text-align: left;
+}
+
+.benefits-card-icon {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+
+.benefits-card h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 16px;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.benefits-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.benefits-card li {
+  font-weight: 300;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.benefits-arrow {
+  font-size: 1.6rem;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
 
 
 /* ========================================
@@ -361,6 +441,108 @@ section {
    TODO(equipo): pegar aquí el bloque de la Persona a cargo de
    Cuidadoras/Familias.
 ======================================== */
+.for-caregivers,
+.for-families {
+  padding: 88px 48px;
+  text-align: center;
+}
+
+.for-caregivers .glow-circle,
+.for-families .glow-circle {
+  width: 850px;
+  height: 850px;
+  top: 0;
+  left: 15%;
+}
+
+.for-caregivers h2,
+.for-families h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  position: relative;
+  z-index: 1;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin-bottom: 40px;
+}
+
+.feature-panel {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: var(--glass-card-bg);
+  backdrop-filter: blur(var(--blur-xs));
+  -webkit-backdrop-filter: blur(var(--blur-xs));
+  border-radius: var(--radius-card);
+  padding: 48px 32px;
+}
+
+.feature-grid {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 32px;
+}
+
+.feature-item {
+  flex: 1;
+  min-width: 200px;
+  max-width: 260px;
+  padding: 0 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.feature-item:first-child {
+  border-left: none;
+}
+
+/* Cada feature es un único párrafo (título + descripción), como en Figma */
+.feature-item p {
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.feature-item p strong {
+  font-weight: 500;
+}
+
+/* TODO(equipo): reemplazar por las ilustraciones reales exportadas de Figma */
+.feature-image-placeholder {
+  width: 100%;
+  max-width: 160px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.btn-cta-panel {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-weight: 300;
+  font-size: 0.9rem;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  background-color: var(--btn-cta-purple-bg);
+  backdrop-filter: blur(var(--blur-xs));
+  -webkit-backdrop-filter: blur(var(--blur-xs));
+  color: var(--color-text);
+}
 
 
 /* ========================================
@@ -430,6 +612,33 @@ section {
 
     /* TODO(equipo): agregar aquí las reglas responsive de Beneficios, Feature
        Panels, Precios, Sobre Nosotros, FAQ y Footer cuando esas secciones existan */
+    
+    .benefits-comparison {
+        flex-direction: column;
+    }
+
+    .benefits-arrow {
+        transform: rotate(90deg);
+    }
+
+    .feature-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .feature-item {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 24px 0 0;
+        max-width: 100%;
+    }
+
+    .feature-item:first-child {
+        border-top: none;
+        padding-top: 0;
+    }
+
 }
 
 /* Pantallas pequeñas: celular */
@@ -525,6 +734,15 @@ section {
     /* TODO(equipo): agregar aquí el padding/columnas responsive de Beneficios,
        Feature Panels, Precios, Sobre Nosotros, FAQ y Footer cuando esas
        secciones existan */
+
+      .benefits-card {
+        min-width: 100%;
+    }
+
+    .feature-panel {
+        padding: 28px 20px;
+    }
+
 
     .glow-circle {
         filter: blur(60px);

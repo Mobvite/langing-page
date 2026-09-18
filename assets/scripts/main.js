@@ -130,6 +130,22 @@ if (languageToggleButton) {
 // .pricing-grid / .pricing-arrow-left / .pricing-arrow-right.
 // ============================================
 
+var pricingGrid = document.querySelector('.pricing-grid');
+var pricingArrowLeft = document.querySelector('.pricing-arrow-left');
+var pricingArrowRight = document.querySelector('.pricing-arrow-right');
+
+function scrollPricingCarousel(direction) {
+  if (!pricingGrid) return;
+  var scrollAmount = 260;
+  pricingGrid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
+
+if (pricingArrowLeft) {
+  pricingArrowLeft.addEventListener('click', function () { scrollPricingCarousel(-1); });
+}
+if (pricingArrowRight) {
+  pricingArrowRight.addEventListener('click', function () { scrollPricingCarousel(1); });
+}
 
 // ============================================
 // TODO(equipo): TESTIMONIALS CAROUSEL + TEAM CAROUSEL DOTS

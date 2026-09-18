@@ -58,7 +58,7 @@ vitalita-landing/
 
 ## Estilo visual (glassmorphism)
 
-El diseño visual (`../../../vitalita-reparto-equipo/persona1-base-repo/assets/styles/styles.css`) se reconstruyó copiando los valores
+El diseño visual (`../../vitalita-reparto-equipo/persona1-base-repo/assets/styles/styles.css`) se reconstruyó copiando los valores
 exactos del archivo real de Figma (vía Figma Dev Mode / MCP), no aproximados de
 una captura de pantalla:
 

@@ -1,9 +1,5 @@
-// ============================================
-// VITALITA LANDING PAGE
-// Nomenclatura en inglés (variables, funciones, ids) según Source Code Style
-// Guide & Coding Conventions del statement. El copy visible permanece en
-// español (idioma por defecto elegido para esta entrega).
-// ============================================
+// Vitalita landing page
+// Código en inglés (variables, funciones, ids); el copy visible va en español.
 
 
 // ============================================
@@ -24,7 +20,6 @@ if (hamburgerButton) {
     hamburgerButton.addEventListener('click', toggleMobileMenu);
 }
 
-// Cerramos el menú móvil al hacer clic en cualquier link de navegación
 var allNavLinks = document.querySelectorAll('.nav-link');
 allNavLinks.forEach(function (link) {
     link.addEventListener('click', function () {
@@ -37,8 +32,7 @@ allNavLinks.forEach(function (link) {
 
 // ============================================
 // SCROLLSPY: resalta el link del navbar según la sección visible
-// "Sobre Nosotros" agrupa 3 sub-secciones (Sobre Vitalita, Nuestra Startup,
-// Testimonios), todas dentro de <section id="about">, como en los mockups.
+// "Sobre Nosotros" agrupa tres sub-secciones dentro de <section id="about">.
 // ============================================
 
 var sectionsToObserve = document.querySelectorAll('main section[id]');
@@ -67,11 +61,8 @@ sectionsToObserve.forEach(function (section) {
 
 
 // ============================================
-// PLACEHOLDER: CTAs que dependen de la futura Web Application
-// Los botones con data-target-route todavía no tienen una vista real a la que
-// redirigir (la Web Application en Vue aún no existe). Por ahora evitamos la
-// navegación y avisamos por consola cuál sería la ruta destino, para que sea
-// fácil de encontrar y reemplazar cuando el equipo defina las rutas reales.
+// CTAs hacia la Web Application
+// Todavía no hay rutas reales: se evita la navegación y se loguea la ruta destino.
 // ============================================
 
 var placeholderRouteLinks = document.querySelectorAll('[data-target-route]');
@@ -86,14 +77,12 @@ placeholderRouteLinks.forEach(function (link) {
 
 
 // ============================================
-// LANGUAGE TOGGLE (i18n básico: es_419 <-> en_US)
-// Cumple el requisito de Internacionalización del statement. Por ahora cubre
-// el navbar, el Hero y los títulos/subtítulos de cada sección (los textos con
-// atributos data-i18n-es / data-i18n-en). El resto del copy queda pendiente de
-// traducir cuando el equipo confirme el texto final en inglés.
+// LANGUAGE TOGGLE (es <-> en)
+// Solo traduce los textos con data-i18n-es / data-i18n-en; el resto del copy
+// sigue pendiente de traducción.
 // ============================================
 
-var currentLanguage = 'es'; // Idioma por defecto de esta entrega, según decisión del equipo
+var currentLanguage = 'es';
 var translatableElements = document.querySelectorAll('[data-i18n-es]');
 var languageToggleButton = document.getElementById('lang-toggle');
 
@@ -117,41 +106,69 @@ if (languageToggleButton) {
 }
 
 
-// ============================================
-// TODO(equipo): FAQ ACCORDION
-// Implementar cuando exista la sección FAQ (id="faq") con .faq-item /
-// .faq-question / .faq-answer.
-// ============================================
+// FAQ ACCORDION
+
+var faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(function (item) {
+  var questionButton = item.querySelector('.faq-question');
+
+  questionButton.addEventListener('click', function () {
+    var isCurrentlyOpen = item.classList.contains('open');
+
+    faqItems.forEach(function (otherItem) {
+      otherItem.classList.remove('open');
+      otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+
+    if (!isCurrentlyOpen) {
+      item.classList.add('open');
+      questionButton.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
 
 
-// ============================================
-// TODO(equipo): PRICING CAROUSEL (flechas izquierda/derecha)
-// Implementar cuando exista la sección Precios (id="pricing") con
-// .pricing-grid / .pricing-arrow-left / .pricing-arrow-right.
-// ============================================
+
+// PRICING CAROUSEL
+// Resalta un plan a la vez y rota solo cada pocos segundos; las flechas mueven
+// el resaltado y, en pantallas angostas, llevan la tarjeta a la vista.
 
 var pricingGrid = document.querySelector('.pricing-grid');
 var pricingArrowLeft = document.querySelector('.pricing-arrow-left');
 var pricingArrowRight = document.querySelector('.pricing-arrow-right');
+var pricingCards = document.querySelectorAll('.pricing-card');
+var activePricingIndex = 1;
+var pricingTimer = null;
 
-function scrollPricingCarousel(direction) {
-  if (!pricingGrid) return;
-  var scrollAmount = 260;
-  pricingGrid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+function showPricingCard(index) {
+  if (!pricingCards.length) return;
+  activePricingIndex = (index + pricingCards.length) % pricingCards.length;
+  pricingCards.forEach(function (card, cardIndex) {
+    card.classList.toggle('is-active', cardIndex === activePricingIndex);
+  });
+}
+
+function startPricingAutoplay() {
+  clearInterval(pricingTimer);
+  pricingTimer = setInterval(function () { showPricingCard(activePricingIndex + 1); }, 3500);
+}
+
+if (pricingCards.length) {
+  showPricingCard(activePricingIndex);
+  startPricingAutoplay();
+  pricingGrid.addEventListener('mouseenter', function () { clearInterval(pricingTimer); });
+  pricingGrid.addEventListener('mouseleave', startPricingAutoplay);
 }
 
 if (pricingArrowLeft) {
-  pricingArrowLeft.addEventListener('click', function () { scrollPricingCarousel(-1); });
+  pricingArrowLeft.addEventListener('click', function () { showPricingCard(activePricingIndex - 1); startPricingAutoplay(); });
 }
 if (pricingArrowRight) {
-  pricingArrowRight.addEventListener('click', function () { scrollPricingCarousel(1); });
+  pricingArrowRight.addEventListener('click', function () { showPricingCard(activePricingIndex + 1); startPricingAutoplay(); });
 }
 
-// ============================================
-// TODO(equipo): TESTIMONIALS CAROUSEL + TEAM CAROUSEL DOTS
-// Implementar cuando exista la sección Sobre Nosotros (id="about") con
-// .testimonials-track / .testimonials-arrow-* y .team-dot.
-// ============================================
+// TESTIMONIALS CAROUSEL + TEAM CAROUSEL
 
 var testimonialsTrack = document.querySelector('.testimonials-track');
 var testimonialsArrowLeft = document.querySelector('.testimonials-arrow-left');
@@ -170,11 +187,40 @@ if (testimonialsArrowRight) {
   testimonialsArrowRight.addEventListener('click', function () { scrollTestimonialsCarousel(1); });
 }
 
+var teamCarousel = document.getElementById('team-carousel');
+var teamMembers = document.querySelectorAll('.team-member');
 var teamDots = document.querySelectorAll('.team-dot');
+var activeTeamIndex = 0;
+var teamTimer = null;
+
+// Un punto por posición: la ventana muestra 3 integrantes y avanza de a uno
+function showTeamMember(index) {
+  if (!teamCarousel || !teamMembers.length) return;
+  var maxIndex = Math.min(teamDots.length, teamMembers.length) - 1;
+  activeTeamIndex = index > maxIndex ? 0 : index;
+  teamCarousel.scrollTo({
+    left: teamMembers[activeTeamIndex].offsetLeft,
+    behavior: 'smooth'
+  });
+  teamDots.forEach(function (dot, dotIndex) {
+    dot.classList.toggle('active', dotIndex === activeTeamIndex);
+  });
+}
+
+function startTeamAutoplay() {
+  clearInterval(teamTimer);
+  teamTimer = setInterval(function () { showTeamMember(activeTeamIndex + 1); }, 3000);
+}
 
 teamDots.forEach(function (dot, dotIndex) {
   dot.addEventListener('click', function () {
-    teamDots.forEach(function (otherDot) { otherDot.classList.remove('active'); });
-    dot.classList.add('active');
+    showTeamMember(dotIndex);
+    startTeamAutoplay();
   });
 });
+
+if (teamCarousel) {
+  startTeamAutoplay();
+  teamCarousel.addEventListener('mouseenter', function () { clearInterval(teamTimer); });
+  teamCarousel.addEventListener('mouseleave', startTeamAutoplay);
+}

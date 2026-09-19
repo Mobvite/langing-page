@@ -2,22 +2,20 @@
 :root {
     --font-primary: 'Inter', Arial, sans-serif;
 
-    /* Fondo plano de todas las secciones (Figma: #69A7D6 en las 9 frames) */
+    /* Fondo plano en todas las secciones, sin gradient */
     --color-bg: #69A7D6;
 
-    /* Color de los círculos de "glow" que el equipo agregó manualmente sobre
-       el fondo plano (Figma: #85C4E5, con blur pesado) */
     --color-glow: #85C4E5;
 
     --color-text: #FFFFFF;
 
-    /* --- Glass tiers (todas sin borde salvo donde se indica) --- */
+    /* Niveles de glass: sin borde salvo donde se indica */
     --glass-navbar-bg: rgba(217, 217, 217, 0.16);
-    --glass-active-bg: rgba(255, 255, 255, 0.21);   /* pill del nav-link activo */
-    --glass-card-bg: rgba(255, 255, 255, 0.1);      /* cards de contenido (beneficios, feature-panel, precios) */
-    --glass-pill-bg: rgba(255, 255, 255, 0.16);     /* botones pequeños dentro de cards (precios) */
-    --glass-strong-bg: rgba(255, 255, 255, 0.36);   /* badges flotantes del Hero */
-    --glass-footer-bg: rgba(255, 255, 255, 0.19);   /* panel grande del footer */
+    --glass-active-bg: rgba(255, 255, 255, 0.21);   /* nav-link activo */
+    --glass-card-bg: rgba(255, 255, 255, 0.1);      /* cards de contenido */
+    --glass-pill-bg: rgba(255, 255, 255, 0.16);     /* botones dentro de cards */
+    --glass-strong-bg: rgba(255, 255, 255, 0.36);   /* badges del Hero */
+    --glass-footer-bg: rgba(255, 255, 255, 0.19);   /* footer */
     --glass-testimonial-bg: rgba(217, 217, 217, 0.18);
 
     --btn-login-bg: rgba(48, 101, 195, 0.32);
@@ -65,7 +63,6 @@ img {
     display: block;
 }
 
-/* Skip link: accesibilidad para navegación por teclado / screen readers */
 .skip-link {
     position: absolute;
     left: -999px;
@@ -82,21 +79,19 @@ img {
     top: 16px;
 }
 
-/* Foco visible consistente (a11y) */
 a:focus-visible,
 button:focus-visible {
     outline: 3px solid #FFE07D;
     outline-offset: 2px;
 }
 
-/* Todas las secciones comparten el mismo fondo plano; se posicionan como
-   contexto de apilamiento para los círculos de "glow" decorativos. */
+/* position: relative para que los glow-circle se apilen dentro de cada sección */
 section {
     position: relative;
     overflow: hidden;
 }
 
-/* --- Círculos de "glow" decorativos: color plano + blur pesado, NUNCA gradient --- */
+/* Glow decorativo: color plano + blur, nunca gradient */
 .glow-circle {
     position: absolute;
     z-index: 0;
@@ -165,7 +160,7 @@ section {
     transition: background-color 0.2s ease;
 }
 
-/* Estado activo del link: lo asigna el scrollspy de main.js según la sección visible */
+/* Lo asigna el scrollspy de main.js */
 .nav-link.active {
     background-color: var(--glass-active-bg);
 }
@@ -214,7 +209,6 @@ section {
     white-space: nowrap;
 }
 
-/* Botón hamburguesa - solo visible en móvil */
 .hamburger-menu {
     display: none;
     background: none;
@@ -297,23 +291,21 @@ section {
 .hero-image {
     position: relative;
     z-index: 1;
-    width: 420px;
-    height: 420px;
-    flex-shrink: 0;
+    flex: 1 1 50%;
+    max-width: 640px;
+    height: 560px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* TODO(equipo): reemplazar por la ilustración real exportada de Figma */
 .hero-illustration-placeholder {
     position: relative;
     z-index: 1;
-    width: 320px;
-    height: 320px;
-    border-radius: var(--radius-card);
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px dashed rgba(255, 255, 255, 0.35);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: float 6s ease-in-out infinite;
 }
 
 .hero-badge {
@@ -352,7 +344,6 @@ section {
 
 /* ========================================
    BENEFICIOS (Sin / Con Vitalita)
-   TODO(equipo): pegar aquí el bloque de la Persona a cargo de Beneficios.
 ======================================== */
 .benefits {
   padding: 88px 48px;
@@ -438,8 +429,6 @@ section {
 
 /* ========================================
    FEATURE PANELS (Para Cuidadoras / Para Familias)
-   TODO(equipo): pegar aquí el bloque de la Persona a cargo de
-   Cuidadoras/Familias.
 ======================================== */
 .for-caregivers,
 .for-families {
@@ -506,7 +495,6 @@ section {
   border-left: none;
 }
 
-/* Cada feature es un único párrafo (título + descripción), como en Figma */
 .feature-item p {
   font-weight: 300;
   font-size: 0.95rem;
@@ -519,15 +507,13 @@ section {
   font-weight: 500;
 }
 
-/* TODO(equipo): reemplazar por las ilustraciones reales exportadas de Figma */
 .feature-image-placeholder {
   width: 100%;
   max-width: 160px;
   height: 100px;
   margin: 0 auto;
   border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px dashed rgba(255, 255, 255, 0.3);
+  object-fit: contain;
 }
 
 .btn-cta-panel {
@@ -544,11 +530,6 @@ section {
   color: var(--color-text);
 }
 
-
-/* ========================================
-   PRECIOS Y PLANES
-   TODO(equipo): pegar aquí el bloque de la Persona a cargo de Precios.
-======================================== */
 
 /* ========================================
    PRECIOS Y PLANES
@@ -616,6 +597,12 @@ section {
   padding: 32px 24px;
   width: 240px;
   color: var(--color-text);
+  transition: transform 0.5s ease, background-color 0.5s ease;
+}
+
+.pricing-card.is-active {
+  transform: scale(1.06);
+  background-color: var(--glass-strong-bg);
 }
 
 .pricing-card-featured {
@@ -722,6 +709,29 @@ section {
   left: -10%;
 }
 
+.testimonials-molecule {
+  position: absolute;
+  z-index: 0;
+  width: 150px;
+  opacity: 0.85;
+  pointer-events: none;
+  animation: float 7s ease-in-out infinite;
+}
+
+.testimonials-molecule-1 { top: 8%; left: 6%; }
+.testimonials-molecule-2 { bottom: 6%; left: 42%; width: 110px; animation-delay: -2.5s; animation-direction: alternate-reverse; }
+.testimonials-molecule-3 { top: 14%; right: 6%; width: 130px; animation-delay: -4.5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-illustration-placeholder,
+  .testimonials-molecule { animation: none; }
+}
+
 .testimonials .glow-circle {
   width: 750px;
   height: 750px;
@@ -751,16 +761,12 @@ section {
   color: var(--color-text);
 }
 
-/* TODO(equipo): reemplazar por la fotografía / ilustración real de Figma */
 .about-photo-placeholder {
   position: relative;
   z-index: 1;
-  width: 220px;
-  height: 220px;
+  width: min(620px, 100%);
+  height: auto;
   margin: 0 auto;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px dashed rgba(255, 255, 255, 0.3);
 }
 
 .our-team .section-subtitle {
@@ -771,26 +777,25 @@ section {
   position: relative;
   z-index: 1;
   display: flex;
-  justify-content: center;
   gap: 28px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
+  max-width: 560px;
+  margin: 0 auto 24px;
+  overflow-x: hidden;
 }
 
 .team-member {
+  flex: 0 0 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 }
 
-/* TODO(equipo): reemplazar por la foto real de cada integrante */
 .team-photo-placeholder {
   width: 96px;
   height: 96px;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px dashed rgba(255, 255, 255, 0.3);
+  object-fit: cover;
 }
 
 .team-name {
@@ -862,14 +867,12 @@ section {
   text-align: left;
 }
 
-/* TODO(equipo): reemplazar por la foto real de cada persona */
 .testimonial-avatar-placeholder {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px dashed rgba(255, 255, 255, 0.4);
   margin-bottom: 12px;
+  object-fit: cover;
 }
 
 .testimonial-card h4 {
@@ -893,215 +896,393 @@ section {
 
 /* ========================================
    FAQ
-   TODO(equipo): pegar aquí el bloque de FAQ (viene junto con Footer, ver
-   más abajo).
 ======================================== */
+
+.faq {
+  padding: 88px 48px 0;
+  text-align: center;
+}
+
+.faq .glow-circle {
+  width: 900px;
+  height: 900px;
+  top: -10%;
+  left: -10%;
+}
+
+.faq h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 48px;
+}
+
+.faq-list {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto 64px;
+  text-align: left;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.05rem;
+  padding: 20px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-question i {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+/* "open" lo agrega main.js */
+.faq-item.open .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 240px;
+}
+
+.faq-answer p {
+  font-weight: 300;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  padding: 0 4px 20px;
+}
 
 
 /* ========================================
-   FOOTER — un único panel de vidrio grande (no un <footer> de color sólido)
-   TODO(equipo): pegar aquí el bloque de Footer.
+   FOOTER — un único panel de vidrio grande, no un bloque de color sólido
 ======================================== */
 
-/* Nota general para todo el equipo: reutiliza los tokens ya definidos en
-   :root (--glass-card-bg + --blur-xs para cards sin borde, --radius-card,
-   --color-text, etc.) y el patrón .glow-circle para el efecto de "glow" —
-   no inventes colores nuevos. */
+.footer {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px 48px;
+}
+
+.footer-panel {
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: var(--glass-footer-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border-radius: var(--radius-card);
+  padding: 40px 48px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.footer-brand {
+  max-width: 260px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-family: var(--font-primary);
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+
+.footer-brand p {
+  font-weight: 200;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: 18px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social a {
+  color: var(--color-text);
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.footer-column h4 {
+  font-weight: 300;
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+}
+
+.footer-column ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-column ul li a,
+.footer-column ul li span {
+  text-decoration: none;
+  font-weight: 200;
+  font-size: 0.82rem;
+  color: var(--color-text);
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-copyright p {
+  font-weight: 200;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
 
 
 /* ========================================
    RESPONSIVE - MEDIA QUERIES
    Mismos breakpoints que el repo de referencia (NexoU): tablet 900px, móvil 640px.
-   Por ahora solo con las reglas de navbar/hero; cada sección nueva agrega
-   sus propias reglas dentro de estos mismos bloques.
 ======================================== */
 
-/* Pantallas medianas: tablet */
 @media (max-width: 900px) {
 
-    .navbar {
-        padding: 12px 20px;
-        margin: 16px 16px 0;
-    }
+  .navbar {
+    padding: 12px 20px;
+    margin: 16px 16px 0;
+  }
 
-    .hero {
-        padding: 48px 32px 72px;
-    }
+  .hero {
+    padding: 48px 32px 72px;
+  }
 
-    .hero-text h1 {
-        font-size: 2.1rem;
-    }
+  .hero-text h1 {
+    font-size: 2.1rem;
+  }
 
-    .hero-image {
-        width: 320px;
-        height: 320px;
-    }
+  .hero-image {
+    height: 420px;
+  }
 
-    .hero-illustration-placeholder {
-        width: 260px;
-        height: 260px;
-    }
+  .hero-badge-standards { display: none; }
 
-    .hero-badge-standards { display: none; }
+  .benefits-comparison {
+    flex-direction: column;
+  }
 
-    /* TODO(equipo): agregar aquí las reglas responsive de Beneficios, Feature
-       Panels, Precios, Sobre Nosotros, FAQ y Footer cuando esas secciones existan */
-    
-    .benefits-comparison {
-        flex-direction: column;
-    }
+  .benefits-arrow {
+    transform: rotate(90deg);
+  }
 
-    .benefits-arrow {
-        transform: rotate(90deg);
-    }
+  .feature-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
 
-    .feature-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-    }
+  .feature-item {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 24px 0 0;
+    max-width: 100%;
+  }
 
-    .feature-item {
-        border-left: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.4);
-        padding: 24px 0 0;
-        max-width: 100%;
-    }
+  .feature-item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
 
-    .feature-item:first-child {
-        border-top: none;
-        padding-top: 0;
-    }
+  .footer {
+    padding: 0 20px 32px;
+  }
 
+  .footer-panel {
+    padding: 32px 28px;
+  }
 }
 
-/* Pantallas pequeñas: celular */
 @media (max-width: 640px) {
 
-    /* --- Navbar en celular: mismo patrón de menú hamburguesa que NexoU --- */
-    .navbar {
-        flex-wrap: wrap;
-        padding: 12px 20px;
-    }
+  /* --- Navbar en celular: mismo patrón de menú hamburguesa que NexoU --- */
+  .navbar {
+    flex-wrap: wrap;
+    padding: 12px 20px;
+  }
 
-    .hamburger-menu {
-        display: block;
-    }
+  .hamburger-menu {
+    display: block;
+  }
 
-    .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        gap: 6px;
-        padding: 12px 0 4px;
-    }
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 0 4px;
+  }
 
-    /* La clase "open" la agrega main.js al presionar el botón hamburguesa */
-    .nav-links.open {
-        display: flex;
-    }
+  /* La clase "open" la agrega main.js al presionar el botón hamburguesa */
+  .nav-links.open {
+    display: flex;
+  }
 
-    .nav-link.active {
-        display: inline-block;
-    }
+  .nav-link.active {
+    display: inline-block;
+  }
 
-    .nav-buttons {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        padding-bottom: 12px;
-    }
+  .nav-buttons {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding-bottom: 12px;
+  }
 
-    .nav-buttons.open {
-        display: flex;
-    }
+  .nav-buttons.open {
+    display: flex;
+  }
 
-    .btn-login, .btn-trial, .btn-lang {
-        text-align: center;
-    }
+  .btn-login, .btn-trial, .btn-lang {
+    text-align: center;
+  }
 
-    /* --- Hero apilado en columna --- */
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 24px 56px;
-        min-height: auto;
-        gap: 40px;
-    }
+  /* --- Hero apilado en columna --- */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 24px 56px;
+    min-height: auto;
+    gap: 40px;
+  }
 
-    .hero-text {
-        max-width: 100%;
-    }
+  .hero-text {
+    max-width: 100%;
+  }
 
-    .hero-text p {
-        margin: 0 auto 28px;
-    }
+  .hero-text p {
+    margin: 0 auto 28px;
+  }
 
-    .hero-buttons {
-        justify-content: center;
-    }
+  .hero-buttons {
+    justify-content: center;
+  }
 
-    .hero-image {
-        width: 260px;
-        height: 260px;
-    }
+  .hero-image {
+    flex: none;
+    width: 100%;
+    height: 340px;
+  }
 
-    .hero-illustration-placeholder {
-        width: 220px;
-        height: 220px;
-    }
+  .hero-badge {
+    position: static;
+    margin: 8px auto 0;
+    width: fit-content;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
 
-    .hero-badge {
-        position: static;
-        margin: 8px auto 0;
-        width: fit-content;
-        max-width: 100%;
-        white-space: normal;
-        text-align: center;
-    }
+  .hero-badge-standards { display: flex; }
+  .hero-badge-social-proof { text-align: center; flex-direction: column; }
 
-    .hero-badge-standards { display: flex; }
-    .hero-badge-social-proof { text-align: center; flex-direction: column; }
+  /* --- Secciones con padding reducido --- */
+  .benefits,
+  .for-caregivers,
+  .for-families,
+  .pricing,
+  .about-intro,
+  .our-team,
+  .testimonials,
+  .faq {
+    padding: 56px 20px;
+  }
 
-    /* TODO(equipo): agregar aquí el padding/columnas responsive de Beneficios,
-       Feature Panels, Precios, Sobre Nosotros, FAQ y Footer cuando esas
-       secciones existan */
-      .pricing-carousel {
-        flex-direction: column;
-      }
-    
-      .pricing-card {
-        width: 100%;
-        max-width: 320px;
-      }
-      .benefits-card {
-        min-width: 100%;
-    }
+  .faq {
+    padding-bottom: 0;
+  }
 
-    .feature-panel {
-        padding: 28px 20px;
-    }
+  .benefits-card {
+    min-width: 100%;
+  }
 
+  .feature-panel {
+    padding: 28px 20px;
+  }
 
-    .glow-circle {
-        filter: blur(60px);
-    }
+  .pricing-carousel {
+    flex-direction: column;
+  }
 
-    .team-carousel {
-        gap: 18px;
-    }
+  .pricing-card {
+    width: 100%;
+    max-width: 320px;
+  }
 
-    .testimonials-carousel {
-        flex-direction: column;
-    }
+  .team-carousel {
+    gap: 18px;
+  }
 
-    .testimonial-card {
-        width: 100%;
-        max-width: 320px;
-    }
+  .testimonials-carousel {
+    flex-direction: column;
+  }
 
-    
+  .testimonial-card {
+    width: 100%;
+    max-width: 320px;
+  }
 
+  /* --- Footer en celular --- */
+  .footer {
+    padding: 0 16px 28px;
+  }
+
+  .footer-panel {
+    padding: 28px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  .glow-circle {
+    filter: blur(60px);
+  }
 }

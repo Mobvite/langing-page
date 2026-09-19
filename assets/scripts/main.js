@@ -152,3 +152,29 @@ if (pricingArrowRight) {
 // Implementar cuando exista la sección Sobre Nosotros (id="about") con
 // .testimonials-track / .testimonials-arrow-* y .team-dot.
 // ============================================
+
+var testimonialsTrack = document.querySelector('.testimonials-track');
+var testimonialsArrowLeft = document.querySelector('.testimonials-arrow-left');
+var testimonialsArrowRight = document.querySelector('.testimonials-arrow-right');
+
+function scrollTestimonialsCarousel(direction) {
+  if (!testimonialsTrack) return;
+  var scrollAmount = 284;
+  testimonialsTrack.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
+
+if (testimonialsArrowLeft) {
+  testimonialsArrowLeft.addEventListener('click', function () { scrollTestimonialsCarousel(-1); });
+}
+if (testimonialsArrowRight) {
+  testimonialsArrowRight.addEventListener('click', function () { scrollTestimonialsCarousel(1); });
+}
+
+var teamDots = document.querySelectorAll('.team-dot');
+
+teamDots.forEach(function (dot, dotIndex) {
+  dot.addEventListener('click', function () {
+    teamDots.forEach(function (otherDot) { otherDot.classList.remove('active'); });
+    dot.classList.add('active');
+  });
+});

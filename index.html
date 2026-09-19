@@ -24,10 +24,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,100;1,200;1,300&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome para íconos de interfaz (no para ilustraciones/fotos, esas se dejan en blanco) -->
+  <!-- Font Awesome para íconos de interfaz) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Nuestro CSS -->
   <link rel="stylesheet" href="../../vitalita-reparto-equipo/persona1-base-repo/assets/styles/styles.css">
 </head>
 <body>
@@ -36,8 +35,7 @@
 <a href="#home" class="skip-link">Ir al contenido principal</a>
 
 <!-- ===================== NAVBAR ===================== -->
-<!-- Navbar tipo "glass pill" fijo, resalta el link correspondiente a la sección
-     visible (scrollspy), ver main.js -->
+<!-- Navbar tipo "glass pill" fijo -->
 <nav class="navbar" id="navbar" aria-label="Navegación principal">
 
   <!-- Logo -->
@@ -82,7 +80,6 @@
 <section class="hero" id="home">
   <div class="glow-circle" aria-hidden="true"></div>
 
-  <!-- Texto del lado izquierdo -->
   <div class="hero-text">
     <h1 data-i18n-es="Seguimiento geriátrico Inteligente y Centralizado" data-i18n-en="Smart, centralized geriatric monitoring">
       Seguimiento geriátrico Inteligente y Centralizado
@@ -215,7 +212,6 @@
   </div>
 </section>
 
-
 <!-- ===================== PARA FAMILIAS Y EMERGENCIAS ===================== -->
 <!-- TODO(equipo): Persona 2 — pegar aquí su sección completa (ver persona2_benefits_features.txt) -->
 <section class="for-families" id="for-families">
@@ -315,8 +311,106 @@
   
 
 <!-- ===================== SOBRE NOSOTROS ===================== -->
-<!-- TODO(equipo): Persona 4 — pegar aquí su sección completa (ver persona4_about_team_testimonials.txt) -->
+<!-- Envuelve 3 sub-secciones (Sobre Vitalita, Nuestra Startup, Testimonios) bajo un
+     único anchor de navbar ("Sobre Nosotros"), tal como agrupan los mockups. -->
+<section class="about-wrapper" id="about">
 
+  <!-- --------- Sobre Vitalita --------- -->
+  <div class="about-intro">
+    <div class="glow-circle" aria-hidden="true"></div>
+    <h2 data-i18n-es="Sobre Vitalita" data-i18n-en="About Vitalita">Sobre Vitalita</h2>
+    <p data-i18n-es="Nacimos para dignificar el cuidado del adulto mayor en el Perú, uniendo la tecnología con la empatía de cuidadoras y familias."
+       data-i18n-en="We were born to dignify elder care in Peru, uniting technology with the empathy of caregivers and families.">
+      Nacimos para dignificar el cuidado del adulto mayor en el Perú, uniendo la tecnología con la empatía de cuidadoras y familias.
+    </p>
+    <!-- TODO(equipo): reemplazar por la foto/ilustración real exportada de Figma -->
+    <div class="about-photo-placeholder" aria-hidden="true"></div>
+  </div>
+
+  <!-- --------- Nuestra Startup --------- -->
+  <div class="our-team">
+    <div class="glow-circle" aria-hidden="true"></div>
+    <h2 data-i18n-es="Nuestra Startup" data-i18n-en="Our Startup">Nuestra Startup</h2>
+    <p class="section-subtitle" data-i18n-es="Estamos comprometidos con el cuidado geriátrico"
+       data-i18n-en="We are committed to geriatric care">
+      Estamos comprometidos con el cuidado geriátrico
+    </p>
+
+    <!-- TODO(equipo): completar con Nombres, Apellidos, código de estudiante, carrera y foto real de cada
+         integrante (requisito de Startup Profile en el statement). Estos son placeholders. -->
+    <div class="team-carousel" id="team-carousel">
+      <div class="team-member">
+        <div class="team-photo-placeholder" aria-hidden="true"></div>
+        <p class="team-name">Paul Alexandro Espinoza Lopez</p>
+      </div>
+      <div class="team-member">
+        <div class="team-photo-placeholder" aria-hidden="true"></div>
+        <p class="team-name">Alicia Avril Navarro Chang</p>
+      </div>
+      <div class="team-member">
+        <div class="team-photo-placeholder" aria-hidden="true"></div>
+        <p class="team-name">Jack Eddie Roque Tello</p>
+      </div>
+      <div class="team-member">
+        <div class="team-photo-placeholder" aria-hidden="true"></div>
+        <p class="team-name">Jorge Joseph Videla Ventura</p>
+      </div>
+      <div class="team-member">
+        <div class="team-photo-placeholder" aria-hidden="true"></div>
+        <p class="team-name">Gabriel Stefano Yanac Flores</p>
+      </div>
+    </div>
+
+    <div class="team-carousel-dots" role="tablist" aria-label="Miembros del equipo">
+      <button class="team-dot active" aria-label="Grupo 1"></button>
+      <button class="team-dot" aria-label="Grupo 2"></button>
+      <button class="team-dot" aria-label="Grupo 3"></button>
+    </div>
+  </div>
+
+  <!-- --------- Testimonios y reseñas --------- -->
+  <div class="testimonials" id="testimonials">
+    <div class="glow-circle" aria-hidden="true"></div>
+    <h2 data-i18n-es="Testimonios y reseñas" data-i18n-en="Testimonials and reviews">Testimonios y reseñas</h2>
+    <p class="section-subtitle" data-i18n-es="Lo que dicen quienes confían en Vitalita."
+       data-i18n-en="What those who trust Vitalita are saying.">
+      Lo que dicen quienes confían en Vitalita.
+    </p>
+
+    <div class="testimonials-carousel">
+      <button class="testimonials-arrow testimonials-arrow-left" aria-label="Ver testimonio anterior">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </button>
+
+      <div class="testimonials-track">
+
+        <div class="testimonial-card">
+          <div class="testimonial-avatar-placeholder" aria-hidden="true"></div>
+          <h4>Martín Alegre <span>- Familiar</span></h4>
+          <p>"Tener el PDF listo cuando fuimos a emergencias nos ahorró minutos vitales."</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-avatar-placeholder" aria-hidden="true"></div>
+          <h4>Mariana Rodríguez <span>- Enfermera</span></h4>
+          <p>"Ahora mis clientes ven mi trabajo de forma profesional y las recetas están ordenadas."</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-avatar-placeholder" aria-hidden="true"></div>
+          <h4>Alex Julca <span>- Familiar</span></h4>
+          <p>"Me siento más tranquilo al dejar a mis abuelos en buenas manos con toda la confianza."</p>
+        </div>
+
+      </div>
+
+      <button class="testimonials-arrow testimonials-arrow-right" aria-label="Ver siguiente testimonio">
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+</section>
 
 <!-- ===================== FAQ ===================== -->
 <!-- TODO(equipo): Persona 5 — pegar aquí su sección completa (ver persona5_faq_footer_legal.txt) -->

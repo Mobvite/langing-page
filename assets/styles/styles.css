@@ -701,10 +701,194 @@ section {
 }
 
 
-/* ========================================
-   SOBRE NOSOTROS (Sobre Vitalita + Startup + Testimonios)
-   TODO(equipo): pegar aquí el bloque de la Persona a cargo de Sobre Nosotros.
-======================================== */
+.about-wrapper {
+  color: var(--color-text);
+}
+
+.about-intro,
+.our-team,
+.testimonials {
+  position: relative;
+  padding: 88px 48px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.about-intro .glow-circle,
+.our-team .glow-circle {
+  width: 900px;
+  height: 900px;
+  top: 20%;
+  left: -10%;
+}
+
+.testimonials .glow-circle {
+  width: 750px;
+  height: 750px;
+  top: 20%;
+  left: 25%;
+}
+
+.about-intro h2,
+.our-team h2,
+.testimonials h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.about-intro p {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-weight: 100;
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* TODO(equipo): reemplazar por la fotografía / ilustración real de Figma */
+.about-photo-placeholder {
+  position: relative;
+  z-index: 1;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.our-team .section-subtitle {
+  margin-bottom: 40px;
+}
+
+.team-carousel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* TODO(equipo): reemplazar por la foto real de cada integrante */
+.team-photo-placeholder {
+  width: 96px;
+  height: 96px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.team-name {
+  font-weight: 300;
+  font-size: 0.85rem;
+}
+
+.team-carousel-dots {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.team-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+}
+
+.team-dot.active {
+  background-color: var(--color-text);
+}
+
+.testimonials-carousel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.testimonials-arrow {
+  background: rgba(255, 255, 255, 0.16);
+  border: none;
+  color: var(--color-text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.testimonial-card {
+  background-color: var(--glass-testimonial-bg);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-testimonial);
+  padding: 28px 24px;
+  width: 260px;
+  text-align: left;
+}
+
+/* TODO(equipo): reemplazar por la foto real de cada persona */
+.testimonial-avatar-placeholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  margin-bottom: 12px;
+}
+
+.testimonial-card h4 {
+  font-weight: 300;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.testimonial-card h4 span {
+  font-weight: 200;
+  font-size: 0.85rem;
+}
+
+.testimonial-card p {
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
 
 
 /* ========================================
@@ -904,4 +1088,20 @@ section {
     .glow-circle {
         filter: blur(60px);
     }
+
+    .team-carousel {
+        gap: 18px;
+    }
+
+    .testimonials-carousel {
+        flex-direction: column;
+    }
+
+    .testimonial-card {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    
+
 }

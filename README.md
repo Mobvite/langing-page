@@ -34,7 +34,7 @@ vitalita-landing/
 ├── assets/
 │   ├── styles/
 │   │   └── styles.css
-│   ├── images/         (colocar aquí los assets exportados de Figma)
+│   ├── images/
 │   └── scripts/
 │       └── main.js
 └── README.md
@@ -48,7 +48,7 @@ vitalita-landing/
 - CSS3 (Flexbox, CSS Custom Properties como design tokens, Media Queries)
 - JavaScript vanilla (DOM, eventos, IntersectionObserver, sin frameworks)
 - [Google Fonts](https://fonts.google.com/) — Inter (única tipografía del sitio)
-- [Font Awesome 6](https://fontawesome.com/) — íconos de interfaz (navegación, redes sociales, indicadores). Las ilustraciones/fotos reales (héroe, feature panels, equipo, testimonios) se dejan como placeholders en blanco a propósito.
+- [Font Awesome 6](https://fontawesome.com/) — íconos de interfaz (navegación, redes sociales, indicadores).
 
 > Nota: el statement del curso especifica HTML5/CSS3/JavaScript para el
 > Landing Page (Vue Framework se reserva para las Frontend Web Applications),
@@ -58,7 +58,7 @@ vitalita-landing/
 
 ## Estilo visual (glassmorphism)
 
-El diseño visual (`../../vitalita-reparto-equipo/persona1-base-repo/assets/styles/styles.css`) se reconstruyó copiando los valores
+El diseño visual (`assets/styles/styles.css`) se reconstruyó copiando los valores
 exactos del archivo real de Figma (vía Figma Dev Mode / MCP), no aproximados de
 una captura de pantalla:
 
@@ -94,14 +94,9 @@ Request:
 
 ---
 
-## Pendientes conocidos (ver comentarios `TODO(equipo)` en el código)
+## Pendientes conocidos
 
-- [ ] Reemplazar los placeholders en blanco (recuadros punteados) por las
-      ilustraciones/fotos reales exportadas de Figma: ilustración del Hero,
-      imágenes de los feature panels (Cuidadoras/Familias), fotos del equipo
-      y fotos de testimonios.
-- [ ] Completar nombres, código de estudiante, carrera y foto real de cada
-      integrante en la sección "Nuestra Startup".
+- [ ] Agregar código de estudiante y carrera de cada integrante en "Nuestra Startup".
 - [ ] Redactar el contenido real de `terms.html` y `privacy.html`.
 - [ ] Definir las rutas reales de la Web Application y reemplazar los
       `data-target-route` placeholder en los CTAs (login, registro por

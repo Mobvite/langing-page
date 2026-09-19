@@ -78,43 +78,6 @@ una captura de pantalla:
 
 ---
 
-## Reparto de trabajo del equipo
-
-División por secciones (corte vertical: HTML + CSS + JS de cada parte),
-trabajada en ramas de feature independientes y mergeadas en orden vía Pull
-Request:
-
-| Integrante | Secciones a cargo | Rama |
-|---|---|---|
-| Integrante 1 | Setup del proyecto, Navbar, Hero | `feature/setup-navbar-hero` |
-| Integrante 2 | Beneficios, Para Cuidadoras, Para Familias | `feature/benefits-features` |
-| Integrante 3 | Precios y Planes (+ carrusel) | `feature/pricing` |
-| Integrante 4 | Sobre Nosotros: Sobre Vitalita, Nuestra Startup, Testimonios (+ carruseles) | `feature/about-team-testimonials` |
-| Integrante 5 | FAQ, Footer, páginas legales (`terms.html`, `privacy.html`) | `feature/faq-footer-legal` |
-
----
-
-## Pendientes conocidos
-
-- [ ] Agregar código de estudiante y carrera de cada integrante en "Nuestra Startup".
-- [ ] Redactar el contenido real de `terms.html` y `privacy.html`.
-- [ ] Definir las rutas reales de la Web Application y reemplazar los
-      `data-target-route` placeholder en los CTAs (login, registro por
-      segmento, cada plan de precios).
-- [ ] Confirmar con el docente si el idioma por defecto debe ser inglés
-      (así lo exige el statement) o español (como está esta versión, por
-      decisión del equipo). El mecanismo de i18n ya existe (`data-i18n-es`
-      / `data-i18n-en` + botón EN/ES) pero solo cubre navbar, Hero y
-      encabezados de sección; falta traducir el resto del copy.
-- [ ] Diseñar formalmente el Mock-up Mobile en Figma (esta versión ya es
-      responsive por CSS, pero no partió de un wireframe/mock-up mobile
-      documentado, que el statement pide como artefacto propio).
-- [ ] Configurar despliegue en GitHub Pages sobre el repositorio dedicado del
-      Landing Page (independiente del repo de la Web Application) con
-      GitFlow, Conventional Commits y Semantic Versioning.
-
----
-
 ## Curso
 
 Ingeniería de Software — 1ASI0730 Aplicaciones Web — UPC — 2026-20

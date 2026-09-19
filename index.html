@@ -4,52 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ===================== SEO & META TAGS ===================== -->
-  <!-- upc-pre-202620-1asi0730: minimo requerido -> Title, Description, Keywords, Author -->
   <title>Vitalita | Seguimiento geriátrico inteligente y centralizado</title>
   <meta name="description" content="Vitalita es la plataforma que permite a cuidadoras y enfermeras registrar la salud de sus pacientes y mantener a las familias informadas en tiempo real, sin cuadernos ni chats dispersos.">
   <meta name="keywords" content="Vitalita, cuidado geriátrico, seguimiento de salud, enfermeras a domicilio, cuidadoras, adulto mayor, telemonitoreo, Perú">
   <meta name="author" content="Vitalita Startup">
 
-  <!-- Open Graph (para que el link se vea bien al compartirlo) -->
   <meta property="og:title" content="Vitalita | Seguimiento geriátrico inteligente y centralizado">
   <meta property="og:description" content="Del papel y el WhatsApp a un control digital centralizado para cuidadoras, enfermeras y familias.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_PE">
 
-  <!-- TODO: reemplazar por el dominio final una vez desplegado en GitHub Pages -->
+  <!-- TODO: og:url cuando tengamos el dominio final -->
   <!-- <meta property="og:url" content="https://<org>.github.io/<repo>/"> -->
 
-  <!-- Google Fonts: Inter para todo el sitio (logo, títulos y cuerpo), según diseño real en Figma -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,100;1,200;1,300&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome para íconos de interfaz) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="stylesheet" href="../../vitalita-reparto-equipo/persona1-base-repo/assets/styles/styles.css">
+  <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 <body>
 
-<!-- ===================== SKIP LINK (accesibilidad) ===================== -->
 <a href="#home" class="skip-link">Ir al contenido principal</a>
 
 <!-- ===================== NAVBAR ===================== -->
-<!-- Navbar tipo "glass pill" fijo -->
 <nav class="navbar" id="navbar" aria-label="Navegación principal">
 
-  <!-- Logo -->
   <div class="logo">
     <i class="fa-solid fa-seedling logo-icon" aria-hidden="true"></i>
     <span class="logo-name">Vitalita</span>
   </div>
 
-  <!-- Botón hamburguesa para móvil -->
   <button class="hamburger-menu" id="hamburger-menu" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
     <i class="fas fa-bars" aria-hidden="true"></i>
   </button>
 
-  <!-- Links de navegación -->
   <ul class="nav-links" id="nav-links">
     <li><a href="#home" class="nav-link active" data-i18n-es="Inicio" data-i18n-en="Home">Inicio</a></li>
     <li><a href="#benefits" class="nav-link" data-i18n-es="Beneficios" data-i18n-en="Benefits">Beneficios</a></li>
@@ -60,10 +50,8 @@
     <li><a href="#faq" class="nav-link" data-i18n-es="FAQ" data-i18n-en="FAQ">FAQ</a></li>
   </ul>
 
-  <!-- Botones de sesión + selector de idioma -->
   <div class="nav-buttons" id="nav-buttons">
-    <!-- TODO(equipo): estos href son placeholders. Deben apuntar a la Web Application
-         (Frontend Vue) una vez tenga rutas reales de login/registro. -->
+    <!-- href="#" hasta que la Web Application tenga rutas reales de login/registro -->
     <a href="#" class="btn-login" data-target-route="/app/login" data-i18n-es="Iniciar Sesión" data-i18n-en="Log In">Iniciar Sesión</a>
     <a href="#" class="btn-trial" data-target-route="/app/register" data-i18n-es="Probar gratis" data-i18n-en="Try for free">Probar gratis</a>
     <button class="btn-lang" id="lang-toggle" aria-label="Cambiar idioma / Switch language" title="ES / EN">
@@ -89,7 +77,6 @@
       Diseñado para que cuidadoras independientes mantengan un registro estructurado de la salud de sus pacientes, y para que las familias permanezcan informadas y preparadas ante cualquier emergencia. Adiós a los cuadernos en papel y chats de WhatsApp.
     </p>
 
-    <!-- CTAs segmentadas: cada segmento objetivo redirige a su vista correspondiente en la Web Application -->
     <div class="hero-buttons">
       <a href="#" class="btn-segment btn-segment-caregiver" data-target-route="/app/register?role=caregiver"
          data-i18n-es="Soy enfermera/cuidadora" data-i18n-en="I'm a nurse/caregiver">
@@ -102,12 +89,9 @@
     </div>
   </div>
 
-  <!-- Ilustración del lado derecho -->
   <div class="hero-image">
-    <!-- TODO(equipo): reemplazar por la ilustración exportada de Figma (assets/images/hero-illustration.png) -->
-    <div class="hero-illustration-placeholder" aria-hidden="true"></div>
+    <img class="hero-illustration-placeholder" src="assets/images/heart.png" alt="Corazón humano translúcido en tonos azules y magenta">
 
-    <!-- Badges flotantes -->
     <div class="hero-badge hero-badge-privacy">
       <i class="fa-solid fa-user-lock" aria-hidden="true"></i>
       <span data-i18n-es="Datos médicos 100% privados y protegidos" data-i18n-en="Medical data 100% private and protected">Datos médicos 100% privados y protegidos</span>
@@ -129,7 +113,6 @@
 
 
 <!-- ===================== BENEFICIOS (Sin/Con Vitalita) ===================== -->
-<!-- TODO(equipo): Persona 2 — pegar aquí su sección completa (ver persona2_benefits_features.txt) -->
 <section class="benefits" id="benefits">
   <div class="glow-circle" aria-hidden="true"></div>
 
@@ -140,7 +123,6 @@
 
   <div class="benefits-comparison">
 
-    <!-- Sin Vitalita -->
     <div class="benefits-card benefits-card-without">
       <div class="benefits-card-icon">
         <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
@@ -154,12 +136,10 @@
       </ul>
     </div>
 
-    <!-- Flecha central -->
     <div class="benefits-arrow" aria-hidden="true">
       <i class="fas fa-arrow-right"></i>
     </div>
 
-    <!-- Con Vitalita -->
     <div class="benefits-card benefits-card-with">
       <div class="benefits-card-icon">
         <i class="fas fa-shield-heart" aria-hidden="true"></i>
@@ -178,7 +158,6 @@
 
 
 <!-- ===================== PARA ENFERMERAS Y CUIDADORAS ===================== -->
-<!-- TODO(equipo): Persona 2 — pegar aquí su sección completa (ver persona2_benefits_features.txt) -->
 <section class="for-caregivers" id="for-caregivers">
   <div class="glow-circle" aria-hidden="true"></div>
 
@@ -189,18 +168,17 @@
 
       <div class="feature-item">
         <p><strong>Signos Vitales y Estado de Ánimo:</strong> Registro rápido desde el celular.</p>
-        <!-- TODO(equipo): reemplazar por la ilustración real exportada de Figma -->
-        <div class="feature-image-placeholder" aria-hidden="true"></div>
+        <img class="feature-image-placeholder" src="assets/images/enfermeras1.png" alt="Monitor de latidos con la línea de pulso de los signos vitales">
       </div>
 
       <div class="feature-item">
         <p><strong>Control de Citas y Exámenes:</strong> Adjunta fotos de resultados sin perder nada.</p>
-        <div class="feature-image-placeholder" aria-hidden="true"></div>
+        <img class="feature-image-placeholder" src="assets/images/enfermeras2.png" alt="Adulto mayor cuidado por una mano dentro de una casa, símbolo del cuidado en el hogar">
       </div>
 
       <div class="feature-item">
         <p><strong>Reportes Automáticos:</strong> Genera valor a tus clientes sin perder tiempo.</p>
-        <div class="feature-image-placeholder" aria-hidden="true"></div>
+        <img class="feature-image-placeholder" src="assets/images/enfermeras3.png" alt="Tablet con gráficos de barras y líneas de un reporte automático">
       </div>
 
     </div>
@@ -213,7 +191,6 @@
 </section>
 
 <!-- ===================== PARA FAMILIAS Y EMERGENCIAS ===================== -->
-<!-- TODO(equipo): Persona 2 — pegar aquí su sección completa (ver persona2_benefits_features.txt) -->
 <section class="for-families" id="for-families">
   <div class="glow-circle" aria-hidden="true"></div>
 
@@ -224,17 +201,17 @@
 
       <div class="feature-item">
         <p><strong>Monitoreo en Tiempo Real:</strong> Consulta los registros del día al instante.</p>
-        <div class="feature-image-placeholder" aria-hidden="true"></div>
+        <img class="feature-image-placeholder" src="assets/images/familias1.png" alt="Panel con el texto 24/7 Monitoring sobre el monitoreo en tiempo real">
       </div>
 
       <div class="feature-item">
         <p><strong>Informe PDF de Emergencia:</strong> Descarga el historial clínico en 1 clic ante cualquier urgencia.</p>
-        <div class="feature-image-placeholder" aria-hidden="true"></div>
+        <img class="feature-image-placeholder" src="assets/images/familias2.png" alt="Ícono de documento PDF con una pluma firmando">
       </div>
 
       <div class="feature-item">
         <p><strong>Alertas y Recordatorios:</strong> Notificaciones de citas y controles pendientes.</p>
-        <div class="feature-image-placeholder" aria-hidden="true"></div>
+        <img class="feature-image-placeholder" src="assets/images/familias3.png" alt="Campana de notificación con mensajes de alerta y recordatorio">
       </div>
 
     </div>
@@ -248,8 +225,6 @@
 
 
 <!-- ===================== PRECIOS Y PLANES ===================== -->
-<!-- TODO(equipo): Persona 3 — pegar aquí su sección completa (ver persona3_pricing.txt) -->
-
 <section class="pricing" id="pricing">
   <div class="glow-circle" aria-hidden="true"></div>
 
@@ -311,11 +286,9 @@
   
 
 <!-- ===================== SOBRE NOSOTROS ===================== -->
-<!-- Envuelve 3 sub-secciones (Sobre Vitalita, Nuestra Startup, Testimonios) bajo un
-     único anchor de navbar ("Sobre Nosotros"), tal como agrupan los mockups. -->
+<!-- Agrupa Sobre Vitalita, Startup y Testimonios bajo un solo anchor del navbar -->
 <section class="about-wrapper" id="about">
 
-  <!-- --------- Sobre Vitalita --------- -->
   <div class="about-intro">
     <div class="glow-circle" aria-hidden="true"></div>
     <h2 data-i18n-es="Sobre Vitalita" data-i18n-en="About Vitalita">Sobre Vitalita</h2>
@@ -323,11 +296,9 @@
        data-i18n-en="We were born to dignify elder care in Peru, uniting technology with the empathy of caregivers and families.">
       Nacimos para dignificar el cuidado del adulto mayor en el Perú, uniendo la tecnología con la empatía de cuidadoras y familias.
     </p>
-    <!-- TODO(equipo): reemplazar por la foto/ilustración real exportada de Figma -->
-    <div class="about-photo-placeholder" aria-hidden="true"></div>
+    <img class="about-photo-placeholder" src="assets/images/abuela.png" alt="Perfil de una mujer adulta mayor de cabello largo y canoso">
   </div>
 
-  <!-- --------- Nuestra Startup --------- -->
   <div class="our-team">
     <div class="glow-circle" aria-hidden="true"></div>
     <h2 data-i18n-es="Nuestra Startup" data-i18n-en="Our Startup">Nuestra Startup</h2>
@@ -336,27 +307,26 @@
       Estamos comprometidos con el cuidado geriátrico
     </p>
 
-    <!-- TODO(equipo): completar con Nombres, Apellidos, código de estudiante, carrera y foto real de cada
-         integrante (requisito de Startup Profile en el statement). Estos son placeholders. -->
+    <!-- TODO: agregar código de estudiante y carrera de cada integrante (requisito del Startup Profile) -->
     <div class="team-carousel" id="team-carousel">
       <div class="team-member">
-        <div class="team-photo-placeholder" aria-hidden="true"></div>
+        <img class="team-photo-placeholder" src="assets/images/paul-photo.png" alt="Foto de Paul Alexandro Espinoza Lopez">
         <p class="team-name">Paul Alexandro Espinoza Lopez</p>
       </div>
       <div class="team-member">
-        <div class="team-photo-placeholder" aria-hidden="true"></div>
+        <img class="team-photo-placeholder" src="assets/images/alicia-photo.png" alt="Foto de Alicia Avril Navarro Chang">
         <p class="team-name">Alicia Avril Navarro Chang</p>
       </div>
       <div class="team-member">
-        <div class="team-photo-placeholder" aria-hidden="true"></div>
+        <img class="team-photo-placeholder" src="assets/images/jack-photo.png" alt="Foto de Jack Eddie Roque Tello">
         <p class="team-name">Jack Eddie Roque Tello</p>
       </div>
       <div class="team-member">
-        <div class="team-photo-placeholder" aria-hidden="true"></div>
+        <img class="team-photo-placeholder" src="assets/images/jorge-photo.png" alt="Foto de Jorge Joseph Videla Ventura">
         <p class="team-name">Jorge Joseph Videla Ventura</p>
       </div>
       <div class="team-member">
-        <div class="team-photo-placeholder" aria-hidden="true"></div>
+        <img class="team-photo-placeholder" src="assets/images/gabriel-photo.png" alt="Foto de Gabriel Stefano Yanac Flores">
         <p class="team-name">Gabriel Stefano Yanac Flores</p>
       </div>
     </div>
@@ -368,9 +338,11 @@
     </div>
   </div>
 
-  <!-- --------- Testimonios y reseñas --------- -->
   <div class="testimonials" id="testimonials">
     <div class="glow-circle" aria-hidden="true"></div>
+    <img class="testimonials-molecule testimonials-molecule-1" src="assets/images/molecula.png" alt="" aria-hidden="true">
+    <img class="testimonials-molecule testimonials-molecule-2" src="assets/images/molecula.png" alt="" aria-hidden="true">
+    <img class="testimonials-molecule testimonials-molecule-3" src="assets/images/molecula.png" alt="" aria-hidden="true">
     <h2 data-i18n-es="Testimonios y reseñas" data-i18n-en="Testimonials and reviews">Testimonios y reseñas</h2>
     <p class="section-subtitle" data-i18n-es="Lo que dicen quienes confían en Vitalita."
        data-i18n-en="What those who trust Vitalita are saying.">
@@ -385,19 +357,19 @@
       <div class="testimonials-track">
 
         <div class="testimonial-card">
-          <div class="testimonial-avatar-placeholder" aria-hidden="true"></div>
+          <img class="testimonial-avatar-placeholder" src="assets/images/testimonio1.png" alt="Retrato de Martín Alegre, familiar de un adulto mayor">
           <h4>Martín Alegre <span>- Familiar</span></h4>
           <p>"Tener el PDF listo cuando fuimos a emergencias nos ahorró minutos vitales."</p>
         </div>
 
         <div class="testimonial-card">
-          <div class="testimonial-avatar-placeholder" aria-hidden="true"></div>
+          <img class="testimonial-avatar-placeholder" src="assets/images/testimonio2.png" alt="Retrato de Mariana Rodríguez, enfermera">
           <h4>Mariana Rodríguez <span>- Enfermera</span></h4>
           <p>"Ahora mis clientes ven mi trabajo de forma profesional y las recetas están ordenadas."</p>
         </div>
 
         <div class="testimonial-card">
-          <div class="testimonial-avatar-placeholder" aria-hidden="true"></div>
+          <img class="testimonial-avatar-placeholder" src="assets/images/testimonio3.png" alt="Retrato de Alex Julca, familiar de adultos mayores">
           <h4>Alex Julca <span>- Familiar</span></h4>
           <p>"Me siento más tranquilo al dejar a mis abuelos en buenas manos con toda la confianza."</p>
         </div>
@@ -413,17 +385,117 @@
 </section>
 
 <!-- ===================== FAQ ===================== -->
-<!-- TODO(equipo): Persona 5 — pegar aquí su sección completa (ver persona5_faq_footer_legal.txt) -->
+<section class="faq" id="faq">
+  <div class="glow-circle" aria-hidden="true"></div>
+
+  <h2 data-i18n-es="Preguntas Frecuentes" data-i18n-en="Frequently Asked Questions">Preguntas Frecuentes</h2>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-i18n-es="¿Necesito pagar para empezar a usar la app?" data-i18n-en="Do I need to pay to start using the app?">¿Necesito pagar para empezar a usar la app?</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="faq-answer">
+        <!-- TODO: respuestas reales del FAQ -->
+        <p>[Completar: explicar el alcance del Plan Gratuito y cuándo se requiere upgrade a Plan Pro]</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-i18n-es="¿Cómo se vincula el familiar con la enfermera o cuidadora?" data-i18n-en="How does a family member link with the nurse or caregiver?">¿Cómo se vincula el familiar con la enfermera o cuidadora?</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="faq-answer">
+        <p>[Completar: describir el flujo real de invitación/vínculo entre roles en la Web Application]</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false">
+        <span data-i18n-es="¿Qué tan seguros están los datos médicos de mi familiar?" data-i18n-en="How secure is my family member's medical data?">¿Qué tan seguros están los datos médicos de mi familiar?</span>
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </button>
+      <div class="faq-answer">
+        <p>[Completar: mencionar las medidas de privacidad/seguridad reales implementadas en el backend]</p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 </main>
 
 
 <!-- ===================== FOOTER ===================== -->
-<!-- TODO(equipo): Persona 5 — pegar aquí el footer completo (ver persona5_faq_footer_legal.txt) -->
+<footer class="footer">
+  <div class="footer-panel">
+
+    <div class="footer-content">
+
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+          <span>Vitalita</span>
+        </div>
+        <p data-i18n-es="Plataforma de seguimiento geriátrico en tiempo real que conecta a personal de salud, cuidadoras y familias en el Perú."
+           data-i18n-en="Real-time geriatric monitoring platform connecting healthcare staff, caregivers and families in Peru.">
+          Plataforma de seguimiento geriátrico en tiempo real que conecta a personal de salud, cuidadoras y familias en el Perú.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4 data-i18n-es="Navegación" data-i18n-en="Navigation">Navegación</h4>
+        <ul>
+          <li><a href="#home" data-i18n-es="Inicio" data-i18n-en="Home">Inicio</a></li>
+          <li><a href="#benefits" data-i18n-es="Beneficios" data-i18n-en="Benefits">Beneficios</a></li>
+          <li><a href="#for-caregivers" data-i18n-es="Para Cuidadoras" data-i18n-en="For Caregivers">Para Cuidadoras</a></li>
+          <li><a href="#for-families" data-i18n-es="Para Familias" data-i18n-en="For Families">Para Familias</a></li>
+          <li><a href="#pricing" data-i18n-es="Planes" data-i18n-en="Plans">Planes</a></li>
+          <li><a href="#about" data-i18n-es="Sobre Nosotros" data-i18n-en="About Us">Sobre Nosotros</a></li>
+          <li><a href="#faq" data-i18n-es="FAQ" data-i18n-en="FAQ">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 data-i18n-es="Legal" data-i18n-en="Legal">Legal</h4>
+        <ul>
+          <li><a href="terms.html">Términos y Condiciones del Servicio</a></li>
+          <li><a href="privacy.html">Políticas de Privacidad y Tratamiento de Datos</a></li>
+          <li><a href="#">Libro de Reclamaciones</a></li>
+          <li><a href="#">Aviso Legal y Uso Médico</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 data-i18n-es="Contacto" data-i18n-en="Contact">Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/51987654321">WhatsApp: +51 987 654 321</a></li>
+          <li><a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a></li>
+          <li><span>Lima, Perú</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-copyright">
+      <p>© 2026 Vitalita. Todos los derechos reservados.</p>
+    </div>
+
+  </div>
+</footer>
 
 
-<!-- Nuestro JavaScript -->
-<script src="../../vitalita-reparto-equipo/persona1-base-repo/assets/scripts/main.js"></script>
+
+<script src="assets/scripts/main.js"></script>
 
 </body>
 </html>

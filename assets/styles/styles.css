@@ -615,7 +615,7 @@ section {
   margin-bottom: 12px;
 }
 
-.pricing-card h3 span {
+.pricing-card h3 .pricing-plan-tier {
   display: block;
   font-size: 0.9rem;
   font-weight: 200;

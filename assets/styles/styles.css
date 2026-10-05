@@ -200,13 +200,31 @@ section {
     -webkit-backdrop-filter: blur(var(--blur-xs));
     border: none;
     border-radius: var(--radius-pill);
-    padding: 6px 12px;
+    padding: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
     font-family: var(--font-primary);
     font-size: 0.74rem;
     font-weight: 300;
     color: var(--color-text);
     cursor: pointer;
     white-space: nowrap;
+}
+
+/* Idioma inactivo atenuado; el activo lo marca main.js con "active" */
+.lang-option {
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    opacity: 0.6;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.lang-option.active {
+    background-color: var(--glass-strong-bg);
+    font-weight: 500;
+    opacity: 1;
 }
 
 .hamburger-menu {

@@ -90,12 +90,18 @@ placeholderLinks.forEach(function (link) {
 
 // ============================================
 // LANGUAGE TOGGLE (es <-> en)
-// Solo traduce los textos con data-i18n-es / data-i18n-en; el resto del copy
-// sigue pendiente de traducción.
+// Traduce todo nodo con data-i18n-es / data-i18n-en, sin importar la sección.
+// Un nodo traducible no debe tener hijos con markup: textContent los borraría.
+// Los textos largos con markup (páginas legales) van en bloques data-lang="es|en"
+// y se muestra solo el del idioma activo.
+// El idioma elegido se guarda para mantenerlo al pasar a terms.html / privacy.html.
 // ============================================
 
+var LANGUAGE_STORAGE_KEY = 'vitalita-lang';
 var currentLanguage = 'es';
 var translatableElements = document.querySelectorAll('[data-i18n-es]');
+var languageBlocks = document.querySelectorAll('[data-lang]');
+var languageOptions = document.querySelectorAll('.lang-option');
 var languageToggleButton = document.getElementById('lang-toggle');
 
 function applyLanguage(languageCode) {
@@ -107,14 +113,36 @@ function applyLanguage(languageCode) {
             element.textContent = text;
         }
     });
+    languageBlocks.forEach(function (block) {
+        block.hidden = block.getAttribute('data-lang') !== languageCode;
+    });
+    // Resalta en el botón el idioma activo
+    languageOptions.forEach(function (option) {
+        option.classList.toggle('active', option.getAttribute('data-lang-option') === languageCode);
+    });
     document.documentElement.setAttribute('lang', languageCode);
     currentLanguage = languageCode;
+    try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, languageCode);
+    } catch (error) {
+        // Sin acceso a localStorage (modo privado): el idioma solo dura esta página
+    }
 }
 
 if (languageToggleButton) {
     languageToggleButton.addEventListener('click', function () {
         applyLanguage(currentLanguage === 'es' ? 'en' : 'es');
     });
+}
+
+var savedLanguage = null;
+try {
+    savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+} catch (error) {
+    savedLanguage = null;
+}
+if (savedLanguage === 'en') {
+    applyLanguage('en');
 }
 
 

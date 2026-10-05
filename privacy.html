@@ -9,33 +9,215 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,100;1,200;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles/styles.css">
   <style>
+    /* Estilos mínimos solo para esta página legal, no forman parte del Style Guide del Landing */
     .legal-page { position: relative; z-index: 1; max-width: 760px; margin: 64px auto; padding: 0 24px 96px; }
+    .legal-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
     .legal-page h1 { font-weight: 300; font-size: 1.8rem; margin-bottom: 8px; color: var(--color-text); }
     .legal-page p, .legal-page li { font-weight: 300; color: var(--color-text); line-height: 1.7; margin-bottom: 12px; }
     .legal-page h2 { font-weight: 500; font-size: 1.1rem; margin: 28px 0 10px; color: var(--color-text); }
-    .legal-page a.back-link { display: inline-block; margin-bottom: 24px; color: var(--color-text); text-decoration: none; }
+    .legal-page ul { padding-left: 20px; }
+    .legal-page strong { font-weight: 500; }
+    .legal-page a { color: var(--color-text); }
+    .legal-page a.back-link { text-decoration: none; }
   </style>
 </head>
 <body>
-  <div class="glow-circle" aria-hidden="true" style="width:900px;height:900px;top:-15%;left:20%;"></div>
+  <div class="glow-circle" aria-hidden="true" style="width:min(900px,80vw);height:900px;top:-15%;left:20%;"></div>
   <main class="legal-page">
-    <a href="index.html" class="back-link">&larr; Volver al inicio</a>
-    <h1>Política de Privacidad y Tratamiento de Datos</h1>
-    <p><em>Última actualización: [completar fecha]</em></p>
+    <div class="legal-top">
+      <a href="index.html" class="back-link" data-i18n-es="&larr; Volver al inicio" data-i18n-en="&larr; Back to home">&larr; Volver al inicio</a>
+      <button class="btn-lang" id="lang-toggle" aria-label="Cambiar idioma / Switch language" title="ES / EN">
+        <span class="lang-option" data-lang-option="en">EN</span>
+        <span class="lang-option active" data-lang-option="es">ES</span>
+      </button>
+    </div>
+    <h1 data-i18n-es="Política de Privacidad y Tratamiento de Datos" data-i18n-en="Privacy and Data Processing Policy">Política de Privacidad y Tratamiento de Datos</h1>
+    <p><em data-i18n-es="Última actualización: 5 de octubre de 2026" data-i18n-en="Last updated: October 5, 2026">Última actualización: 5 de octubre de 2026</em></p>
 
-    <!-- TODO: redactar según la Ley N.º 29733 y la Política de Privacidad de la Web Application -->
+    <!-- Texto genérico basado en la Ley N.º 29733, Ley de Protección de Datos Personales del Perú, y su Reglamento.
+         TODO: completar los placeholders "[Completar: ...]" / "[To complete: ...]" y hacer revisar el documento por un asesor legal antes de publicarlo.
+         Cada sección tiene su texto en dos bloques, data-lang="es" y data-lang="en": al editar uno, actualizar también el otro. -->
 
-    <h2>1. Datos que recopilamos</h2>
-    <p>[Completar: qué datos personales y de salud se recopilan a través del Landing Page y la Web Application.]</p>
+    <div data-lang="es">
+      <p>Esta política explica cómo Vitalita trata los datos personales de quienes usan la plataforma, conforme a la Ley N.º 29733, Ley de Protección de Datos Personales, y su Reglamento.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>This policy explains how Vitalita processes the personal data of those who use the platform, in accordance with Peru's Law No. 29733, the Personal Data Protection Law, and its Regulations.</p>
+    </div>
 
-    <h2>2. Finalidad del tratamiento</h2>
-    <p>[Completar: para qué se usan los datos recopilados.]</p>
+    <h2 data-i18n-es="1. Responsable del tratamiento" data-i18n-en="1. Data controller">1. Responsable del tratamiento</h2>
+    <div data-lang="es">
+      <p>El titular del banco de datos personales y responsable de su tratamiento es [Completar: razón social de la empresa], con RUC [Completar: RUC de la empresa] y domicilio en [Completar: dirección física de la empresa].</p>
+      <p>Banco de datos inscrito en el Registro Nacional de Protección de Datos Personales con código [Completar: código de inscripción del banco de datos].</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>The owner of the personal data bank and the party responsible for its processing is [To complete: company legal name], with RUC (tax ID) [To complete: company RUC] and registered address at [To complete: company physical address].</p>
+      <p>Data bank registered in Peru's National Registry for the Protection of Personal Data under code [To complete: data bank registration code].</p>
+    </div>
 
-    <h2>3. Derechos del usuario</h2>
-    <p>[Completar: cómo un usuario puede acceder, rectificar o eliminar sus datos.]</p>
+    <h2 data-i18n-es="2. Datos que recopilamos" data-i18n-en="2. Data we collect">2. Datos que recopilamos</h2>
+    <div data-lang="es">
+      <ul>
+        <li><strong>Datos de la cuenta:</strong> nombre, correo electrónico, teléfono y tipo de cuenta (enfermera/cuidadora o familiar).</li>
+        <li><strong>Datos del paciente:</strong> nombre, edad y datos de contacto del adulto mayor bajo cuidado.</li>
+        <li><strong>Datos de salud del paciente:</strong> signos vitales, estado de ánimo, medicamentos, citas, resultados de exámenes, fotografías adjuntas y notas de cuidado.</li>
+        <li><strong>Datos de uso:</strong> información técnica necesaria para operar el servicio, como fecha y hora de acceso.</li>
+      </ul>
+      <p>Los datos de salud son <strong>datos sensibles</strong> según la Ley N.º 29733 y reciben una protección reforzada.</p>
+      <p>Este sitio informativo (Landing Page) no tiene formularios ni usa cookies; solo guarda en su navegador el idioma elegido (español o inglés). Carga tipografías e íconos desde servicios externos (Google Fonts y cdnjs), que reciben datos técnicos de la conexión, como la dirección IP.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <ul>
+        <li><strong>Account data:</strong> name, email address, phone number and account type (nurse/caregiver or family member).</li>
+        <li><strong>Patient data:</strong> name, age and contact details of the older adult under care.</li>
+        <li><strong>Patient health data:</strong> vital signs, mood, medication, appointments, test results, attached photographs and care notes.</li>
+        <li><strong>Usage data:</strong> technical information needed to operate the service, such as date and time of access.</li>
+      </ul>
+      <p>Health data is <strong>sensitive data</strong> under Law No. 29733 and receives reinforced protection.</p>
+      <p>This informational site (Landing Page) has no forms and uses no cookies; it only stores your chosen language (Spanish or English) in your browser. It loads fonts and icons from external services (Google Fonts and cdnjs), which receive technical connection data such as the IP address.</p>
+    </div>
 
-    <h2>4. Contacto</h2>
-    <p>Para consultas sobre privacidad: <a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a></p>
+    <h2 data-i18n-es="3. Finalidad del tratamiento" data-i18n-en="3. Purpose of processing">3. Finalidad del tratamiento</h2>
+    <div data-lang="es">
+      <p>Tratamos los datos únicamente para las siguientes finalidades:</p>
+      <ul>
+        <li>Crear y administrar las cuentas de las personas usuarias.</li>
+        <li>Registrar y mostrar el seguimiento de salud del paciente a las personas autorizadas.</li>
+        <li>Generar reportes y enviar alertas y recordatorios de citas y controles.</li>
+        <li>Brindar soporte y atender consultas, quejas y reclamos.</li>
+        <li>Mantener la seguridad de la plataforma y cumplir obligaciones legales.</li>
+      </ul>
+      <p>No vendemos datos personales ni los usamos para finalidades distintas de las aquí indicadas sin un nuevo consentimiento.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>We process data only for the following purposes:</p>
+      <ul>
+        <li>Creating and managing user accounts.</li>
+        <li>Recording the patient's health monitoring and showing it to authorized people.</li>
+        <li>Generating reports and sending alerts and reminders for appointments and check-ups.</li>
+        <li>Providing support and handling questions, complaints and claims.</li>
+        <li>Keeping the platform secure and complying with legal obligations.</li>
+      </ul>
+      <p>We do not sell personal data or use it for purposes other than those stated here without new consent.</p>
+    </div>
+
+    <h2 data-i18n-es="4. Consentimiento" data-i18n-en="4. Consent">4. Consentimiento</h2>
+    <div data-lang="es">
+      <p>El tratamiento se realiza con el consentimiento previo, informado, expreso e inequívoco del titular de los datos. Al tratarse de datos sensibles, el consentimiento se solicita además por escrito, mediante un medio digital que permita dejar constancia.</p>
+      <p>Quien registra los datos de un adulto mayor declara contar con el consentimiento de esa persona o, si no puede otorgarlo por sí misma, con el de su representante legal.</p>
+      <p>El consentimiento puede revocarse en cualquier momento, sin efecto retroactivo, escribiendo al correo indicado en la sección de contacto.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>Processing is carried out with the prior, informed, express and unequivocal consent of the data subject. Because sensitive data is involved, consent is also requested in writing, through a digital means that leaves a record.</p>
+      <p>Whoever records the data of an older adult declares that they have that person's consent or, if the person cannot give it themselves, the consent of their legal representative.</p>
+      <p>Consent may be withdrawn at any time, without retroactive effect, by writing to the email address in the contact section.</p>
+    </div>
+
+    <h2 data-i18n-es="5. Principios que aplicamos" data-i18n-en="5. Principles we apply">5. Principios que aplicamos</h2>
+    <div data-lang="es">
+      <p>Tratamos los datos conforme a los principios rectores de la Ley N.º 29733:</p>
+      <ul>
+        <li><strong>Legalidad:</strong> no recopilamos datos por medios fraudulentos, desleales o ilícitos.</li>
+        <li><strong>Consentimiento:</strong> tratamos los datos solo con la autorización de su titular.</li>
+        <li><strong>Finalidad:</strong> recopilamos los datos para finalidades determinadas, explícitas y lícitas.</li>
+        <li><strong>Proporcionalidad:</strong> solo pedimos los datos adecuados, relevantes y no excesivos para esas finalidades.</li>
+        <li><strong>Calidad:</strong> procuramos que los datos sean veraces y exactos, y que estén actualizados.</li>
+        <li><strong>Seguridad:</strong> adoptamos medidas técnicas, organizativas y legales para proteger los datos.</li>
+        <li><strong>Disposición de recurso:</strong> el titular cuenta con vías administrativas y judiciales para reclamar y hacer valer sus derechos.</li>
+        <li><strong>Nivel de protección adecuado:</strong> si los datos se transfieren fuera del país, exigimos un nivel de protección suficiente.</li>
+      </ul>
+    </div>
+    <div data-lang="en" hidden>
+      <p>We process data in accordance with the guiding principles of Law No. 29733:</p>
+      <ul>
+        <li><strong>Legality:</strong> we do not collect data by fraudulent, unfair or unlawful means.</li>
+        <li><strong>Consent:</strong> we process data only with the authorization of the data subject.</li>
+        <li><strong>Purpose:</strong> we collect data for specific, explicit and lawful purposes.</li>
+        <li><strong>Proportionality:</strong> we only ask for data that is adequate, relevant and not excessive for those purposes.</li>
+        <li><strong>Quality:</strong> we seek to keep data truthful, accurate and up to date.</li>
+        <li><strong>Security:</strong> we adopt technical, organizational and legal measures to protect data.</li>
+        <li><strong>Recourse:</strong> the data subject has administrative and judicial channels to make claims and enforce their rights.</li>
+        <li><strong>Adequate level of protection:</strong> if data is transferred outside the country, we require a sufficient level of protection.</li>
+      </ul>
+    </div>
+
+    <h2 data-i18n-es="6. Con quién se comparten los datos" data-i18n-en="6. Who data is shared with">6. Con quién se comparten los datos</h2>
+    <div data-lang="es">
+      <ul>
+        <li>Con las personas vinculadas al paciente dentro de la plataforma (su enfermera o cuidadora y sus familiares autorizados).</li>
+        <li>Con proveedores que nos prestan servicios tecnológicos como encargados de tratamiento, bajo obligaciones de confidencialidad: [Completar: proveedores de hosting, base de datos y pagos].</li>
+        <li>Con autoridades competentes, cuando la ley lo exija.</li>
+      </ul>
+      <p><strong>Flujo transfronterizo:</strong> [Completar: país donde se alojan los servidores y proveedor que realiza el alojamiento].</p>
+    </div>
+    <div data-lang="en" hidden>
+      <ul>
+        <li>With the people linked to the patient within the platform (their nurse or caregiver and their authorized family members).</li>
+        <li>With providers that supply us with technology services as data processors, under confidentiality obligations: [To complete: hosting, database and payment providers].</li>
+        <li>With competent authorities, when required by law.</li>
+      </ul>
+      <p><strong>Cross-border transfer:</strong> [To complete: country where the servers are hosted and the hosting provider].</p>
+    </div>
+
+    <h2 data-i18n-es="7. Plazo de conservación" data-i18n-en="7. Retention period">7. Plazo de conservación</h2>
+    <div data-lang="es">
+      <p>Conservamos los datos mientras la cuenta esté activa y durante el tiempo necesario para cumplir las finalidades descritas y las obligaciones legales aplicables. Después se eliminan o se anonimizan. [Completar: plazo de conservación tras el cierre de la cuenta.]</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>We keep data while the account is active and for as long as necessary to fulfil the purposes described and the applicable legal obligations. After that it is deleted or anonymized. [To complete: retention period after the account is closed.]</p>
+    </div>
+
+    <h2 data-i18n-es="8. Seguridad" data-i18n-en="8. Security">8. Seguridad</h2>
+    <div data-lang="es">
+      <p>Aplicamos medidas técnicas y organizativas para evitar la pérdida, alteración o acceso no autorizado a los datos, y limitamos el acceso a la información de cada paciente a las personas vinculadas a su cuidado. [Completar: medidas de seguridad implementadas en la Web Application.]</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>We apply technical and organizational measures to prevent the loss or alteration of data and unauthorized access to it, and we limit access to each patient's information to the people linked to their care. [To complete: security measures implemented in the Web Application.]</p>
+    </div>
+
+    <h2 data-i18n-es="9. Derechos del titular (derechos ARCO)" data-i18n-en="9. Data subject rights (ARCO rights)">9. Derechos del titular (derechos ARCO)</h2>
+    <div data-lang="es">
+      <p>El titular de los datos personales puede ejercer en cualquier momento, de forma gratuita, los siguientes derechos:</p>
+      <ul>
+        <li><strong>Acceso:</strong> conocer qué datos suyos tratamos, cómo fueron recopilados, para qué y con quién se comparten.</li>
+        <li><strong>Rectificación:</strong> actualizar, corregir o completar los datos inexactos o incompletos.</li>
+        <li><strong>Cancelación:</strong> solicitar la supresión de los datos cuando ya no sean necesarios para la finalidad con que se recopilaron o cuando revoque su consentimiento.</li>
+        <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos cuando exista un motivo legítimo.</li>
+      </ul>
+      <p>Para ejercerlos, envíe una solicitud a <a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a> indicando su nombre completo, una copia de su documento de identidad, el derecho que desea ejercer y los datos a los que se refiere. Si actúa en representación de otra persona, adjunte el documento que lo acredite. Responderemos dentro de los plazos establecidos en el Reglamento de la Ley N.º 29733.</p>
+      <p>Si considera que su solicitud no fue atendida adecuadamente, puede presentar una reclamación ante la Autoridad Nacional de Protección de Datos Personales del Ministerio de Justicia y Derechos Humanos.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>The data subject may exercise the following rights at any time, free of charge:</p>
+      <ul>
+        <li><strong>Access:</strong> to know which of your data we process, how it was collected, for what purpose and with whom it is shared.</li>
+        <li><strong>Rectification:</strong> to update, correct or complete inaccurate or incomplete data.</li>
+        <li><strong>Cancellation:</strong> to request the deletion of data when it is no longer necessary for the purpose for which it was collected, or when you withdraw your consent.</li>
+        <li><strong>Opposition:</strong> to object to the processing of your data when there is a legitimate reason.</li>
+      </ul>
+      <p>To exercise them, send a request to <a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a> stating your full name, a copy of your identity document, the right you wish to exercise and the data it refers to. If you are acting on behalf of another person, attach the document that proves it. We will respond within the time limits set by the Regulations of Law No. 29733.</p>
+      <p>If you believe your request was not handled properly, you may file a claim with the National Authority for the Protection of Personal Data (Autoridad Nacional de Protección de Datos Personales) of Peru's Ministry of Justice and Human Rights.</p>
+    </div>
+
+    <h2 data-i18n-es="10. Cambios en esta política" data-i18n-en="10. Changes to this policy">10. Cambios en esta política</h2>
+    <div data-lang="es">
+      <p>Podemos actualizar esta política. Los cambios se publicarán en esta página con su fecha de actualización y, cuando sean relevantes, se comunicarán a las personas usuarias registradas.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>We may update this policy. Changes will be published on this page with their update date and, when relevant, will be communicated to registered users.</p>
+    </div>
+
+    <h2 data-i18n-es="11. Contacto" data-i18n-en="11. Contact">11. Contacto</h2>
+    <div data-lang="es">
+      <p>Para consultas sobre privacidad: <a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a></p>
+      <p>[Completar: teléfono de contacto de la empresa]</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>For privacy questions: <a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a></p>
+      <p>[To complete: company contact phone number]</p>
+    </div>
   </main>
+
+  <script src="assets/scripts/main.js"></script>
 </body>
 </html>

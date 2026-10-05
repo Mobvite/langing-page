@@ -11,35 +11,199 @@
   <style>
     /* Estilos mínimos solo para esta página legal, no forman parte del Style Guide del Landing */
     .legal-page { position: relative; z-index: 1; max-width: 760px; margin: 64px auto; padding: 0 24px 96px; }
+    .legal-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
     .legal-page h1 { font-weight: 300; font-size: 1.8rem; margin-bottom: 8px; color: var(--color-text); }
     .legal-page p, .legal-page li { font-weight: 300; color: var(--color-text); line-height: 1.7; margin-bottom: 12px; }
     .legal-page h2 { font-weight: 500; font-size: 1.1rem; margin: 28px 0 10px; color: var(--color-text); }
-    .legal-page a.back-link { display: inline-block; margin-bottom: 24px; color: var(--color-text); text-decoration: none; }
+    .legal-page ul { padding-left: 20px; }
+    .legal-page strong { font-weight: 500; }
+    .legal-page a { color: var(--color-text); }
+    .legal-page a.back-link { text-decoration: none; }
   </style>
 </head>
 <body>
-  <div class="glow-circle" aria-hidden="true" style="width:900px;height:900px;top:-15%;left:20%;"></div>
+  <div class="glow-circle" aria-hidden="true" style="width:min(900px,80vw);height:900px;top:-15%;left:20%;"></div>
   <main class="legal-page">
-    <a href="index.html" class="back-link">&larr; Volver al inicio</a>
-    <h1>Términos y Condiciones del Servicio</h1>
-    <p><em>Última actualización: [completar fecha]</em></p>
+    <div class="legal-top">
+      <a href="index.html" class="back-link" data-i18n-es="&larr; Volver al inicio" data-i18n-en="&larr; Back to home">&larr; Volver al inicio</a>
+      <button class="btn-lang" id="lang-toggle" aria-label="Cambiar idioma / Switch language" title="ES / EN">
+        <span class="lang-option" data-lang-option="en">EN</span>
+        <span class="lang-option active" data-lang-option="es">ES</span>
+      </button>
+    </div>
+    <h1 data-i18n-es="Términos y Condiciones del Servicio" data-i18n-en="Terms and Conditions of Service">Términos y Condiciones del Servicio</h1>
+    <p><em data-i18n-es="Última actualización: 5 de octubre de 2026" data-i18n-en="Last updated: October 5, 2026">Última actualización: 5 de octubre de 2026</em></p>
 
-    <!-- TODO: redactar según el código de ética ACM/IEEE y del CIP; hoy es solo estructura, no texto legal -->
+    <!-- Texto genérico basado en el Código de Ética y Práctica Profesional de Ingeniería de Software (ACM/IEEE-CS).
+         TODO: completar los placeholders "[Completar: ...]" / "[To complete: ...]" y hacer revisar el documento por un asesor legal antes de publicarlo.
+         Cada sección tiene su texto en dos bloques, data-lang="es" y data-lang="en": al editar uno, actualizar también el otro. -->
 
-    <h2>1. Aceptación de los términos</h2>
-    <p>[Completar: condiciones de uso de la plataforma Vitalita por parte de cuidadoras, enfermeras y familiares.]</p>
+    <div data-lang="es">
+      <p>Estos Términos y Condiciones regulan el uso de Vitalita, una plataforma de registro y seguimiento geriátrico operada por [Completar: razón social de la empresa], con RUC [Completar: RUC de la empresa] y domicilio en [Completar: dirección física de la empresa] (en adelante, "Vitalita").</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>These Terms and Conditions govern the use of Vitalita, a geriatric record-keeping and monitoring platform operated by [To complete: company legal name], with RUC (tax ID) [To complete: company RUC] and registered address at [To complete: company physical address] (hereinafter, "Vitalita").</p>
+    </div>
 
-    <h2>2. Uso de datos médicos y de salud</h2>
-    <p>[Completar: cómo se recopilan, almacenan y protegen los datos de salud registrados en la plataforma.]</p>
+    <h2 data-i18n-es="1. Aceptación de los términos" data-i18n-en="1. Acceptance of the terms">1. Aceptación de los términos</h2>
+    <div data-lang="es">
+      <p>Al crear una cuenta o utilizar la plataforma, la persona usuaria declara haber leído y aceptado estos Términos y la <a href="privacy.html">Política de Privacidad y Tratamiento de Datos</a>. Si no está de acuerdo con ellos, no debe utilizar el servicio.</p>
+      <p>Para registrarse es necesario ser mayor de edad y proporcionar información verdadera y actualizada.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>By creating an account or using the platform, the user declares that they have read and accepted these Terms and the <a href="privacy.html">Privacy and Data Processing Policy</a>. If you do not agree with them, you must not use the service.</p>
+      <p>To register, you must be of legal age and provide true and up-to-date information.</p>
+    </div>
 
-    <h2>3. Responsabilidad del servicio</h2>
-    <p>[Completar: Vitalita es una herramienta de apoyo al registro y seguimiento, no un servicio médico de emergencia.]</p>
+    <h2 data-i18n-es="2. Descripción del servicio" data-i18n-en="2. Description of the service">2. Descripción del servicio</h2>
+    <div data-lang="es">
+      <p>Vitalita permite a enfermeras y cuidadoras registrar información del cuidado diario de un adulto mayor (signos vitales, estado de ánimo, medicamentos, citas, exámenes y notas) y a los familiares autorizados consultar esa información, recibir recordatorios y descargar reportes.</p>
+      <p>La plataforma distingue dos tipos de cuenta:</p>
+      <ul>
+        <li><strong>Enfermera o cuidadora:</strong> registra y mantiene la información del paciente a su cargo.</li>
+        <li><strong>Familiar:</strong> consulta la información del paciente con quien ha sido vinculado.</li>
+      </ul>
+    </div>
+    <div data-lang="en" hidden>
+      <p>Vitalita allows nurses and caregivers to record information about the daily care of an older adult (vital signs, mood, medication, appointments, lab tests and notes), and allows authorized family members to view that information, receive reminders and download reports.</p>
+      <p>The platform has two types of account:</p>
+      <ul>
+        <li><strong>Nurse or caregiver:</strong> records and maintains the information of the patient in their care.</li>
+        <li><strong>Family member:</strong> views the information of the patient they have been linked to.</li>
+      </ul>
+    </div>
 
-    <h2>4. Código de ética aplicado</h2>
-    <p>[Completar: referencia explícita a los principios ACM/IEEE y CIP aplicados por el equipo durante el desarrollo.]</p>
+    <h2 data-i18n-es="3. Obligaciones de la persona usuaria" data-i18n-en="3. User obligations">3. Obligaciones de la persona usuaria</h2>
+    <div data-lang="es">
+      <ul>
+        <li>Registrar información veraz, completa y oportuna. La utilidad de la plataforma depende de la calidad de los datos ingresados.</li>
+        <li>Registrar datos de un paciente únicamente si cuenta con su consentimiento o con el de su representante legal.</li>
+        <li>Mantener la confidencialidad de sus credenciales y no compartir su cuenta con terceros.</li>
+        <li>Acceder solo a la información de los pacientes con los que ha sido vinculada y no divulgarla fuera del círculo de cuidado.</li>
+        <li>No utilizar la plataforma para fines ilícitos ni intentar vulnerar su seguridad.</li>
+      </ul>
+    </div>
+    <div data-lang="en" hidden>
+      <ul>
+        <li>Record truthful, complete and timely information. The usefulness of the platform depends on the quality of the data entered.</li>
+        <li>Record a patient's data only with the consent of the patient or of their legal representative.</li>
+        <li>Keep your credentials confidential and do not share your account with third parties.</li>
+        <li>Access only the information of the patients you have been linked to, and do not disclose it outside the circle of care.</li>
+        <li>Do not use the platform for unlawful purposes or attempt to breach its security.</li>
+      </ul>
+    </div>
 
-    <h2>5. Contacto</h2>
-    <p>Para consultas sobre estos términos: <a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a></p>
+    <h2 id="medical-disclaimer" data-i18n-es="4. Aviso legal y uso médico" data-i18n-en="4. Legal notice and medical use">4. Aviso legal y uso médico</h2>
+    <div data-lang="es">
+      <p>Vitalita es una herramienta de apoyo al registro y seguimiento. <strong>No es un dispositivo médico, no emite diagnósticos ni indica tratamientos, y no reemplaza la evaluación de un profesional de la salud.</strong></p>
+      <p>Vitalita no es un servicio de emergencias. Ante una urgencia médica, la persona usuaria debe comunicarse de inmediato con los servicios de emergencia o acudir al establecimiento de salud más cercano.</p>
+      <p>Las alertas, gráficos y recordatorios son referenciales y dependen de la información registrada por las personas usuarias. Las decisiones sobre la salud del paciente deben ser tomadas por profesionales de la salud.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>Vitalita is a tool that supports record-keeping and monitoring. <strong>It is not a medical device, it does not issue diagnoses or prescribe treatments, and it does not replace the assessment of a healthcare professional.</strong></p>
+      <p>Vitalita is not an emergency service. In a medical emergency, the user must immediately contact the emergency services or go to the nearest healthcare facility.</p>
+      <p>Alerts, charts and reminders are for reference only and depend on the information recorded by users. Decisions about the patient's health must be made by healthcare professionals.</p>
+    </div>
+
+    <h2 data-i18n-es="5. Planes y pagos" data-i18n-en="5. Plans and payments">5. Planes y pagos</h2>
+    <div data-lang="es">
+      <p>Vitalita ofrece un plan gratuito y planes de pago, cuyas características y precios vigentes se muestran en la sección de planes del sitio. La persona usuaria puede cancelar su suscripción en cualquier momento.</p>
+      <p>[Completar: condiciones de facturación, renovación, medios de pago aceptados y política de reembolsos.]</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>Vitalita offers a free plan and paid plans, whose current features and prices are shown in the plans section of the site. The user may cancel their subscription at any time.</p>
+      <p>[To complete: billing and renewal conditions, accepted payment methods and refund policy.]</p>
+    </div>
+
+    <h2 data-i18n-es="6. Compromiso ético del equipo" data-i18n-en="6. The team's ethical commitment">6. Compromiso ético del equipo</h2>
+    <div data-lang="es">
+      <p>El equipo de Vitalita desarrolla y opera la plataforma siguiendo los ocho principios del Código de Ética y Práctica Profesional de Ingeniería de Software de la ACM y la IEEE Computer Society, y de forma complementaria el Código de Ética del Colegio de Ingenieros del Perú. Aplicados a una plataforma de seguimiento geriátrico, esos principios significan lo siguiente:</p>
+      <ul>
+        <li><strong>Público:</strong> actuamos en coherencia con el interés público. La salud, la seguridad y la privacidad de los adultos mayores y de sus familias están por encima de cualquier interés comercial.</li>
+        <li><strong>Cliente y empleador:</strong> actuamos en el mejor interés de quienes usan la plataforma, siempre que sea coherente con el interés público, y mantenemos la confidencialidad de la información que nos confían.</li>
+        <li><strong>Producto:</strong> buscamos que la plataforma cumpla los más altos estándares profesionales posibles: la probamos antes de publicarla, corregimos los errores que detectamos y no prometemos funciones que no ofrece.</li>
+        <li><strong>Juicio:</strong> mantenemos integridad e independencia en nuestro juicio profesional y no aprobamos software que consideremos inseguro para los pacientes.</li>
+        <li><strong>Gestión:</strong> quienes lideran el proyecto promueven una gestión ética del desarrollo y el mantenimiento, con plazos y expectativas realistas.</li>
+        <li><strong>Profesión:</strong> cuidamos la integridad y reputación de la profesión, con comunicación honesta sobre las capacidades y límites del producto.</li>
+        <li><strong>Colegas:</strong> somos justos con nuestros compañeros de equipo, reconocemos su trabajo y nos apoyamos mutuamente.</li>
+        <li><strong>Persona:</strong> nos comprometemos con el aprendizaje continuo para mejorar la calidad, la seguridad y la accesibilidad de lo que construimos.</li>
+      </ul>
+    </div>
+    <div data-lang="en" hidden>
+      <p>The Vitalita team develops and operates the platform following the eight principles of the Software Engineering Code of Ethics and Professional Practice of the ACM and the IEEE Computer Society and, as a complement, the Code of Ethics of the Colegio de Ingenieros del Perú. Applied to a geriatric monitoring platform, those principles mean the following:</p>
+      <ul>
+        <li><strong>Public:</strong> we act consistently with the public interest. The health, safety and privacy of older adults and their families come before any commercial interest.</li>
+        <li><strong>Client and employer:</strong> we act in the best interests of those who use the platform, consistent with the public interest, and we keep the information they entrust to us confidential.</li>
+        <li><strong>Product:</strong> we aim for the platform to meet the highest professional standards possible: we test it before releasing it, we fix the errors we detect, and we do not promise features it does not offer.</li>
+        <li><strong>Judgment:</strong> we maintain integrity and independence in our professional judgment and do not approve software we consider unsafe for patients.</li>
+        <li><strong>Management:</strong> those who lead the project promote an ethical approach to managing development and maintenance, with realistic deadlines and expectations.</li>
+        <li><strong>Profession:</strong> we look after the integrity and reputation of the profession, communicating honestly about the product's capabilities and limits.</li>
+        <li><strong>Colleagues:</strong> we are fair to our teammates, credit their work and support one another.</li>
+        <li><strong>Self:</strong> we commit to lifelong learning to improve the quality, safety and accessibility of what we build.</li>
+      </ul>
+    </div>
+
+    <h2 data-i18n-es="7. Propiedad intelectual" data-i18n-en="7. Intellectual property">7. Propiedad intelectual</h2>
+    <div data-lang="es">
+      <p>El software, la marca, el diseño y los contenidos de Vitalita pertenecen a sus titulares. La información de salud registrada pertenece al paciente y a las personas usuarias que la ingresan; Vitalita la trata únicamente para prestar el servicio, conforme a la Política de Privacidad.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>Vitalita's software, brand, design and content belong to their owners. The recorded health information belongs to the patient and to the users who enter it; Vitalita processes it only to provide the service, in accordance with the Privacy Policy.</p>
+    </div>
+
+    <h2 data-i18n-es="8. Disponibilidad y limitación de responsabilidad" data-i18n-en="8. Availability and limitation of liability">8. Disponibilidad y limitación de responsabilidad</h2>
+    <div data-lang="es">
+      <p>Trabajamos para que el servicio esté disponible de forma continua, pero puede interrumpirse por mantenimiento, fallas técnicas o causas ajenas a nuestro control. Vitalita no se responsabiliza por los daños derivados de información incorrecta o incompleta registrada por las personas usuarias, ni por decisiones médicas tomadas con base en ella.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>We work to keep the service continuously available, but it may be interrupted by maintenance, technical failures or causes beyond our control. Vitalita is not liable for damage arising from incorrect or incomplete information recorded by users, nor for medical decisions made on the basis of it.</p>
+    </div>
+
+    <h2 data-i18n-es="9. Suspensión y cancelación de cuentas" data-i18n-en="9. Account suspension and cancellation">9. Suspensión y cancelación de cuentas</h2>
+    <div data-lang="es">
+      <p>La persona usuaria puede cancelar su cuenta en cualquier momento. Vitalita puede suspender o cancelar cuentas que incumplan estos Términos, en especial ante accesos no autorizados a información de pacientes.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>The user may cancel their account at any time. Vitalita may suspend or cancel accounts that breach these Terms, especially in cases of unauthorized access to patient information.</p>
+    </div>
+
+    <h2 id="complaints-book" data-i18n-es="10. Libro de Reclamaciones" data-i18n-en="10. Complaints Book">10. Libro de Reclamaciones</h2>
+    <div data-lang="es">
+      <p>Conforme al Código de Protección y Defensa del Consumidor (Ley N.º 29571), Vitalita pone a disposición de las personas usuarias un Libro de Reclamaciones para registrar quejas y reclamos sobre el servicio.</p>
+      <p>[Completar: enlace al Libro de Reclamaciones virtual.] Mientras tanto, puede enviar su queja o reclamo a <a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a>.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>In accordance with Peru's Consumer Protection and Defense Code (Law No. 29571), Vitalita makes a Complaints Book (Libro de Reclamaciones) available to users to register complaints and claims about the service.</p>
+      <p>[To complete: link to the online Complaints Book.] In the meantime, you can send your complaint or claim to <a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a>.</p>
+    </div>
+
+    <h2 data-i18n-es="11. Modificaciones" data-i18n-en="11. Changes">11. Modificaciones</h2>
+    <div data-lang="es">
+      <p>Vitalita puede actualizar estos Términos. Los cambios se publicarán en esta página con su fecha de actualización y, cuando sean relevantes, se comunicarán a las personas usuarias registradas.</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>Vitalita may update these Terms. Changes will be published on this page with their update date and, when relevant, will be communicated to registered users.</p>
+    </div>
+
+    <h2 data-i18n-es="12. Ley aplicable" data-i18n-en="12. Governing law">12. Ley aplicable</h2>
+    <div data-lang="es">
+      <p>Estos Términos se rigen por las leyes de la República del Perú. Cualquier controversia se someterá a los jueces y tribunales competentes de [Completar: ciudad / distrito judicial].</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>These Terms are governed by the laws of the Republic of Peru. Any dispute will be submitted to the competent courts of [To complete: city / judicial district].</p>
+    </div>
+
+    <h2 data-i18n-es="13. Contacto" data-i18n-en="13. Contact">13. Contacto</h2>
+    <div data-lang="es">
+      <p>Para consultas sobre estos términos: <a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a></p>
+      <p>[Completar: teléfono de contacto de la empresa]</p>
+    </div>
+    <div data-lang="en" hidden>
+      <p>For questions about these terms: <a href="mailto:soporte@vitalita.pe">soporte@vitalita.pe</a></p>
+      <p>[To complete: company contact phone number]</p>
+    </div>
   </main>
+
+  <script src="assets/scripts/main.js"></script>
 </body>
 </html>

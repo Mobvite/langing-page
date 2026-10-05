@@ -430,12 +430,14 @@ section {
 /* ========================================
    FEATURE PANELS (Para Cuidadoras / Para Familias)
 ======================================== */
+.product,
 .for-caregivers,
 .for-families {
   padding: 88px 48px;
   text-align: center;
 }
 
+.product .glow-circle,
 .for-caregivers .glow-circle,
 .for-families .glow-circle {
   width: 850px;
@@ -444,6 +446,8 @@ section {
   left: 15%;
 }
 
+.product h2,
+.cta h2,
 .for-caregivers h2,
 .for-families h2 {
   position: relative;
@@ -527,6 +531,60 @@ section {
   background-color: var(--btn-cta-purple-bg);
   backdrop-filter: blur(var(--blur-xs));
   -webkit-backdrop-filter: blur(var(--blur-xs));
+  color: var(--color-text);
+}
+
+
+/* ========================================
+   QUÉ ES VITALITA + CALL TO ACTION
+   Reutilizan .feature-panel, .section-subtitle y .btn-cta-panel
+======================================== */
+
+.product-description {
+  max-width: 700px;
+  margin: 0 auto 32px;
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* Placeholder hasta tener el video / screenshots reales */
+.product-media-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-card);
+  background-color: var(--glass-card-bg);
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.product-media-placeholder i {
+  font-size: 2rem;
+}
+
+.cta {
+  padding: 0 48px 88px;
+  text-align: center;
+}
+
+.cta-contact {
+  margin-top: 24px;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.cta-contact a {
   color: var(--color-text);
 }
 
@@ -1220,6 +1278,7 @@ section {
 
   /* --- Secciones con padding reducido --- */
   .benefits,
+  .product,
   .for-caregivers,
   .for-families,
   .pricing,
@@ -1232,6 +1291,10 @@ section {
 
   .faq {
     padding-bottom: 0;
+  }
+
+  .cta {
+    padding: 0 20px 56px;
   }
 
   .benefits-card {

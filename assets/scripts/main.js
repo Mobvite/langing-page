@@ -42,6 +42,8 @@ var scrollSpyObserver = new IntersectionObserver(
         entries.forEach(function (entry) {
             if (entry.isIntersecting) {
                 var currentSectionId = entry.target.getAttribute('id');
+                // Secciones sin link en el navbar (product, cta) no cambian el resaltado
+                if (!document.querySelector('.nav-link[href="#' + currentSectionId + '"]')) return;
                 allNavLinks.forEach(function (link) {
                     var linkTargetId = link.getAttribute('href').replace('#', '');
                     link.classList.toggle('active', linkTargetId === currentSectionId);

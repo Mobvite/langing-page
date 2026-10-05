@@ -333,7 +333,7 @@ section {
 .hero-badge-standards { top: 46%; left: -20%; font-size: 0.68rem; }
 .hero-badge-social-proof {
     bottom: 6%;
-    right: -12%;
+    right: -8%;
     flex-direction: row;
     text-align: left;
     padding: 16px 22px;
@@ -1133,70 +1133,23 @@ section {
 /* ========================================
    RESPONSIVE - MEDIA QUERIES
    Mismos breakpoints que el repo de referencia (NexoU): tablet 900px, móvil 640px.
+   Más dos ajustes puntuales a 1200px y 1100px para el Hero y el navbar.
 ======================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
 
-  .navbar {
-    padding: 12px 20px;
-    margin: 16px 16px 0;
-  }
-
-  .hero {
-    padding: 48px 32px 72px;
-  }
-
-  .hero-text h1 {
-    font-size: 2.1rem;
-  }
-
-  .hero-image {
-    height: 420px;
-  }
-
+  /* El badge ancho se sale del Hero y pisa el texto por debajo de 1200px */
   .hero-badge-standards { display: none; }
-
-  .benefits-comparison {
-    flex-direction: column;
-  }
-
-  .benefits-arrow {
-    transform: rotate(90deg);
-  }
-
-  .feature-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .feature-item {
-    border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 24px 0 0;
-    max-width: 100%;
-  }
-
-  .feature-item:first-child {
-    border-top: none;
-    padding-top: 0;
-  }
-
-  .footer {
-    padding: 0 20px 32px;
-  }
-
-  .footer-panel {
-    padding: 32px 28px;
-  }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1100px) {
 
-  /* --- Navbar en celular: mismo patrón de menú hamburguesa que NexoU --- */
+  /* --- Navbar en tablet y celular: mismo patrón de menú hamburguesa que NexoU.
+     Por debajo de 1100px los 7 links ya no caben en una fila junto a los botones --- */
   .navbar {
     flex-wrap: wrap;
     padding: 12px 20px;
+    margin: 16px 16px 0;
   }
 
   .hamburger-menu {
@@ -1236,6 +1189,58 @@ section {
   .btn-login, .btn-trial, .btn-lang {
     text-align: center;
   }
+}
+
+@media (max-width: 900px) {
+
+  .hero {
+    padding: 48px 32px 72px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero-image {
+    height: 420px;
+  }
+
+  .benefits-comparison {
+    flex-direction: column;
+  }
+
+  .benefits-arrow {
+    transform: rotate(90deg);
+  }
+
+  .feature-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .feature-item {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 24px 0 0;
+    max-width: 100%;
+  }
+
+  .feature-item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .footer {
+    padding: 0 20px 32px;
+  }
+
+  .footer-panel {
+    padding: 32px 28px;
+  }
+}
+
+@media (max-width: 640px) {
 
   /* --- Hero apilado en columna --- */
   .hero {
@@ -1260,8 +1265,13 @@ section {
 
   .hero-image {
     flex: none;
+    flex-direction: column;
     width: 100%;
-    height: 340px;
+    height: auto;
+  }
+
+  .hero-illustration-placeholder {
+    height: 300px;
   }
 
   .hero-badge {

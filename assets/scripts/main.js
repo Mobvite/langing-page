@@ -62,21 +62,6 @@ sectionsToObserve.forEach(function (section) {
 });
 
 
-// ============================================
-// CTAs hacia la Web Application
-// Todavía no hay rutas reales: se evita la navegación y se loguea la ruta destino.
-// ============================================
-
-var placeholderRouteLinks = document.querySelectorAll('[data-target-route]');
-
-placeholderRouteLinks.forEach(function (link) {
-    link.addEventListener('click', function (event) {
-        event.preventDefault();
-        var targetRoute = link.getAttribute('data-target-route');
-        console.info('[Vitalita Landing] TODO: redirigir a la Web Application ->', targetRoute);
-    });
-});
-
 // Links placeholder (href="#") sin destino real todavía, p. ej. redes sociales:
 // sin esto el navegador salta al inicio de la página al hacer clic.
 var placeholderLinks = document.querySelectorAll('a[href="#"]');

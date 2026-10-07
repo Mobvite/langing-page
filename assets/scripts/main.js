@@ -31,6 +31,22 @@ allNavLinks.forEach(function (link) {
 
 
 // ============================================
+// NAVBAR: sombra más marcada cuando la página ya se desplazó
+// ============================================
+
+var navbar = document.querySelector('.navbar');
+
+function updateNavbarShadow() {
+    navbar.classList.toggle('is-scrolled', window.scrollY > 8);
+}
+
+if (navbar) {
+    updateNavbarShadow();
+    window.addEventListener('scroll', updateNavbarShadow, { passive: true });
+}
+
+
+// ============================================
 // SCROLLSPY: resalta el link del navbar según la sección visible
 // "Sobre Nosotros" agrupa tres sub-secciones dentro de <section id="about">.
 // ============================================
@@ -206,14 +222,17 @@ var teamDots = document.querySelectorAll('.team-dot');
 var activeTeamIndex = 0;
 var teamTimer = null;
 
-// Un punto por posición: la ventana muestra 3 integrantes y avanza de a uno
-function showTeamMember(index) {
+// Un punto por posición: cada grupo es una ventana de 3 integrantes que avanza de a uno.
+// El carrusel va de borde a borde, así que se centra al integrante del medio del grupo;
+// el desplazamiento se calcula con el ancho real de la tarjeta, sin valores fijos.
+function showTeamMember(index, behavior) {
   if (!teamCarousel || !teamMembers.length) return;
   var maxIndex = Math.min(teamDots.length, teamMembers.length) - 1;
   activeTeamIndex = index > maxIndex ? 0 : index;
+  var centerMember = teamMembers[Math.min(activeTeamIndex + 1, teamMembers.length - 1)];
   teamCarousel.scrollTo({
-    left: teamMembers[activeTeamIndex].offsetLeft,
-    behavior: 'smooth'
+    left: centerMember.offsetLeft - (teamCarousel.clientWidth - centerMember.offsetWidth) / 2,
+    behavior: behavior || 'smooth'
   });
   teamDots.forEach(function (dot, dotIndex) {
     dot.classList.toggle('active', dotIndex === activeTeamIndex);
@@ -233,6 +252,8 @@ teamDots.forEach(function (dot, dotIndex) {
 });
 
 if (teamCarousel) {
+  showTeamMember(activeTeamIndex, 'auto');
+  window.addEventListener('resize', function () { showTeamMember(activeTeamIndex, 'auto'); });
   startTeamAutoplay();
   teamCarousel.addEventListener('mouseenter', function () { clearInterval(teamTimer); });
   teamCarousel.addEventListener('mouseleave', startTeamAutoplay);

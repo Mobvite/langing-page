@@ -331,9 +331,27 @@ section {
     position: relative;
     z-index: 1;
     width: 100%;
-    height: 82%;   /* deja libres las esquinas para los badges, incluso con la animación float */
+    height: 82%;   /* deja libres las esquinas para los badges */
     object-fit: contain;
-    animation: float 6s ease-in-out infinite;
+}
+
+/* Escena 3D (hero-scene.js): ocupa el lugar de la imagen, que queda como respaldo.
+   "has-scene" se agrega solo cuando la escena ya dibujó su primer cuadro. */
+.hero-scene-canvas {
+    position: relative;
+    z-index: 1;
+    display: none;
+    width: 100%;
+    height: 82%;
+    pointer-events: none;
+}
+
+.hero-image.has-scene .hero-scene-canvas {
+    display: block;
+}
+
+.hero-image.has-scene .hero-illustration-placeholder {
+    display: none;
 }
 
 /* Badges flotantes: anclados a esquinas de .hero-image, siempre dentro de sus límites */
@@ -849,8 +867,11 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-illustration-placeholder,
   .testimonials-molecule { animation: none; }
+
+  /* Sin movimiento: imagen estática en lugar de la escena 3D */
+  .hero-image.has-scene .hero-scene-canvas { display: none; }
+  .hero-image.has-scene .hero-illustration-placeholder { display: block; }
 }
 
 .testimonials .glow-circle {
@@ -1318,6 +1339,10 @@ section {
   .hero-illustration-placeholder {
     height: 340px;
   }
+
+  /* Por debajo de 900px no hay escena 3D: solo la imagen estática */
+  .hero-image.has-scene .hero-scene-canvas { display: none; }
+  .hero-image.has-scene .hero-illustration-placeholder { display: block; }
 
   .hero-badge {
     position: static;

@@ -583,10 +583,14 @@ section {
   background-color: var(--glass-card-bg);
 }
 
+/* Las capturas rondan 2:1; se recorta solo el borde inferior para igualar las cuatro tarjetas */
 .product-shot img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 2.06 / 1;
+  object-fit: cover;
+  object-position: top;
   border-radius: 14px;
 }
 

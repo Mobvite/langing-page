@@ -291,10 +291,10 @@
 <section class="pricing" id="pricing">
   <div class="glow-circle" aria-hidden="true"></div>
 
-  <h2 data-i18n-es="Precios y Planes" data-i18n-en="Pricing and Plans">Precios y Planes</h2>
-  <p class="section-subtitle" data-i18n-es="Tranquilidad para tu familia, estés donde estés."
-     data-i18n-en="Peace of mind for your family, wherever you are.">
-    Tranquilidad para tu familia, estés donde estés.
+  <h2 data-i18n-es="Elige el plan que se ajusta a tu trabajo" data-i18n-en="Choose the plan that fits your work">Elige el plan que se ajusta a tu trabajo</h2>
+  <p class="section-subtitle" data-i18n-es="Cambia o mejora tu plan cuando lo necesites."
+     data-i18n-en="Switch or upgrade your plan whenever you need to.">
+    Cambia o mejora tu plan cuando lo necesites.
   </p>
 
   <div class="pricing-carousel">
@@ -303,33 +303,122 @@
       <i class="fas fa-chevron-left" aria-hidden="true"></i>
     </button>
 
+    <!-- Planes y límites tomados de la vista de Planes de la Web Application.
+         Las tres tarjetas listan las mismas siete características, en el mismo orden. -->
     <div class="pricing-grid">
 
       <div class="pricing-card">
-        <h3 data-i18n-es="Plan Gratuito" data-i18n-en="Free Plan">Plan Gratuito</h3>
-        <p class="pricing-price">S/ 0 <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
-        <p class="pricing-detail" data-i18n-es="(1 paciente, funciones básicas)" data-i18n-en="(1 patient, basic features)">(1 paciente, funciones básicas)</p>
+        <h3>Freemium</h3>
+        <p class="pricing-price">S/ 0.00</p>
+        <ul class="pricing-features">
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Hasta 1 adulto mayor" data-i18n-en="Up to 1 older adult">Hasta 1 adulto mayor</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="2 familiares por adulto mayor" data-i18n-en="2 family members per older adult">2 familiares por adulto mayor</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Seguimiento diario, citas y exámenes" data-i18n-en="Daily tracking, appointments and tests">Seguimiento diario, citas y exámenes</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Resumen de emergencia en pantalla" data-i18n-en="On-screen emergency summary">Resumen de emergencia en pantalla</span>
+          </li>
+          <li class="pricing-feature-excluded">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            <span><span class="visually-hidden" data-i18n-es="No incluido:" data-i18n-en="Not included:">No incluido:</span>
+              <span data-i18n-es="Resumen de emergencia en PDF" data-i18n-en="Emergency summary as PDF">Resumen de emergencia en PDF</span></span>
+          </li>
+          <li class="pricing-feature-excluded">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            <span><span class="visually-hidden" data-i18n-es="No incluido:" data-i18n-en="Not included:">No incluido:</span>
+              <span data-i18n-es="Recordatorios por correo" data-i18n-en="Email reminders">Recordatorios por correo</span></span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="100 MB para evidencias" data-i18n-en="100 MB for evidence files">100 MB para evidencias</span>
+          </li>
+        </ul>
         <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
            data-i18n-es="Probar GRATIS" data-i18n-en="Try for FREE">Probar GRATIS</a>
       </div>
 
       <div class="pricing-card pricing-card-featured">
-        <h3>Plan <span class="pricing-plan-tier">Pro</span> <span data-i18n-es="Enfermera/Cuidadora" data-i18n-en="Nurse/Caregiver">Enfermera/Cuidadora</span></h3>
-        <!-- TODO(precio): reemplazar "S/ XX" por el precio mensual real del Plan Pro -->
-        <p class="pricing-price">S/ XX <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
-        <p class="pricing-detail" data-i18n-es="Múltiples pacientes, fotos ilimitadas, reportes PDF." data-i18n-en="Multiple patients, unlimited photos, PDF reports.">Múltiples pacientes, fotos ilimitadas, reportes PDF.</p>
+        <span class="pricing-badge" data-i18n-es="Recomendado" data-i18n-en="Recommended">Recomendado</span>
+        <h3>Pro</h3>
+        <p class="pricing-price">S/ 19.90 <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
+        <ul class="pricing-features">
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Hasta 3 adultos mayores" data-i18n-en="Up to 3 older adults">Hasta 3 adultos mayores</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="5 familiares por adulto mayor" data-i18n-en="5 family members per older adult">5 familiares por adulto mayor</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Seguimiento diario, citas y exámenes" data-i18n-en="Daily tracking, appointments and tests">Seguimiento diario, citas y exámenes</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Resumen de emergencia en pantalla" data-i18n-en="On-screen emergency summary">Resumen de emergencia en pantalla</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Resumen de emergencia en PDF" data-i18n-en="Emergency summary as PDF">Resumen de emergencia en PDF</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Recordatorios por correo" data-i18n-en="Email reminders">Recordatorios por correo</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="2 GB para evidencias" data-i18n-en="2 GB for evidence files">2 GB para evidencias</span>
+          </li>
+        </ul>
         <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
            data-i18n-es="Elegir Plan Pro" data-i18n-en="Choose Pro Plan">Elegir Plan Pro</a>
       </div>
 
       <div class="pricing-card">
-        <h3 data-i18n-es="Plan Familiar / Agencia" data-i18n-en="Family / Agency Plan">Plan Familiar / Agencia</h3>
-        <!-- TODO(precio): reemplazar "S/ XX" por el precio mensual real del Plan Familiar / Agencia -->
-        <p class="pricing-price">S/ XX <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
-        <!-- TODO(contenido): falta la descripción real de este plan; antes repetía la del Plan Gratuito -->
-        <p class="pricing-detail" data-i18n-es="[Completar: qué incluye el Plan Familiar / Agencia]" data-i18n-en="[To complete: what the Family / Agency Plan includes]">[Completar: qué incluye el Plan Familiar / Agencia]</p>
+        <h3 data-i18n-es="Agencia" data-i18n-en="Agency">Agencia</h3>
+        <p class="pricing-price">S/ 59.90 <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
+        <ul class="pricing-features">
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Hasta 10 adultos mayores" data-i18n-en="Up to 10 older adults">Hasta 10 adultos mayores</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Familiares ilimitados" data-i18n-en="Unlimited family members">Familiares ilimitados</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Seguimiento diario, citas y exámenes" data-i18n-en="Daily tracking, appointments and tests">Seguimiento diario, citas y exámenes</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Resumen de emergencia en pantalla" data-i18n-en="On-screen emergency summary">Resumen de emergencia en pantalla</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Resumen de emergencia en PDF" data-i18n-en="Emergency summary as PDF">Resumen de emergencia en PDF</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Recordatorios por correo" data-i18n-en="Email reminders">Recordatorios por correo</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="10 GB para evidencias" data-i18n-en="10 GB for evidence files">10 GB para evidencias</span>
+          </li>
+        </ul>
         <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
-           data-i18n-es="Elegir Plan Familiar" data-i18n-en="Choose Family Plan">Elegir Plan Familiar</a>
+           data-i18n-es="Elegir Plan Agencia" data-i18n-en="Choose Agency Plan">Elegir Plan Agencia</a>
       </div>
 
     </div>

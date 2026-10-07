@@ -31,6 +31,22 @@ allNavLinks.forEach(function (link) {
 
 
 // ============================================
+// NAVBAR: sombra más marcada cuando la página ya se desplazó
+// ============================================
+
+var navbar = document.querySelector('.navbar');
+
+function updateNavbarShadow() {
+    navbar.classList.toggle('is-scrolled', window.scrollY > 8);
+}
+
+if (navbar) {
+    updateNavbarShadow();
+    window.addEventListener('scroll', updateNavbarShadow, { passive: true });
+}
+
+
+// ============================================
 // SCROLLSPY: resalta el link del navbar según la sección visible
 // "Sobre Nosotros" agrupa tres sub-secciones dentro de <section id="about">.
 // ============================================

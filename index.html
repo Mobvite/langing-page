@@ -138,7 +138,7 @@
       Vitalita es una plataforma web donde la enfermera o cuidadora registra desde su celular los signos vitales, medicamentos, citas y notas del día, y la familia consulta esa información al instante. Todo el historial queda ordenado en un solo lugar y listo para descargarse en PDF cuando el médico lo necesite.
     </p>
 
-    <!-- TODO: reemplazar los placeholders de assets/images/screenshots/ por las capturas reales de la Web Application -->
+    <!-- Capturas reales de la Web Application -->
     <div class="product-gallery">
       <figure class="product-shot">
         <img src="assets/images/screenshots/caregiver-dashboard.png" alt="Patient health summary in the caregiver view: vital signs, today's medication and reminders" loading="lazy">
@@ -291,10 +291,10 @@
 <section class="pricing" id="pricing">
   <div class="glow-circle" aria-hidden="true"></div>
 
-  <h2 data-i18n-es="Precios y Planes" data-i18n-en="Pricing and Plans">Precios y Planes</h2>
-  <p class="section-subtitle" data-i18n-es="Tranquilidad para tu familia, estés donde estés."
-     data-i18n-en="Peace of mind for your family, wherever you are.">
-    Tranquilidad para tu familia, estés donde estés.
+  <h2 data-i18n-es="Elige el plan que se ajusta a tu trabajo" data-i18n-en="Choose the plan that fits your work">Elige el plan que se ajusta a tu trabajo</h2>
+  <p class="section-subtitle" data-i18n-es="Cambia o mejora tu plan cuando lo necesites."
+     data-i18n-en="Switch or upgrade your plan whenever you need to.">
+    Cambia o mejora tu plan cuando lo necesites.
   </p>
 
   <div class="pricing-carousel">
@@ -303,28 +303,122 @@
       <i class="fas fa-chevron-left" aria-hidden="true"></i>
     </button>
 
+    <!-- Planes y límites tomados de la vista de Planes de la Web Application.
+         Las tres tarjetas listan las mismas siete características, en el mismo orden. -->
     <div class="pricing-grid">
 
       <div class="pricing-card">
-        <h3 data-i18n-es="Plan Gratuito" data-i18n-en="Free Plan">Plan Gratuito</h3>
-        <p class="pricing-price">S/ 0 <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
-        <p class="pricing-detail" data-i18n-es="(1 paciente, funciones básicas)" data-i18n-en="(1 patient, basic features)">(1 paciente, funciones básicas)</p>
+        <h3>Freemium</h3>
+        <p class="pricing-price">S/ 0.00</p>
+        <ul class="pricing-features">
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Hasta 1 adulto mayor" data-i18n-en="Up to 1 older adult">Hasta 1 adulto mayor</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="2 familiares por adulto mayor" data-i18n-en="2 family members per older adult">2 familiares por adulto mayor</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Seguimiento diario, citas y exámenes" data-i18n-en="Daily tracking, appointments and tests">Seguimiento diario, citas y exámenes</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Resumen de emergencia en pantalla" data-i18n-en="On-screen emergency summary">Resumen de emergencia en pantalla</span>
+          </li>
+          <li class="pricing-feature-excluded">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            <span><span class="visually-hidden" data-i18n-es="No incluido:" data-i18n-en="Not included:">No incluido:</span>
+              <span data-i18n-es="Resumen de emergencia en PDF" data-i18n-en="Emergency summary as PDF">Resumen de emergencia en PDF</span></span>
+          </li>
+          <li class="pricing-feature-excluded">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            <span><span class="visually-hidden" data-i18n-es="No incluido:" data-i18n-en="Not included:">No incluido:</span>
+              <span data-i18n-es="Recordatorios por correo" data-i18n-en="Email reminders">Recordatorios por correo</span></span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="100 MB para evidencias" data-i18n-en="100 MB for evidence files">100 MB para evidencias</span>
+          </li>
+        </ul>
         <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
            data-i18n-es="Probar GRATIS" data-i18n-en="Try for FREE">Probar GRATIS</a>
       </div>
 
       <div class="pricing-card pricing-card-featured">
-        <h3>Plan <span class="pricing-plan-tier">Pro</span> <span data-i18n-es="Enfermera/Cuidadora" data-i18n-en="Nurse/Caregiver">Enfermera/Cuidadora</span></h3>
-        <p class="pricing-detail" data-i18n-es="Múltiples pacientes, fotos ilimitadas, reportes PDF." data-i18n-en="Multiple patients, unlimited photos, PDF reports.">Múltiples pacientes, fotos ilimitadas, reportes PDF.</p>
+        <span class="pricing-badge" data-i18n-es="Recomendado" data-i18n-en="Recommended">Recomendado</span>
+        <h3>Pro</h3>
+        <p class="pricing-price">S/ 19.90 <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
+        <ul class="pricing-features">
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Hasta 3 adultos mayores" data-i18n-en="Up to 3 older adults">Hasta 3 adultos mayores</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="5 familiares por adulto mayor" data-i18n-en="5 family members per older adult">5 familiares por adulto mayor</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Seguimiento diario, citas y exámenes" data-i18n-en="Daily tracking, appointments and tests">Seguimiento diario, citas y exámenes</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Resumen de emergencia en pantalla" data-i18n-en="On-screen emergency summary">Resumen de emergencia en pantalla</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Resumen de emergencia en PDF" data-i18n-en="Emergency summary as PDF">Resumen de emergencia en PDF</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Recordatorios por correo" data-i18n-en="Email reminders">Recordatorios por correo</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="2 GB para evidencias" data-i18n-en="2 GB for evidence files">2 GB para evidencias</span>
+          </li>
+        </ul>
         <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
            data-i18n-es="Elegir Plan Pro" data-i18n-en="Choose Pro Plan">Elegir Plan Pro</a>
       </div>
 
       <div class="pricing-card">
-        <h3 data-i18n-es="Plan Familiar / Agencia" data-i18n-en="Family / Agency Plan">Plan Familiar / Agencia</h3>
-        <p class="pricing-detail" data-i18n-es="S/ 0 / mes (1 paciente, funciones básicas)" data-i18n-en="S/ 0 / month (1 patient, basic features)">S/ 0 / mes (1 paciente, funciones básicas)</p>
+        <h3 data-i18n-es="Agencia" data-i18n-en="Agency">Agencia</h3>
+        <p class="pricing-price">S/ 59.90 <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
+        <ul class="pricing-features">
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Hasta 10 adultos mayores" data-i18n-en="Up to 10 older adults">Hasta 10 adultos mayores</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Familiares ilimitados" data-i18n-en="Unlimited family members">Familiares ilimitados</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Seguimiento diario, citas y exámenes" data-i18n-en="Daily tracking, appointments and tests">Seguimiento diario, citas y exámenes</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Resumen de emergencia en pantalla" data-i18n-en="On-screen emergency summary">Resumen de emergencia en pantalla</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Resumen de emergencia en PDF" data-i18n-en="Emergency summary as PDF">Resumen de emergencia en PDF</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="Recordatorios por correo" data-i18n-en="Email reminders">Recordatorios por correo</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            <span data-i18n-es="10 GB para evidencias" data-i18n-en="10 GB for evidence files">10 GB para evidencias</span>
+          </li>
+        </ul>
         <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
-           data-i18n-es="Elegir Plan Familiar" data-i18n-en="Choose Family Plan">Elegir Plan Familiar</a>
+           data-i18n-es="Elegir Plan Agencia" data-i18n-en="Choose Agency Plan">Elegir Plan Agencia</a>
       </div>
 
     </div>
@@ -461,8 +555,10 @@
         <i class="fas fa-chevron-down" aria-hidden="true"></i>
       </button>
       <div class="faq-answer">
-        <!-- TODO: respuestas reales del FAQ -->
-        <p>[Completar: explicar el alcance del Plan Gratuito y cuándo se requiere upgrade a Plan Pro]</p>
+        <p data-i18n-es="No. Puedes empezar sin pagar: el Plan Gratuito te permite gestionar a un adulto mayor con las funciones básicas de seguimiento, sin costo y sin límite de tiempo. El Plan Pro está pensado para enfermeras y cuidadoras que atienden a más de un paciente a la vez: añade la gestión de múltiples pacientes, el adjunto ilimitado de fotos de exámenes y la exportación del resumen de emergencia en PDF. Puedes cambiar de plan en cualquier momento."
+           data-i18n-en="No. You can get started without paying: the Free Plan lets you manage one older adult with the basic monitoring features, at no cost and with no time limit. The Pro Plan is for nurses and caregivers who look after more than one patient at a time: it adds multi-patient management, unlimited photo attachments for test results and PDF export of the emergency summary. You can switch plans at any time.">
+          No. Puedes empezar sin pagar: el Plan Gratuito te permite gestionar a un adulto mayor con las funciones básicas de seguimiento, sin costo y sin límite de tiempo. El Plan Pro está pensado para enfermeras y cuidadoras que atienden a más de un paciente a la vez: añade la gestión de múltiples pacientes, el adjunto ilimitado de fotos de exámenes y la exportación del resumen de emergencia en PDF. Puedes cambiar de plan en cualquier momento.
+        </p>
       </div>
     </div>
 
@@ -472,7 +568,10 @@
         <i class="fas fa-chevron-down" aria-hidden="true"></i>
       </button>
       <div class="faq-answer">
-        <p>[Completar: describir el flujo real de invitación/vínculo entre roles en la Web Application]</p>
+        <p data-i18n-es="El vínculo siempre lo inicia la cuidadora. Desde el perfil del adulto mayor, envía una invitación al familiar, que crea su cuenta a partir de ella y queda asociado únicamente a ese adulto mayor. Su acceso es de solo lectura: puede consultar el seguimiento, las citas y los exámenes, pero no modificar los registros. Un mismo adulto mayor puede tener más de un familiar con acceso, y la cuidadora puede revocarlo cuando lo considere necesario."
+           data-i18n-en="The caregiver always starts the link. From the older adult's profile, they send an invitation to the family member, who creates an account from it and is linked only to that older adult. Their access is read-only: they can view the care log, appointments and test results, but cannot change any records. One older adult can have more than one family member with access, and the caregiver can revoke it whenever they see fit.">
+          El vínculo siempre lo inicia la cuidadora. Desde el perfil del adulto mayor, envía una invitación al familiar, que crea su cuenta a partir de ella y queda asociado únicamente a ese adulto mayor. Su acceso es de solo lectura: puede consultar el seguimiento, las citas y los exámenes, pero no modificar los registros. Un mismo adulto mayor puede tener más de un familiar con acceso, y la cuidadora puede revocarlo cuando lo considere necesario.
+        </p>
       </div>
     </div>
 
@@ -482,7 +581,9 @@
         <i class="fas fa-chevron-down" aria-hidden="true"></i>
       </button>
       <div class="faq-answer">
-        <p>[Completar: mencionar las medidas de privacidad/seguridad reales implementadas en el backend]</p>
+        <!-- El enlace va fuera de los nodos traducibles: main.js reemplaza su textContent -->
+        <p><span data-i18n-es="El acceso a la información de un adulto mayor es exclusivamente por invitación: nadie puede consultarla sin haber sido autorizado. Cada persona ve solo a los adultos mayores que tiene asociados, el familiar tiene permisos de solo lectura y la cuidadora puede revocar un acceso en cualquier momento. El tratamiento de la información se detalla en nuestra "
+                 data-i18n-en="Access to an older adult's information is by invitation only: no one can view it without being authorised. Each person sees only the older adults linked to their account, family members have read-only permissions, and the caregiver can revoke access at any time. How the information is handled is set out in our ">El acceso a la información de un adulto mayor es exclusivamente por invitación: nadie puede consultarla sin haber sido autorizado. Cada persona ve solo a los adultos mayores que tiene asociados, el familiar tiene permisos de solo lectura y la cuidadora puede revocar un acceso en cualquier momento. El tratamiento de la información se detalla en nuestra </span><a href="privacy.html" data-i18n-es="Política de Privacidad" data-i18n-en="Privacy Policy">Política de Privacidad</a>.</p>
       </div>
     </div>
 

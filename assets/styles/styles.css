@@ -73,6 +73,16 @@ img {
     z-index: 2000;
 }
 
+/* Texto solo para lectores de pantalla */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
 .skip-link:focus {
     left: 16px;
     top: 16px;
@@ -722,32 +732,52 @@ section {
 
 .pricing-grid {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+/* Las tres tarjetas comparten estructura y medidas para comparar los planes fila por fila */
 .pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border);
   box-shadow: var(--shadow-card);
   border-radius: var(--radius-card);
-  padding: 32px 24px;
-  width: 240px;
+  padding: 36px 24px 28px;
+  width: 280px;
   color: var(--color-text);
-  transition: transform 0.5s ease, background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
+/* "is-active" lo rota main.js: solo realce de borde y sombra, sin mover las filas */
 .pricing-card.is-active {
-  transform: scale(1.06);
-  background-color: var(--color-mint);
   border-color: var(--color-secondary);
   box-shadow: var(--shadow-raised);
 }
 
-.pricing-card-featured {
-  padding: 40px 28px;
+/* Plan recomendado: realce permanente, no depende de la rotación */
+.pricing-card-featured,
+.pricing-card-featured.is-active {
+  background-color: var(--color-mint);
+  border-color: var(--color-primary);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 500;
+  font-size: 0.78rem;
+  padding: 5px 16px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
 }
 
 .pricing-card h3 {
@@ -756,16 +786,10 @@ section {
   margin-bottom: 12px;
 }
 
-.pricing-card h3 .pricing-plan-tier {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 300;
-}
-
 .pricing-price {
   font-size: 1.5rem;
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: 20px;
 }
 
 .pricing-price span {
@@ -773,12 +797,43 @@ section {
   font-weight: 300;
 }
 
-.pricing-detail {
+.pricing-features {
+  flex: 1;
+  list-style: none;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+/* Alto mínimo de dos líneas: las filas quedan alineadas entre tarjetas aunque un texto salte de línea */
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: calc(3em + 13px);   /* dos líneas + padding y borde (box-sizing: border-box) */
+  padding: 6px 0;
   font-weight: 300;
   font-size: 0.85rem;
-  color: var(--color-text-secondary);
-  margin-bottom: 24px;
   line-height: 1.5;
+  border-top: 1px solid var(--color-border);
+}
+
+.pricing-features i {
+  flex-shrink: 0;
+  width: 14px;
+  margin-top: 4px;
+  text-align: center;
+  color: var(--color-primary);
+}
+
+/* Característica no incluida en el plan: se mantiene en la lista, atenuada y con otro ícono */
+.pricing-feature-excluded,
+.pricing-feature-excluded i {
+  color: var(--color-text-secondary);
+}
+
+.pricing-feature-excluded {
+  text-decoration: line-through;
+  text-decoration-color: var(--color-border);
 }
 
 .btn-pricing {
@@ -1116,8 +1171,9 @@ section {
   transition: max-height 0.25s ease;
 }
 
+/* Tope holgado: las respuestas largas ocupan más líneas en móvil */
 .faq-item.open .faq-answer {
-  max-height: 240px;
+  max-height: 640px;
 }
 
 .faq-answer p {
@@ -1126,6 +1182,10 @@ section {
   line-height: 1.6;
   color: var(--color-text-secondary);
   padding: 0 4px 20px;
+}
+
+.faq-answer a {
+  color: var(--color-primary);
 }
 
 

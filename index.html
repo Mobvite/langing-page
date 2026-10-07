@@ -138,7 +138,7 @@
       Vitalita es una plataforma web donde la enfermera o cuidadora registra desde su celular los signos vitales, medicamentos, citas y notas del día, y la familia consulta esa información al instante. Todo el historial queda ordenado en un solo lugar y listo para descargarse en PDF cuando el médico lo necesite.
     </p>
 
-    <!-- TODO: reemplazar los placeholders de assets/images/screenshots/ por las capturas reales de la Web Application -->
+    <!-- Capturas reales de la Web Application -->
     <div class="product-gallery">
       <figure class="product-shot">
         <img src="assets/images/screenshots/caregiver-dashboard.png" alt="Patient health summary in the caregiver view: vital signs, today's medication and reminders" loading="lazy">
@@ -315,6 +315,8 @@
 
       <div class="pricing-card pricing-card-featured">
         <h3>Plan <span class="pricing-plan-tier">Pro</span> <span data-i18n-es="Enfermera/Cuidadora" data-i18n-en="Nurse/Caregiver">Enfermera/Cuidadora</span></h3>
+        <!-- TODO(precio): reemplazar "S/ XX" por el precio mensual real del Plan Pro -->
+        <p class="pricing-price">S/ XX <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
         <p class="pricing-detail" data-i18n-es="Múltiples pacientes, fotos ilimitadas, reportes PDF." data-i18n-en="Multiple patients, unlimited photos, PDF reports.">Múltiples pacientes, fotos ilimitadas, reportes PDF.</p>
         <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
            data-i18n-es="Elegir Plan Pro" data-i18n-en="Choose Pro Plan">Elegir Plan Pro</a>
@@ -322,7 +324,10 @@
 
       <div class="pricing-card">
         <h3 data-i18n-es="Plan Familiar / Agencia" data-i18n-en="Family / Agency Plan">Plan Familiar / Agencia</h3>
-        <p class="pricing-detail" data-i18n-es="S/ 0 / mes (1 paciente, funciones básicas)" data-i18n-en="S/ 0 / month (1 patient, basic features)">S/ 0 / mes (1 paciente, funciones básicas)</p>
+        <!-- TODO(precio): reemplazar "S/ XX" por el precio mensual real del Plan Familiar / Agencia -->
+        <p class="pricing-price">S/ XX <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
+        <!-- TODO(contenido): falta la descripción real de este plan; antes repetía la del Plan Gratuito -->
+        <p class="pricing-detail" data-i18n-es="[Completar: qué incluye el Plan Familiar / Agencia]" data-i18n-en="[To complete: what the Family / Agency Plan includes]">[Completar: qué incluye el Plan Familiar / Agencia]</p>
         <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
            data-i18n-es="Elegir Plan Familiar" data-i18n-en="Choose Family Plan">Elegir Plan Familiar</a>
       </div>
@@ -461,8 +466,10 @@
         <i class="fas fa-chevron-down" aria-hidden="true"></i>
       </button>
       <div class="faq-answer">
-        <!-- TODO: respuestas reales del FAQ -->
-        <p>[Completar: explicar el alcance del Plan Gratuito y cuándo se requiere upgrade a Plan Pro]</p>
+        <p data-i18n-es="No. Puedes empezar sin pagar: el Plan Gratuito te permite gestionar a un adulto mayor con las funciones básicas de seguimiento, sin costo y sin límite de tiempo. El Plan Pro está pensado para enfermeras y cuidadoras que atienden a más de un paciente a la vez: añade la gestión de múltiples pacientes, el adjunto ilimitado de fotos de exámenes y la exportación del resumen de emergencia en PDF. Puedes cambiar de plan en cualquier momento."
+           data-i18n-en="No. You can get started without paying: the Free Plan lets you manage one older adult with the basic monitoring features, at no cost and with no time limit. The Pro Plan is for nurses and caregivers who look after more than one patient at a time: it adds multi-patient management, unlimited photo attachments for test results and PDF export of the emergency summary. You can switch plans at any time.">
+          No. Puedes empezar sin pagar: el Plan Gratuito te permite gestionar a un adulto mayor con las funciones básicas de seguimiento, sin costo y sin límite de tiempo. El Plan Pro está pensado para enfermeras y cuidadoras que atienden a más de un paciente a la vez: añade la gestión de múltiples pacientes, el adjunto ilimitado de fotos de exámenes y la exportación del resumen de emergencia en PDF. Puedes cambiar de plan en cualquier momento.
+        </p>
       </div>
     </div>
 
@@ -472,7 +479,10 @@
         <i class="fas fa-chevron-down" aria-hidden="true"></i>
       </button>
       <div class="faq-answer">
-        <p>[Completar: describir el flujo real de invitación/vínculo entre roles en la Web Application]</p>
+        <p data-i18n-es="El vínculo siempre lo inicia la cuidadora. Desde el perfil del adulto mayor, envía una invitación al familiar, que crea su cuenta a partir de ella y queda asociado únicamente a ese adulto mayor. Su acceso es de solo lectura: puede consultar el seguimiento, las citas y los exámenes, pero no modificar los registros. Un mismo adulto mayor puede tener más de un familiar con acceso, y la cuidadora puede revocarlo cuando lo considere necesario."
+           data-i18n-en="The caregiver always starts the link. From the older adult's profile, they send an invitation to the family member, who creates an account from it and is linked only to that older adult. Their access is read-only: they can view the care log, appointments and test results, but cannot change any records. One older adult can have more than one family member with access, and the caregiver can revoke it whenever they see fit.">
+          El vínculo siempre lo inicia la cuidadora. Desde el perfil del adulto mayor, envía una invitación al familiar, que crea su cuenta a partir de ella y queda asociado únicamente a ese adulto mayor. Su acceso es de solo lectura: puede consultar el seguimiento, las citas y los exámenes, pero no modificar los registros. Un mismo adulto mayor puede tener más de un familiar con acceso, y la cuidadora puede revocarlo cuando lo considere necesario.
+        </p>
       </div>
     </div>
 
@@ -482,7 +492,9 @@
         <i class="fas fa-chevron-down" aria-hidden="true"></i>
       </button>
       <div class="faq-answer">
-        <p>[Completar: mencionar las medidas de privacidad/seguridad reales implementadas en el backend]</p>
+        <!-- El enlace va fuera de los nodos traducibles: main.js reemplaza su textContent -->
+        <p><span data-i18n-es="El acceso a la información de un adulto mayor es exclusivamente por invitación: nadie puede consultarla sin haber sido autorizado. Cada persona ve solo a los adultos mayores que tiene asociados, el familiar tiene permisos de solo lectura y la cuidadora puede revocar un acceso en cualquier momento. El tratamiento de la información se detalla en nuestra "
+                 data-i18n-en="Access to an older adult's information is by invitation only: no one can view it without being authorised. Each person sees only the older adults linked to their account, family members have read-only permissions, and the caregiver can revoke access at any time. How the information is handled is set out in our ">El acceso a la información de un adulto mayor es exclusivamente por invitación: nadie puede consultarla sin haber sido autorizado. Cada persona ve solo a los adultos mayores que tiene asociados, el familiar tiene permisos de solo lectura y la cuidadora puede revocar un acceso en cualquier momento. El tratamiento de la información se detalla en nuestra </span><a href="privacy.html" data-i18n-es="Política de Privacidad" data-i18n-en="Privacy Policy">Política de Privacidad</a>.</p>
       </div>
     </div>
 

@@ -63,32 +63,6 @@ sectionsToObserve.forEach(function (section) {
 
 
 // ============================================
-// CTAs hacia la Web Application
-// Todavía no hay rutas reales: se evita la navegación y se loguea la ruta destino.
-// ============================================
-
-var placeholderRouteLinks = document.querySelectorAll('[data-target-route]');
-
-placeholderRouteLinks.forEach(function (link) {
-    link.addEventListener('click', function (event) {
-        event.preventDefault();
-        var targetRoute = link.getAttribute('data-target-route');
-        console.info('[Vitalita Landing] TODO: redirigir a la Web Application ->', targetRoute);
-    });
-});
-
-// Links placeholder (href="#") sin destino real todavía, p. ej. redes sociales:
-// sin esto el navegador salta al inicio de la página al hacer clic.
-var placeholderLinks = document.querySelectorAll('a[href="#"]');
-
-placeholderLinks.forEach(function (link) {
-    link.addEventListener('click', function (event) {
-        event.preventDefault();
-    });
-});
-
-
-// ============================================
 // LANGUAGE TOGGLE (es <-> en)
 // Traduce todo nodo con data-i18n-es / data-i18n-en, sin importar la sección.
 // Un nodo traducible no debe tener hijos con markup: textContent los borraría.
@@ -98,7 +72,7 @@ placeholderLinks.forEach(function (link) {
 // ============================================
 
 var LANGUAGE_STORAGE_KEY = 'vitalita-lang';
-var currentLanguage = 'es';
+var currentLanguage = 'en';
 var translatableElements = document.querySelectorAll('[data-i18n-es]');
 var languageBlocks = document.querySelectorAll('[data-lang]');
 var languageOptions = document.querySelectorAll('.lang-option');
@@ -141,9 +115,8 @@ try {
 } catch (error) {
     savedLanguage = null;
 }
-if (savedLanguage === 'en') {
-    applyLanguage('en');
-}
+// Inglés por defecto; solo se usa español si el usuario ya lo había elegido
+applyLanguage(savedLanguage === 'es' ? 'es' : currentLanguage);
 
 
 // FAQ ACCORDION

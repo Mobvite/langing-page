@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,12 +51,11 @@
   </ul>
 
   <div class="nav-buttons" id="nav-buttons">
-    <!-- href="#" hasta que la Web Application tenga rutas reales de login/registro -->
-    <a href="#" class="btn-login" data-target-route="/app/login" data-i18n-es="Iniciar Sesión" data-i18n-en="Log In">Iniciar Sesión</a>
-    <a href="#" class="btn-trial" data-target-route="/app/register" data-i18n-es="Probar gratis" data-i18n-en="Try for free">Probar gratis</a>
+    <a href="https://vitalita-frontend.onrender.com/iam/sign-in" class="btn-login" data-i18n-es="Iniciar Sesión" data-i18n-en="Log In">Iniciar Sesión</a>
+    <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-trial" data-i18n-es="Probar gratis" data-i18n-en="Try for free">Probar gratis</a>
     <button class="btn-lang" id="lang-toggle" aria-label="Cambiar idioma / Switch language" title="ES / EN">
-      <span class="lang-option" data-lang-option="en">EN</span>
-      <span class="lang-option active" data-lang-option="es">ES</span>
+      <span class="lang-option active" data-lang-option="en">EN</span>
+      <span class="lang-option" data-lang-option="es">ES</span>
     </button>
   </div>
 
@@ -79,11 +78,11 @@
     </p>
 
     <div class="hero-buttons">
-      <a href="#" class="btn-segment btn-segment-caregiver" data-target-route="/app/register?role=caregiver"
+      <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-segment btn-segment-caregiver"
          data-i18n-es="Soy enfermera/cuidadora" data-i18n-en="I'm a nurse/caregiver">
         Soy enfermera/cuidadora
       </a>
-      <a href="#" class="btn-segment btn-segment-family" data-target-route="/app/register?role=family"
+      <a href="https://vitalita-frontend.onrender.com/iam/family-sign-up" class="btn-segment btn-segment-family"
          data-i18n-es="Soy familiar" data-i18n-en="I'm a family member">
         Soy familiar
       </a>
@@ -130,10 +129,24 @@
       Vitalita es una plataforma web donde la enfermera o cuidadora registra desde su celular los signos vitales, medicamentos, citas y notas del día, y la familia consulta esa información al instante. Todo el historial queda ordenado en un solo lugar y listo para descargarse en PDF cuando el médico lo necesite.
     </p>
 
-    <!-- TODO: reemplazar este placeholder por el video demostrativo o los screenshots reales de la Web Application -->
-    <div class="product-media-placeholder">
-      <i class="fas fa-circle-play" aria-hidden="true"></i>
-      <span data-i18n-es="Aquí irá el video o las capturas de la aplicación" data-i18n-en="The app video or screenshots will go here">Aquí irá el video o las capturas de la aplicación</span>
+    <!-- TODO: reemplazar los placeholders de assets/images/screenshots/ por las capturas reales de la Web Application -->
+    <div class="product-gallery">
+      <figure class="product-shot">
+        <img src="assets/images/screenshots/caregiver-dashboard.png" alt="Vitalita caregiver dashboard" width="1280" height="800" loading="lazy">
+        <figcaption data-i18n-es="Panel de la cuidadora con sus pacientes del día" data-i18n-en="Caregiver dashboard with the day's patients">Panel de la cuidadora con sus pacientes del día</figcaption>
+      </figure>
+      <figure class="product-shot">
+        <img src="assets/images/screenshots/daily-report.png" alt="Vitalita daily report" width="1280" height="800" loading="lazy">
+        <figcaption data-i18n-es="Reporte diario de signos vitales, medicación y notas" data-i18n-en="Daily report of vital signs, medication and notes">Reporte diario de signos vitales, medicación y notas</figcaption>
+      </figure>
+      <figure class="product-shot">
+        <img src="assets/images/screenshots/family-panel.png" alt="Vitalita family panel" width="1280" height="800" loading="lazy">
+        <figcaption data-i18n-es="Panel familiar con los registros en tiempo real" data-i18n-en="Family panel with real-time records">Panel familiar con los registros en tiempo real</figcaption>
+      </figure>
+      <figure class="product-shot">
+        <img src="assets/images/screenshots/emergency-summary.png" alt="Vitalita emergency summary" width="1280" height="800" loading="lazy">
+        <figcaption data-i18n-es="Resumen de emergencia listo para descargar en PDF" data-i18n-en="Emergency summary ready to download as a PDF">Resumen de emergencia listo para descargar en PDF</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -221,9 +234,9 @@
 
     </div>
 
-    <a href="#" class="btn-cta-panel" data-target-route="/app/register?role=caregiver"
-       data-i18n-es="Regístrame como enfermera/cuidadora" data-i18n-en="Sign me up as a nurse/caregiver">
-      Regístrame como enfermera/cuidadora
+    <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-cta-panel"
+       data-i18n-es="Crear mi cuenta de cuidadora" data-i18n-en="Create my caregiver account">
+      Crear mi cuenta de cuidadora
     </a>
   </div>
 </section>
@@ -257,9 +270,9 @@
 
     </div>
 
-    <a href="#" class="btn-cta-panel" data-target-route="/app/register?role=family"
-       data-i18n-es="Acceso para Familiares" data-i18n-en="Access for Family Members">
-      Acceso para Familiares
+    <a href="https://vitalita-frontend.onrender.com/iam/family-sign-up" class="btn-cta-panel"
+       data-i18n-es="Acceder con mi invitación" data-i18n-en="Access with my invitation">
+      Acceder con mi invitación
     </a>
   </div>
 </section>
@@ -287,21 +300,21 @@
         <h3 data-i18n-es="Plan Gratuito" data-i18n-en="Free Plan">Plan Gratuito</h3>
         <p class="pricing-price">S/ 0 <span data-i18n-es="/ mes" data-i18n-en="/ month">/ mes</span></p>
         <p class="pricing-detail" data-i18n-es="(1 paciente, funciones básicas)" data-i18n-en="(1 patient, basic features)">(1 paciente, funciones básicas)</p>
-        <a href="#" class="btn-pricing" data-target-route="/app/register?plan=free"
+        <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
            data-i18n-es="Probar GRATIS" data-i18n-en="Try for FREE">Probar GRATIS</a>
       </div>
 
       <div class="pricing-card pricing-card-featured">
         <h3>Plan <span class="pricing-plan-tier">Pro</span> <span data-i18n-es="Enfermera/Cuidadora" data-i18n-en="Nurse/Caregiver">Enfermera/Cuidadora</span></h3>
         <p class="pricing-detail" data-i18n-es="Múltiples pacientes, fotos ilimitadas, reportes PDF." data-i18n-en="Multiple patients, unlimited photos, PDF reports.">Múltiples pacientes, fotos ilimitadas, reportes PDF.</p>
-        <a href="#" class="btn-pricing" data-target-route="/app/register?plan=pro"
+        <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
            data-i18n-es="Elegir Plan Pro" data-i18n-en="Choose Pro Plan">Elegir Plan Pro</a>
       </div>
 
       <div class="pricing-card">
         <h3 data-i18n-es="Plan Familiar / Agencia" data-i18n-en="Family / Agency Plan">Plan Familiar / Agencia</h3>
         <p class="pricing-detail" data-i18n-es="S/ 0 / mes (1 paciente, funciones básicas)" data-i18n-en="S/ 0 / month (1 patient, basic features)">S/ 0 / mes (1 paciente, funciones básicas)</p>
-        <a href="#" class="btn-pricing" data-target-route="/app/register?plan=family"
+        <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-pricing"
            data-i18n-es="Elegir Plan Familiar" data-i18n-en="Choose Family Plan">Elegir Plan Familiar</a>
       </div>
 
@@ -476,7 +489,7 @@
       Deja el cuaderno y los chats dispersos: crea tu cuenta gratis y lleva el seguimiento de tu paciente o familiar en un solo lugar.
     </p>
 
-    <a href="#" class="btn-cta-panel" data-target-route="/app/register"
+    <a href="https://vitalita-frontend.onrender.com/iam/sign-up" class="btn-cta-panel"
        data-i18n-es="Probar Vitalita gratis" data-i18n-en="Try Vitalita for free">
       Probar Vitalita gratis
     </a>
@@ -506,13 +519,12 @@
            data-i18n-en="Real-time geriatric monitoring platform connecting healthcare staff, caregivers and families in Peru.">
           Plataforma de seguimiento geriátrico en tiempo real que conecta a personal de salud, cuidadoras y familias en el Perú.
         </p>
-        <!-- TODO: reemplazar href="#" por las URLs reales de las redes sociales de Vitalita.
-             Mientras tanto main.js evita que estos links salten al inicio de la página. -->
+        <!-- TODO: sustituir REEMPLAZAR por el usuario real de cada red social de Vitalita. -->
         <div class="footer-social">
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/REEMPLAZAR" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.tiktok.com/@REEMPLAZAR" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/REEMPLAZAR" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/company/REEMPLAZAR" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
         </div>
       </div>
 

@@ -1,26 +1,38 @@
 
 :root {
+    /* Paleta derivada de los tokens de la Web Application de Vitalita (su src/style.css):
+       --vt-primary #0F766E, --vt-secondary #14B8A6, --vt-mint #ECFDF5.
+       El landing conserva su identidad glassmorphism; solo cambia el matiz, de azul a teal.
+       Todo texto blanco cumple WCAG AA (4.5:1) sobre estas superficies: por eso los vidrios
+       se tiñen con un teal profundo en lugar de blanco. */
     --font-primary: 'Inter', Arial, sans-serif;
 
-    /* Fondo plano en todas las secciones, sin gradient */
-    --color-bg: #69A7D6;
+    --color-primary: #0F766E;                        /* --vt-primary */
+    --color-primary-deep: #0A4F4A;                   /* primario oscurecido: extremos del degradado */
+    --color-secondary: #14B8A6;                      /* --vt-secondary */
 
-    --color-glow: #85C4E5;
+    /* Fondo: degradado en familia teal; --color-bg queda como respaldo plano */
+    --color-bg: var(--color-primary);
+    --gradient-bg: linear-gradient(160deg, #0F766E 0%, #0A4F4A 35%, #0F766E 65%, #0A4F4A 100%);
+
+    /* Glow: teal luminoso (--vt-secondary) atenuado para no bajar el contraste del texto */
+    --color-glow: rgba(20, 184, 166, 0.18);
 
     --color-text: #FFFFFF;
 
-    /* Niveles de glass: sin borde salvo donde se indica */
-    --glass-navbar-bg: rgba(217, 217, 217, 0.16);
-    --glass-active-bg: rgba(255, 255, 255, 0.21);   /* nav-link activo */
-    --glass-card-bg: rgba(255, 255, 255, 0.1);      /* cards de contenido */
-    --glass-pill-bg: rgba(255, 255, 255, 0.16);     /* botones dentro de cards */
-    --glass-strong-bg: rgba(255, 255, 255, 0.36);   /* badges del Hero */
-    --glass-footer-bg: rgba(255, 255, 255, 0.19);   /* footer */
-    --glass-testimonial-bg: rgba(217, 217, 217, 0.18);
+    /* Niveles de glass: sin borde salvo donde se indica. Tinte teal profundo (#042F2C) */
+    --glass-navbar-bg: rgba(4, 47, 44, 0.16);
+    --glass-active-bg: rgba(4, 47, 44, 0.21);       /* nav-link activo */
+    --glass-card-bg: rgba(4, 47, 44, 0.1);          /* cards de contenido */
+    --glass-pill-bg: rgba(4, 47, 44, 0.16);         /* botones dentro de cards */
+    --glass-strong-bg: rgba(4, 47, 44, 0.36);       /* plan activo, idioma activo */
+    --glass-badge-bg: rgba(4, 47, 44, 0.55);        /* badges y chips del Hero, sobre la ilustración */
+    --glass-footer-bg: rgba(4, 47, 44, 0.19);       /* footer */
+    --glass-testimonial-bg: rgba(4, 47, 44, 0.18);
 
-    --btn-login-bg: rgba(48, 101, 195, 0.32);
-    --btn-trial-bg: rgba(105, 167, 214, 0.28);
-    --btn-cta-purple-bg: rgba(100, 94, 183, 0.39);
+    --btn-login-bg: rgba(4, 47, 44, 0.32);
+    --btn-trial-bg: rgba(4, 47, 44, 0.28);
+    --btn-cta-bg: rgba(4, 47, 44, 0.39);
 
     --radius-pill: 25px;
     --radius-card: 25px;
@@ -50,6 +62,7 @@ body {
     font-family: var(--font-primary);
     color: var(--color-text);
     background-color: var(--color-bg);
+    background-image: var(--gradient-bg);
     overflow-x: hidden;
 }
 
@@ -67,7 +80,7 @@ img {
     position: absolute;
     left: -999px;
     top: auto;
-    background: #2E4F7A;
+    background: var(--color-primary);
     color: white;
     padding: 10px 18px;
     border-radius: 8px;
@@ -321,43 +334,68 @@ section {
     position: relative;
     z-index: 1;
     width: 100%;
-    height: 100%;
+    height: 82%;   /* deja libres las esquinas para los badges, incluso con la animación float */
     object-fit: contain;
     animation: float 6s ease-in-out infinite;
 }
 
+/* Badges flotantes: anclados a esquinas de .hero-image, siempre dentro de sus límites */
 .hero-badge {
     position: absolute;
     z-index: 2;
     display: flex;
     align-items: center;
-    gap: 8px;
-    background-color: var(--glass-strong-bg);
+    gap: 10px;
+    max-width: 240px;
+    background-color: var(--glass-badge-bg);
     backdrop-filter: blur(var(--blur-xs));
     -webkit-backdrop-filter: blur(var(--blur-xs));
     border-radius: var(--radius-pill);
-    padding: 10px 18px;
+    padding: 12px 18px;
     font-weight: 400;
-    font-size: 0.72rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
     color: var(--color-text);
-    white-space: nowrap;
 }
 
 .hero-badge i {
     color: var(--color-text);
+    flex-shrink: 0;
 }
 
-.hero-badge-privacy   { top: 10%; right: -6%; }
-.hero-badge-standards { top: 46%; left: -20%; font-size: 0.68rem; }
+.hero-badge-privacy { top: 0; left: 0; }
 .hero-badge-social-proof {
-    bottom: 6%;
-    right: -8%;
-    flex-direction: row;
+    bottom: 0;
+    right: 0;
     text-align: left;
-    padding: 16px 22px;
+    padding: 14px 22px;
 }
-.hero-badge-social-proof strong { display: block; font-weight: 700; font-size: 1.1rem; }
-.hero-badge-social-proof span { font-size: 0.68rem; font-weight: 400; }
+.hero-badge-social-proof strong { display: block; font-weight: 700; font-size: 1.25rem; }
+.hero-badge-social-proof span { font-size: 0.85rem; font-weight: 400; }
+
+/* Sellos de confianza bajo los botones del Hero (antes un único badge flotante) */
+.hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin-top: 28px;
+}
+
+.hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--glass-badge-bg);
+    backdrop-filter: blur(var(--blur-xs));
+    -webkit-backdrop-filter: blur(var(--blur-xs));
+    border-radius: var(--radius-pill);
+    padding: 8px 14px;
+    font-weight: 400;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--color-text);
+}
 
 
 /* ========================================
@@ -546,7 +584,7 @@ section {
   font-size: 0.9rem;
   padding: 14px 28px;
   border-radius: var(--radius-pill);
-  background-color: var(--btn-cta-purple-bg);
+  background-color: var(--btn-cta-bg);
   backdrop-filter: blur(var(--blur-xs));
   -webkit-backdrop-filter: blur(var(--blur-xs));
   color: var(--color-text);
@@ -583,10 +621,14 @@ section {
   background-color: var(--glass-card-bg);
 }
 
+/* Las capturas rondan 2:1; se recorta solo el borde inferior para igualar las cuatro tarjetas */
 .product-shot img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 2.06 / 1;
+  object-fit: cover;
+  object-position: top;
   border-radius: 14px;
 }
 
@@ -857,34 +899,42 @@ section {
   margin-bottom: 40px;
 }
 
+/* Carrusel de borde a borde: el margen negativo compensa el padding lateral de .our-team.
+   El padding interno permite centrar cualquier tarjeta (main.js centra la del medio del grupo)
+   y la máscara funde las tarjetas de los extremos con el fondo. */
 .team-carousel {
+  --team-card-width: 240px;
   position: relative;
   z-index: 1;
   display: flex;
-  gap: 28px;
-  max-width: 560px;
-  margin: 0 auto 24px;
+  gap: 44px;
+  margin: 0 -48px 28px;
+  padding: 0 calc(50% + 48px - var(--team-card-width) / 2);
   overflow-x: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
 }
 
 .team-member {
-  flex: 0 0 160px;
+  flex: 0 0 var(--team-card-width);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
+/* Retratos de proporciones distintas: se encuadra hacia arriba para no cortar el rostro */
 .team-photo-placeholder {
-  width: 96px;
-  height: 96px;
-  border-radius: 20px;
+  width: 190px;
+  height: 190px;
+  border-radius: 36px;
   object-fit: cover;
+  object-position: center 20%;
 }
 
 .team-name {
   font-weight: 300;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .team-carousel-dots {
@@ -1164,8 +1214,8 @@ section {
 
 @media (max-width: 1200px) {
 
-  /* El badge ancho se sale del Hero y pisa el texto por debajo de 1200px */
-  .hero-badge-standards { display: none; }
+  /* Con el Hero más angosto los badges se estrechan para no tapar la ilustración */
+  .hero-badge { max-width: 200px; }
 }
 
 @media (max-width: 1100px) {
@@ -1227,8 +1277,21 @@ section {
     font-size: 2.1rem;
   }
 
+  /* La columna de la ilustración ya es angosta: los badges dejan de flotar y se apilan debajo */
   .hero-image {
-    height: 420px;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .hero-illustration-placeholder {
+    height: 340px;
+  }
+
+  .hero-badge {
+    position: static;
+    margin: 8px auto 0;
+    width: fit-content;
+    max-width: 100%;
   }
 
   .benefits-comparison {
@@ -1285,7 +1348,8 @@ section {
     margin: 0 auto 28px;
   }
 
-  .hero-buttons {
+  .hero-buttons,
+  .hero-chips {
     justify-content: center;
   }
 
@@ -1305,12 +1369,10 @@ section {
     margin: 8px auto 0;
     width: fit-content;
     max-width: 100%;
-    white-space: normal;
     text-align: center;
   }
 
-  .hero-badge-standards { display: flex; }
-  .hero-badge-social-proof { text-align: center; flex-direction: column; }
+  .hero-badge-social-proof { text-align: center; }
 
   /* --- Secciones con padding reducido --- */
   .benefits,
@@ -1355,7 +1417,20 @@ section {
   }
 
   .team-carousel {
-    gap: 18px;
+    --team-card-width: 160px;
+    gap: 24px;
+    margin: 0 -20px 24px;
+    padding: 0 calc(50% + 20px - var(--team-card-width) / 2);
+  }
+
+  .team-photo-placeholder {
+    width: 130px;
+    height: 130px;
+    border-radius: 26px;
+  }
+
+  .team-name {
+    font-size: 0.85rem;
   }
 
   .testimonials-carousel {

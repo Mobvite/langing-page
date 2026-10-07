@@ -1,46 +1,33 @@
 
 :root {
-    /* Paleta derivada de los tokens de la Web Application de Vitalita (su src/style.css):
-       --vt-primary #0F766E, --vt-secondary #14B8A6, --vt-mint #ECFDF5.
-       El landing conserva su identidad glassmorphism; solo cambia el matiz, de azul a teal.
-       Todo texto blanco cumple WCAG AA (4.5:1) sobre estas superficies: por eso los vidrios
-       se tiñen con un teal profundo en lugar de blanco. */
+    /* Paleta tomada de los tokens de la Web Application de Vitalita (su src/style.css),
+       que usa tema claro: --vt-primary, --vt-secondary, --vt-mint, --vt-surface,
+       --vt-background, --vt-border, --vt-text, --vt-text-secondary y --vt-shadow.
+       Todas las combinaciones texto/fondo de esta hoja cumplen WCAG AA (4.5:1). */
     --font-primary: 'Inter', Arial, sans-serif;
 
-    --color-primary: #0F766E;                        /* --vt-primary */
-    --color-primary-deep: #0A4F4A;                   /* primario oscurecido: extremos del degradado */
-    --color-secondary: #14B8A6;                      /* --vt-secondary */
+    --color-primary: #0F766E;            /* --vt-primary: botones, enlaces, iconos */
+    --color-secondary: #14B8A6;          /* --vt-secondary: hover y acentos decorativos */
+    --color-mint: #ECFDF5;               /* --vt-mint: secciones alternas, badges y chips */
+    --color-surface: #FFFFFF;            /* --vt-surface: tarjetas, navbar, footer */
+    --color-bg: #F8FAFC;                 /* --vt-background */
+    --color-border: #E2E8F0;             /* --vt-border */
+    --color-text: #111827;               /* --vt-text */
+    --color-text-secondary: #475569;     /* --vt-text-secondary */
 
-    /* Fondo: degradado en familia teal; --color-bg queda como respaldo plano */
-    --color-bg: var(--color-primary);
-    --gradient-bg: linear-gradient(160deg, #0F766E 0%, #0A4F4A 35%, #0F766E 65%, #0A4F4A 100%);
+    --color-on-primary: #FFFFFF;         /* texto sobre --color-primary (5.47:1) */
+    /* Blanco sobre #14B8A6 solo llega a 2.49:1, así que en hover el texto pasa a teal profundo */
+    --color-on-secondary: #042F2C;
 
-    /* Glow: teal luminoso (--vt-secondary) atenuado para no bajar el contraste del texto */
-    --color-glow: rgba(20, 184, 166, 0.18);
+    /* Halo decorativo: teal muy tenue, no debe competir con el contenido */
+    --color-glow: rgba(20, 184, 166, 0.1);
 
-    --color-text: #FFFFFF;
-
-    /* Niveles de glass: sin borde salvo donde se indica. Tinte teal profundo (#042F2C) */
-    --glass-navbar-bg: rgba(4, 47, 44, 0.16);
-    --glass-active-bg: rgba(4, 47, 44, 0.21);       /* nav-link activo */
-    --glass-card-bg: rgba(4, 47, 44, 0.1);          /* cards de contenido */
-    --glass-pill-bg: rgba(4, 47, 44, 0.16);         /* botones dentro de cards */
-    --glass-strong-bg: rgba(4, 47, 44, 0.36);       /* plan activo, idioma activo */
-    --glass-badge-bg: rgba(4, 47, 44, 0.55);        /* badges y chips del Hero, sobre la ilustración */
-    --glass-footer-bg: rgba(4, 47, 44, 0.19);       /* footer */
-    --glass-testimonial-bg: rgba(4, 47, 44, 0.18);
-
-    --btn-login-bg: rgba(4, 47, 44, 0.32);
-    --btn-trial-bg: rgba(4, 47, 44, 0.28);
-    --btn-cta-bg: rgba(4, 47, 44, 0.39);
+    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);   /* --vt-shadow */
+    --shadow-raised: 0 10px 28px rgba(15, 23, 42, 0.1);   /* navbar con scroll, plan activo, badges flotantes */
 
     --radius-pill: 25px;
     --radius-card: 25px;
     --radius-testimonial: 20px;
-
-    --blur-xs: 2px;
-    --blur-sm: 7.5px;
-    --blur-md: 10px;
 }
 
 
@@ -62,7 +49,6 @@ body {
     font-family: var(--font-primary);
     color: var(--color-text);
     background-color: var(--color-bg);
-    background-image: var(--gradient-bg);
     overflow-x: hidden;
 }
 
@@ -94,7 +80,7 @@ img {
 
 a:focus-visible,
 button:focus-visible {
-    outline: 3px solid #FFE07D;
+    outline: 3px solid var(--color-primary);
     outline-offset: 2px;
 }
 
@@ -104,7 +90,7 @@ section {
     overflow: hidden;
 }
 
-/* Glow decorativo: color plano + blur, nunca gradient */
+/* Halo decorativo: color plano muy tenue + blur, nunca gradient */
 .glow-circle {
     position: absolute;
     z-index: 0;
@@ -127,13 +113,18 @@ section {
     padding: 10px 28px;
     margin: 20px auto 0;
     max-width: 1280px;
-    background-color: var(--glass-navbar-bg);
-    backdrop-filter: blur(var(--blur-xs));
-    -webkit-backdrop-filter: blur(var(--blur-xs));
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-pill);
+    transition: box-shadow 0.2s ease;
     position: sticky;
     top: 16px;
     z-index: 1000;
+}
+
+/* "is-scrolled" lo agrega main.js al desplazarse */
+.navbar.is-scrolled {
+    box-shadow: var(--shadow-raised);
 }
 
 .logo {
@@ -144,13 +135,13 @@ section {
 }
 
 .logo-icon {
-    color: var(--color-text);
+    color: var(--color-primary);
     font-size: 1.4rem;
 }
 
 .logo-name {
     font-family: var(--font-primary);
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1.3rem;
     color: var(--color-text);
 }
@@ -170,12 +161,18 @@ section {
     padding: 7px 11px;
     border-radius: var(--radius-pill);
     white-space: nowrap;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
 }
 
 /* Lo asigna el scrollspy de main.js */
 .nav-link.active {
-    background-color: var(--glass-active-bg);
+    background-color: var(--color-mint);
+    color: var(--color-primary);
+    font-weight: 500;
 }
 
 .nav-buttons {
@@ -189,29 +186,28 @@ section {
 .btn-trial {
     text-decoration: none;
     font-family: var(--font-primary);
-    font-weight: 300;
+    font-weight: 500;
     font-size: 0.78rem;
     padding: 8px 15px;
+    border: 1.5px solid var(--color-primary);
     border-radius: var(--radius-pill);
     white-space: nowrap;
-    color: var(--color-text);
-    backdrop-filter: blur(var(--blur-xs));
-    -webkit-backdrop-filter: blur(var(--blur-xs));
 }
 
+/* Botón secundario: contorno teal sobre fondo claro */
 .btn-login {
-    background-color: var(--btn-login-bg);
+    background-color: transparent;
+    color: var(--color-primary);
+    transition: background-color 0.2s ease;
 }
 
-.btn-trial {
-    background-color: var(--btn-trial-bg);
+.btn-login:hover {
+    background-color: var(--color-mint);
 }
 
 .btn-lang {
-    background-color: var(--btn-trial-bg);
-    backdrop-filter: blur(var(--blur-xs));
-    -webkit-backdrop-filter: blur(var(--blur-xs));
-    border: none;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-pill);
     padding: 3px;
     display: inline-flex;
@@ -226,18 +222,18 @@ section {
     white-space: nowrap;
 }
 
-/* Idioma inactivo atenuado; el activo lo marca main.js con "active" */
+/* Idioma inactivo en texto secundario; el activo lo marca main.js con "active" */
 .lang-option {
     padding: 4px 10px;
     border-radius: var(--radius-pill);
-    opacity: 0.6;
-    transition: background-color 0.2s ease, opacity 0.2s ease;
+    color: var(--color-text-secondary);
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .lang-option.active {
-    background-color: var(--glass-strong-bg);
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
     font-weight: 500;
-    opacity: 1;
 }
 
 .hamburger-menu {
@@ -287,7 +283,7 @@ section {
 .hero-text p {
     font-weight: 400;
     font-size: 0.98rem;
-    color: var(--color-text);
+    color: var(--color-text-secondary);
     line-height: 1.7;
     margin-bottom: 32px;
     max-width: 460px;
@@ -302,21 +298,22 @@ section {
 .btn-segment {
     text-decoration: none;
     font-family: var(--font-primary);
-    font-weight: 300;
+    font-weight: 500;
     font-size: 0.9rem;
     padding: 14px 24px;
     border-radius: var(--radius-pill);
-    color: var(--color-text);
-}
-
-.btn-segment-caregiver {
-    background-color: var(--btn-login-bg);
 }
 
 .btn-segment-family {
     background-color: transparent;
-    color: var(--color-text);
+    color: var(--color-primary);
     padding: 14px 4px;
+}
+
+.btn-segment-family:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--color-secondary);
+    text-underline-offset: 4px;
 }
 
 .hero-image {
@@ -347,9 +344,9 @@ section {
     align-items: center;
     gap: 10px;
     max-width: 240px;
-    background-color: var(--glass-badge-bg);
-    backdrop-filter: blur(var(--blur-xs));
-    -webkit-backdrop-filter: blur(var(--blur-xs));
+    background-color: var(--color-mint);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-raised);
     border-radius: var(--radius-pill);
     padding: 12px 18px;
     font-weight: 400;
@@ -358,8 +355,9 @@ section {
     color: var(--color-text);
 }
 
-.hero-badge i {
-    color: var(--color-text);
+.hero-badge i,
+.hero-chip i {
+    color: var(--color-primary);
     flex-shrink: 0;
 }
 
@@ -386,9 +384,8 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: var(--glass-badge-bg);
-    backdrop-filter: blur(var(--blur-xs));
-    -webkit-backdrop-filter: blur(var(--blur-xs));
+    background-color: var(--color-mint);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-pill);
     padding: 8px 14px;
     font-weight: 400;
@@ -440,9 +437,9 @@ section {
   flex: 1;
   min-width: 300px;
   max-width: 460px;
-  background-color: var(--glass-card-bg);
-  backdrop-filter: blur(var(--blur-xs));
-  -webkit-backdrop-filter: blur(var(--blur-xs));
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
   border-radius: var(--radius-card);
   padding: 32px 28px;
   text-align: left;
@@ -451,7 +448,7 @@ section {
 .benefits-card-icon {
   font-size: 1.4rem;
   margin-bottom: 12px;
-  color: var(--color-text);
+  color: var(--color-primary);
 }
 
 .benefits-card h3 {
@@ -478,7 +475,7 @@ section {
 
 .benefits-arrow {
   font-size: 1.6rem;
-  color: var(--color-text);
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
@@ -517,10 +514,10 @@ section {
 .section-subtitle {
   position: relative;
   z-index: 1;
-  font-weight: 100;
+  font-weight: 300;
   font-style: italic;
   font-size: 1.2rem;
-  color: var(--color-text);
+  color: var(--color-text-secondary);
   margin-bottom: 40px;
 }
 
@@ -529,9 +526,9 @@ section {
   z-index: 1;
   max-width: 1000px;
   margin: 0 auto;
-  background-color: var(--glass-card-bg);
-  backdrop-filter: blur(var(--blur-xs));
-  -webkit-backdrop-filter: blur(var(--blur-xs));
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
   border-radius: var(--radius-card);
   padding: 48px 32px;
 }
@@ -548,7 +545,7 @@ section {
   min-width: 200px;
   max-width: 260px;
   padding: 0 24px;
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid var(--color-border);
 }
 
 .feature-item:first-child {
@@ -580,14 +577,10 @@ section {
   display: inline-block;
   text-decoration: none;
   font-family: var(--font-primary);
-  font-weight: 300;
+  font-weight: 500;
   font-size: 0.9rem;
   padding: 14px 28px;
   border-radius: var(--radius-pill);
-  background-color: var(--btn-cta-bg);
-  backdrop-filter: blur(var(--blur-xs));
-  -webkit-backdrop-filter: blur(var(--blur-xs));
-  color: var(--color-text);
 }
 
 
@@ -618,7 +611,8 @@ section {
   margin: 0;
   padding: 12px;
   border-radius: var(--radius-card);
-  background-color: var(--glass-card-bg);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
 }
 
 /* Las capturas rondan 2:1; se recorta solo el borde inferior para igualar las cuatro tarjetas */
@@ -653,7 +647,7 @@ section {
 }
 
 .cta-contact a {
-  color: var(--color-text);
+  color: var(--color-primary);
 }
 
 
@@ -694,9 +688,10 @@ section {
 }
 
 .pricing-arrow {
-  background: rgba(255, 255, 255, 0.16);
-  border: none;
-  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  color: var(--color-primary);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -716,19 +711,21 @@ section {
 }
 
 .pricing-card {
-  background-color: var(--glass-card-bg);
-  backdrop-filter: blur(var(--blur-xs));
-  -webkit-backdrop-filter: blur(var(--blur-xs));
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
   border-radius: var(--radius-card);
   padding: 32px 24px;
   width: 240px;
   color: var(--color-text);
-  transition: transform 0.5s ease, background-color 0.5s ease;
+  transition: transform 0.5s ease, background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .pricing-card.is-active {
   transform: scale(1.06);
-  background-color: var(--glass-strong-bg);
+  background-color: var(--color-mint);
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-raised);
 }
 
 .pricing-card-featured {
@@ -744,7 +741,7 @@ section {
 .pricing-card h3 .pricing-plan-tier {
   display: block;
   font-size: 0.9rem;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .pricing-price {
@@ -761,6 +758,7 @@ section {
 .pricing-detail {
   font-weight: 300;
   font-size: 0.85rem;
+  color: var(--color-text-secondary);
   margin-bottom: 24px;
   line-height: 1.5;
 }
@@ -771,14 +769,10 @@ section {
   text-decoration: none;
   text-align: center;
   font-family: var(--font-primary);
-  font-weight: 300;
+  font-weight: 500;
   font-size: 0.85rem;
   padding: 11px;
   border-radius: var(--radius-pill);
-  background-color: var(--glass-pill-bg);
-  backdrop-filter: blur(var(--blur-xs));
-  -webkit-backdrop-filter: blur(var(--blur-xs));
-  color: var(--color-text);
 }
 
 .pricing-payment-methods {
@@ -790,14 +784,15 @@ section {
   gap: 20px;
   margin-top: 40px;
   font-size: 1.6rem;
-  color: var(--color-text);
+  color: var(--color-text-secondary);
 }
 
 .payment-icon {
   font-family: var(--font-primary);
   font-weight: 500;
   font-size: 0.85rem;
-  background-color: var(--glass-pill-bg);
+  background-color: var(--color-mint);
+  border: 1px solid var(--color-border);
   color: var(--color-text);
   padding: 6px 14px;
   border-radius: var(--radius-pill);
@@ -880,7 +875,7 @@ section {
   z-index: 1;
   max-width: 700px;
   margin: 0 auto 40px;
-  font-weight: 100;
+  font-weight: 300;
   font-style: italic;
   font-size: 1.4rem;
   line-height: 1.6;
@@ -949,13 +944,13 @@ section {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.35);
+  border: 2px solid var(--color-primary);
+  background-color: transparent;
   cursor: pointer;
 }
 
 .team-dot.active {
-  background-color: var(--color-text);
+  background-color: var(--color-primary);
 }
 
 .testimonials-carousel {
@@ -970,9 +965,10 @@ section {
 }
 
 .testimonials-arrow {
-  background: rgba(255, 255, 255, 0.16);
-  border: none;
-  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  color: var(--color-primary);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -991,10 +987,9 @@ section {
 }
 
 .testimonial-card {
-  background-color: var(--glass-testimonial-bg);
-  backdrop-filter: blur(var(--blur-sm));
-  -webkit-backdrop-filter: blur(var(--blur-sm));
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
   border-radius: var(--radius-testimonial);
   padding: 28px 24px;
   width: 260px;
@@ -1016,8 +1011,9 @@ section {
 }
 
 .testimonial-card h4 span {
-  font-weight: 200;
+  font-weight: 300;
   font-size: 0.85rem;
+  color: var(--color-text-secondary);
 }
 
 .testimonial-card p {
@@ -1061,7 +1057,7 @@ section {
 }
 
 .faq-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .faq-question {
@@ -1082,6 +1078,7 @@ section {
 }
 
 .faq-question i {
+  color: var(--color-primary);
   transition: transform 0.2s ease;
   flex-shrink: 0;
   margin-left: 16px;
@@ -1106,7 +1103,7 @@ section {
   font-weight: 300;
   font-size: 0.85rem;
   line-height: 1.6;
-  color: var(--color-text);
+  color: var(--color-text-secondary);
   padding: 0 4px 20px;
 }
 
@@ -1124,9 +1121,9 @@ section {
 .footer-panel {
   max-width: 1300px;
   margin: 0 auto;
-  background-color: var(--glass-footer-bg);
-  backdrop-filter: blur(var(--blur-md));
-  -webkit-backdrop-filter: blur(var(--blur-md));
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
   border-radius: var(--radius-card);
   padding: 40px 48px;
 }
@@ -1149,12 +1146,12 @@ section {
   gap: 8px;
   margin-bottom: 14px;
   font-family: var(--font-primary);
-  font-weight: 200;
+  font-weight: 300;
   font-size: 1.2rem;
 }
 
 .footer-brand p {
-  font-weight: 200;
+  font-weight: 300;
   font-size: 0.82rem;
   line-height: 1.6;
   color: var(--color-text);
@@ -1167,7 +1164,7 @@ section {
 }
 
 .footer-social a {
-  color: var(--color-text);
+  color: var(--color-primary);
   font-size: 1.2rem;
   text-decoration: none;
 }
@@ -1188,7 +1185,7 @@ section {
 .footer-column ul li a,
 .footer-column ul li span {
   text-decoration: none;
-  font-weight: 200;
+  font-weight: 300;
   font-size: 0.82rem;
   color: var(--color-text);
 }
@@ -1196,13 +1193,48 @@ section {
 .footer-copyright {
   text-align: center;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--color-border);
 }
 
 .footer-copyright p {
-  font-weight: 200;
+  font-weight: 300;
   font-size: 0.85rem;
-  color: var(--color-text);
+  color: var(--color-text-secondary);
+}
+
+
+/* ========================================
+   ZONAS MENTA: secciones alternas en --vt-mint para dar profundidad sin recargar
+======================================== */
+
+.benefits,
+.for-families,
+.about-intro,
+.testimonials {
+  background-color: var(--color-mint);
+}
+
+
+/* ========================================
+   BOTÓN PRIMARIO: teal sólido con texto blanco; en hover pasa a --vt-secondary
+======================================== */
+
+.btn-trial,
+.btn-segment-caregiver,
+.btn-cta-panel,
+.btn-pricing {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-trial:hover,
+.btn-segment-caregiver:hover,
+.btn-cta-panel:hover,
+.btn-pricing:hover {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-on-secondary);
 }
 
 
@@ -1310,7 +1342,7 @@ section {
 
   .feature-item {
     border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-top: 1px solid var(--color-border);
     padding: 24px 0 0;
     max-width: 100%;
   }

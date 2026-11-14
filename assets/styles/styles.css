@@ -688,6 +688,20 @@ section {
   margin-bottom: 32px;
 }
 
+/* Dentro de "Nuestra Startup", debajo de las tarjetas del equipo */
+.team-video {
+  position: relative;
+  z-index: 1;
+  margin-top: 64px;
+}
+
+.team-video h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: 24px;
+}
+
 .video-card {
   position: relative;
   z-index: 1;
@@ -1566,6 +1580,15 @@ section {
 
   .product-video h2 {
     margin-bottom: 24px;
+  }
+
+  .team-video {
+    margin-top: 44px;
+  }
+
+  .team-video h3 {
+    font-size: 1.25rem;
+    margin-bottom: 18px;
   }
 
   .video-card {

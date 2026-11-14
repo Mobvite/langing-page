@@ -48,7 +48,7 @@ vitalita-landing/
 - CSS3 (Flexbox, CSS Custom Properties como design tokens, Media Queries)
 - JavaScript vanilla (DOM, eventos, IntersectionObserver, sin frameworks)
 - [Google Fonts](https://fonts.google.com/) — Inter (única tipografía del sitio)
-- [Font Awesome 6](https://fontawesome.com/) — íconos de interfaz (navegación, redes sociales, indicadores).
+- [Font Awesome 6](https://fontawesome.com/) — íconos de interfaz (navegación, indicadores).
 
 > Nota: el statement del curso especifica HTML5/CSS3/JavaScript para el
 > Landing Page (Vue Framework se reserva para las Frontend Web Applications),

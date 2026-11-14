@@ -1301,18 +1301,6 @@ section {
   font-size: 0.82rem;
   line-height: 1.6;
   color: var(--color-text);
-  margin-bottom: 18px;
-}
-
-.footer-social {
-  display: flex;
-  gap: 16px;
-}
-
-.footer-social a {
-  color: var(--color-primary);
-  font-size: 1.2rem;
-  text-decoration: none;
 }
 
 .footer-column h4 {

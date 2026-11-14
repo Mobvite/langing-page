@@ -667,6 +667,71 @@ section {
   text-align: center;
 }
 
+
+/* ========================================
+   VIDEOS (About-the-Product y About-the-Team)
+   Tarjeta blanca como .feature-panel y marco interno como .product-shot img
+======================================== */
+
+/* Sigue a "¿Qué es Vitalita?" sobre el mismo fondo: sin padding superior para no duplicar el espacio */
+.product-video {
+  padding: 0 48px 88px;
+  text-align: center;
+}
+
+.product-video h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+
+/* Dentro de "Nuestra Startup", debajo de las tarjetas del equipo */
+.team-video {
+  position: relative;
+  z-index: 1;
+  margin-top: 64px;
+}
+
+.team-video h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: 24px;
+}
+
+.video-card {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 12px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-card);
+}
+
+/* Contenedor responsivo 16:9 */
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 14px;
+  background-color: var(--color-mint);
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .cta-contact {
   margin-top: 24px;
   font-weight: 300;
@@ -1003,9 +1068,28 @@ section {
   object-position: center 20%;
 }
 
+.team-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .team-name {
   font-weight: 300;
   font-size: 1rem;
+}
+
+.team-code {
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+}
+
+.team-career {
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
 }
 
 .team-carousel-dots {
@@ -1236,18 +1320,6 @@ section {
   font-size: 0.82rem;
   line-height: 1.6;
   color: var(--color-text);
-  margin-bottom: 18px;
-}
-
-.footer-social {
-  display: flex;
-  gap: 16px;
-}
-
-.footer-social a {
-  color: var(--color-primary);
-  font-size: 1.2rem;
-  text-decoration: none;
 }
 
 .footer-column h4 {
@@ -1508,8 +1580,31 @@ section {
     padding-bottom: 0;
   }
 
-  .cta {
+  .cta,
+  .product-video {
     padding: 0 20px 56px;
+  }
+
+  .product-video h2 {
+    margin-bottom: 24px;
+  }
+
+  .team-video {
+    margin-top: 44px;
+  }
+
+  .team-video h3 {
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+  }
+
+  .video-card {
+    padding: 8px;
+    border-radius: 18px;
+  }
+
+  .video-frame {
+    border-radius: 12px;
   }
 
   .benefits-card {
@@ -1548,6 +1643,11 @@ section {
 
   .team-name {
     font-size: 0.85rem;
+  }
+
+  .team-code,
+  .team-career {
+    font-size: 0.75rem;
   }
 
   .testimonials-carousel {

@@ -1,5 +1,9 @@
 
 :root {
+    /* Espacio que ocupa el navbar sticky: top (16px) + alto (~56px) + 16px de aire.
+       Lo usa scroll-margin-top para que las anclas no queden debajo de la barra. */
+    --navbar-offset: 88px;
+
     /* Paleta tomada de los tokens de la Web Application de Vitalita (su src/style.css),
        que usa tema claro: --vt-primary, --vt-secondary, --vt-mint, --vt-surface,
        --vt-background, --vt-border, --vt-text, --vt-text-secondary y --vt-shadow.
@@ -92,6 +96,11 @@ a:focus-visible,
 button:focus-visible {
     outline: 3px solid var(--color-primary);
     outline-offset: 2px;
+}
+
+/* Al saltar a un ancla (#product-video, #faq...) el destino queda debajo del navbar sticky */
+main [id] {
+    scroll-margin-top: var(--navbar-offset);
 }
 
 /* position: relative para que los glow-circle se apilen dentro de cada sección */

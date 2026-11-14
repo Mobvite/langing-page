@@ -105,7 +105,7 @@ var currentLanguage = 'en';
 var translatableElements = document.querySelectorAll('[data-i18n-es]');
 // Atributos traducibles: cada uno se declara con data-i18n-<atributo>-es / -en
 // (content = <meta name="description">, keywords y og:*; el <title> usa data-i18n-es/-en)
-var TRANSLATABLE_ATTRIBUTES = ['title', 'content'];
+var TRANSLATABLE_ATTRIBUTES = ['title', 'content', 'aria-label', 'alt'];
 var languageBlocks = document.querySelectorAll('[data-lang]');
 var languageOptions = document.querySelectorAll('.lang-option');
 var languageToggleButton = document.getElementById('lang-toggle');

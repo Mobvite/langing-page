@@ -3,6 +3,19 @@
 
 
 // ============================================
+// VIDEOS DE YOUTUBE
+// Cada iframe guarda solo su ID en data-youtube-id; para cambiar un video basta con
+// editar ese atributo en index.html. Se usa el dominio sin cookies de YouTube.
+// ============================================
+
+var YOUTUBE_EMBED_BASE_URL = 'https://www.youtube-nocookie.com/embed/';
+
+document.querySelectorAll('iframe[data-youtube-id]').forEach(function (iframe) {
+    iframe.src = YOUTUBE_EMBED_BASE_URL + iframe.getAttribute('data-youtube-id');
+});
+
+
+// ============================================
 // MOBILE HAMBURGER MENU
 // ============================================
 
@@ -90,6 +103,8 @@ sectionsToObserve.forEach(function (section) {
 var LANGUAGE_STORAGE_KEY = 'vitalita-lang';
 var currentLanguage = 'en';
 var translatableElements = document.querySelectorAll('[data-i18n-es]');
+// Atributos traducibles: cada uno se declara con data-i18n-<atributo>-es / -en
+var TRANSLATABLE_ATTRIBUTES = ['title'];
 var languageBlocks = document.querySelectorAll('[data-lang]');
 var languageOptions = document.querySelectorAll('.lang-option');
 var languageToggleButton = document.getElementById('lang-toggle');
@@ -102,6 +117,12 @@ function applyLanguage(languageCode) {
         if (text) {
             element.textContent = text;
         }
+    });
+    TRANSLATABLE_ATTRIBUTES.forEach(function (attributeName) {
+        var dataAttribute = 'data-i18n-' + attributeName + '-' + languageCode;
+        document.querySelectorAll('[' + dataAttribute + ']').forEach(function (element) {
+            element.setAttribute(attributeName, element.getAttribute(dataAttribute));
+        });
     });
     languageBlocks.forEach(function (block) {
         block.hidden = block.getAttribute('data-lang') !== languageCode;

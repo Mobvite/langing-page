@@ -1068,9 +1068,28 @@ section {
   object-position: center 20%;
 }
 
+.team-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .team-name {
   font-weight: 300;
   font-size: 1rem;
+}
+
+.team-code {
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+}
+
+.team-career {
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
 }
 
 .team-carousel-dots {
@@ -1624,6 +1643,11 @@ section {
 
   .team-name {
     font-size: 0.85rem;
+  }
+
+  .team-code,
+  .team-career {
+    font-size: 0.75rem;
   }
 
   .testimonials-carousel {
